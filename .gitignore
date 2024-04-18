@@ -43,3 +43,4 @@ bin/
 .DS_Store
 /.idea/.gitignore
 /.idea/misc.xml
+/target/
