@@ -2,12 +2,11 @@ package ru.skilanov.service;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.annotation.DirtiesContext;
-import ru.skilanov.exception.DirectoryNotSpecifiedException;
+import ru.skilanov.exception.DirectoryDoesNotSpecifiedException;
 import ru.skilanov.repository.FileRepository;
 
 import java.io.File;
@@ -54,7 +53,7 @@ public class CacheRunnerServiceImplTest {
     @Test
     public void whenGetAllFilesWithoutSetDirThenThrowsException() {
         Throwable throwable = assertThrows(Throwable.class, () -> cacheRunnerService.getAllFiles());
-        assertEquals(DirectoryNotSpecifiedException.class, throwable.getClass());
+        assertEquals(DirectoryDoesNotSpecifiedException.class, throwable.getClass());
     }
 
     @Test
@@ -68,7 +67,7 @@ public class CacheRunnerServiceImplTest {
     @Test
     public void whenCacheFileWithoutDirThenThrowsException() {
         Throwable throwable = assertThrows(Throwable.class, () -> cacheRunnerService.cacheFile(FILE_NAME));
-        assertEquals(DirectoryNotSpecifiedException.class, throwable.getClass());
+        assertEquals(DirectoryDoesNotSpecifiedException.class, throwable.getClass());
     }
 
     @Test
@@ -83,6 +82,6 @@ public class CacheRunnerServiceImplTest {
     @Test
     public void whenGetFileByNameWithoutDirThenThrowsException() {
         Throwable throwable = assertThrows(Throwable.class, () -> cacheRunnerService.getFileByName(FILE_NAME));
-        assertEquals(DirectoryNotSpecifiedException.class, throwable.getClass());
+        assertEquals(DirectoryDoesNotSpecifiedException.class, throwable.getClass());
     }
 }

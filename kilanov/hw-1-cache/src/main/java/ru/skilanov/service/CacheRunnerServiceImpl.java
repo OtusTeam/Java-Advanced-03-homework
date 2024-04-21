@@ -1,7 +1,7 @@
 package ru.skilanov.service;
 
 import org.springframework.stereotype.Service;
-import ru.skilanov.exception.DirectoryNotSpecifiedException;
+import ru.skilanov.exception.DirectoryDoesNotSpecifiedException;
 import ru.skilanov.exception.FileDoesntExistException;
 import ru.skilanov.repository.FileRepository;
 
@@ -51,7 +51,7 @@ public class CacheRunnerServiceImpl implements CacheRunnerService {
 
     private void validatePath() {
         if (this.path == null) {
-            throw new DirectoryNotSpecifiedException("Directory wasn't specified");
+            throw new DirectoryDoesNotSpecifiedException("Directory wasn't specified");
         }
     }
 }
