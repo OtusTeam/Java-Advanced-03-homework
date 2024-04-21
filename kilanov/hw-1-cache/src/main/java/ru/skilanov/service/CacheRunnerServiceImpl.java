@@ -2,6 +2,7 @@ package ru.skilanov.service;
 
 import org.springframework.stereotype.Service;
 import ru.skilanov.exception.DirectoryNotSpecifiedException;
+import ru.skilanov.exception.FileDoesntExistException;
 import ru.skilanov.repository.FileRepository;
 
 import java.io.File;
@@ -41,12 +42,16 @@ public class CacheRunnerServiceImpl implements CacheRunnerService {
     @Override
     public String getFileByName(String fileName) {
         validatePath();
-        return cacheService.get(fileName);
+        var result = cacheService.get(fileName);
+        if (result == null) {
+            throw new FileDoesntExistException("File doesnt exist");
+        }
+        return result;
     }
 
     private void validatePath() {
         if (this.path == null) {
-            throw new DirectoryNotSpecifiedException();
+            throw new DirectoryNotSpecifiedException("Directory wasn't specified");
         }
     }
 }

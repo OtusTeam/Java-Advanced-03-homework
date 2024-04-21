@@ -5,6 +5,9 @@ import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
+import ru.skilanov.exception.DirectoryNotSpecifiedException;
+import ru.skilanov.exception.FileDoesntExistException;
+import ru.skilanov.exception.NoSuchDirectoryException;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,6 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -36,6 +40,14 @@ public class FileRepositoryImplTest {
     }
 
     @Test
+    public void whenReadFileThenItThrowsException() {
+        Throwable throwable = assertThrows(
+                Throwable.class, () -> fileRepository.readFile(new File("te.txt"), "src/main/resources/files")
+        );
+        assertEquals(FileDoesntExistException.class, throwable.getClass());
+    }
+
+    @Test
     public void whenGetAllFilesThenTheyReturn() {
         File file1 = new File("test.txt");
         File file2 = new File("test2.txt");
@@ -49,5 +61,13 @@ public class FileRepositoryImplTest {
 
         List<String> expectedFiles = Arrays.asList("test.txt", "test2.txt");
         assertEquals(expectedFiles, result);
+    }
+
+    @Test
+    public void whenGetAllFilesThenItThrowsException() {
+        Throwable throwable = assertThrows(
+                Throwable.class, () ->  fileRepository.getAllFiles(new File("src/main/resources/file"))
+        );
+        assertEquals(NoSuchDirectoryException.class, throwable.getClass());
     }
 }

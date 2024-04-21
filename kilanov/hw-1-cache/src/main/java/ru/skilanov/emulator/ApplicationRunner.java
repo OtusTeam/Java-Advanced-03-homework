@@ -20,15 +20,20 @@ public class ApplicationRunner {
 
     @ShellMethod(value = "Show menu", key = {"show_menu", "sm"})
     public void showMenu() {
-        ioService.printMessage("You can set directory and get all files for caching using command: sd <directory path>\n");
+        ioService.printMessage("You can set directory using command: sd <directory>\n");
+        ioService.printMessage("You can get all files for caching using command: gfl\n");
         ioService.printMessage("You can cache file using command: cf <file name>\n");
         ioService.printMessage("You can get cached file using command: gf <file name>\n");
         ioService.printMessage("You can exit using command: exit\n");
     }
 
-    @ShellMethod(value = "Get files list", key = "sd")
-    public List<String> setDirAndGetAllFiles(@ShellOption(value = "path") String path) {
+    @ShellMethod(value = "Specify directory", key = "sd")
+    public void specifyDirectory(@ShellOption(value = "path") String path) {
         cacheRunnerService.setDirectory(path);
+    }
+
+    @ShellMethod(value = "Get files list", key = "gfl")
+    public List<String> setDirAndGetAllFiles() {
         return cacheRunnerService.getAllFiles();
     }
 

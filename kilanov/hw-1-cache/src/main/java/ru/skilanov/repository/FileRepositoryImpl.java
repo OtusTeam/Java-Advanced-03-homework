@@ -1,6 +1,8 @@
 package ru.skilanov.repository;
 
 import org.springframework.stereotype.Component;
+import ru.skilanov.exception.FileDoesntExistException;
+import ru.skilanov.exception.NoSuchDirectoryException;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,7 +23,7 @@ public class FileRepositoryImpl<K, V> implements FileRepository<K, V> {
                 builder.append(line).append("\n");
             }
         } catch (Exception e) {
-            System.out.println("Error reading file: " + e.getMessage());
+            throw new FileDoesntExistException("File doesnt exist");
         }
         return (V) builder.toString();
     }
@@ -29,6 +31,10 @@ public class FileRepositoryImpl<K, V> implements FileRepository<K, V> {
     @Override
     public List<K> getAllFiles(K path) {
         var directory = new File(path.toString());
-        return (List<K>) Arrays.stream(directory.listFiles()).toList();
+        var files = directory.listFiles();
+        if (files == null) {
+            throw new NoSuchDirectoryException("Directory doesnt exist");
+        }
+        return (List<K>) Arrays.stream(files).toList();
     }
 }
