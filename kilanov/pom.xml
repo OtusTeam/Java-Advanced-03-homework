@@ -16,7 +16,7 @@
     </properties>
 
     <modules>
-        <module>hw-1-cache</module>
+        <module>task1</module>
     </modules>
 
 </project>

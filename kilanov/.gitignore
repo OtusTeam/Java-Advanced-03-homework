@@ -1,4 +1,4 @@
-target/
+task1/target/
 
 ### STS ###
 .apt_generated
@@ -10,7 +10,7 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+../.idea
 *.iws
 *.iml
 *.ipr

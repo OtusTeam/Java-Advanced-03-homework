@@ -1,10 +1,10 @@
 # Приложение для кэширования текстовых файлов.
-## Стэк:ё
+## Стэк:
 Java 17, Spring Boot, Spring Shell, Spring Boot Test, Maven.
 
 ## Описание
 Консольное приложение на спринг шелл, реализовано 2 вида кэширования WeakReference(использовал WeakHashMap) и SoftReference(собственная реализация на основе HashMap).
-Вид кэширования задается через application.yaml (reference: type: name), по умолчанию установлено soft.
+Вид кэширования задается через application.yaml (reference: type: weak или soft), по умолчанию установлено soft.
 
 ## Работа
 После запуска приложения пользователю доступны комманды:

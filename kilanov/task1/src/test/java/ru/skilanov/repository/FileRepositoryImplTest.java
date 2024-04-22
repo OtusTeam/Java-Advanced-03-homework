@@ -23,6 +23,8 @@ import static org.mockito.Mockito.when;
 @SpringBootTest(classes = {FileRepositoryImpl.class})
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class FileRepositoryImplTest {
+    public static final String VALID_FILES_PATH = "src/test/resources/files";
+    public static final String INVALID_FILES_PATH = "src/test/resources/fil";
     @Autowired
     private FileRepository<File, String> fileRepository;
 
@@ -34,14 +36,14 @@ public class FileRepositoryImplTest {
         String expectedContent = "test test\n";
         when(bufferedReader.readLine()).thenReturn(expectedContent, null);
 
-        var result = fileRepository.readFile(new File("test.txt"), "src/main/resources/files");
+        var result = fileRepository.readFile(new File("test.txt"), VALID_FILES_PATH);
         assertEquals(expectedContent, result);
     }
 
     @Test
     public void whenReadFileThenItThrowsException() {
         Throwable throwable = assertThrows(
-                Throwable.class, () -> fileRepository.readFile(new File("te.txt"), "src/main/resources/files")
+                Throwable.class, () -> fileRepository.readFile(new File("te.txt"), VALID_FILES_PATH)
         );
         assertEquals(FileDoesntExistException.class, throwable.getClass());
     }
@@ -54,7 +56,7 @@ public class FileRepositoryImplTest {
         File mockDirectory = mock(File.class);
         when(mockDirectory.listFiles()).thenReturn(new File[]{file1, file2});
 
-        List<String> result = fileRepository.getAllFiles(new File("src/main/resources/files")).stream()
+        List<String> result = fileRepository.getAllFiles(new File(VALID_FILES_PATH)).stream()
                 .map(File::getName)
                 .collect(Collectors.toList());
 
@@ -65,7 +67,7 @@ public class FileRepositoryImplTest {
     @Test
     public void whenGetAllFilesThenItThrowsException() {
         Throwable throwable = assertThrows(
-                Throwable.class, () ->  fileRepository.getAllFiles(new File("src/main/resources/file"))
+                Throwable.class, () ->  fileRepository.getAllFiles(new File(INVALID_FILES_PATH))
         );
         assertEquals(NoSuchDirectoryException.class, throwable.getClass());
     }
