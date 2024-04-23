@@ -33,7 +33,7 @@ public class FileRepositoryImplTest {
 
     @Test
     public void whenReadFileThenItReturns() throws IOException {
-        String expectedContent = "test test\n";
+        String expectedContent = "test test";
         when(bufferedReader.readLine()).thenReturn(expectedContent, null);
 
         var result = fileRepository.readFile(new File("test.txt"), VALID_FILES_PATH);

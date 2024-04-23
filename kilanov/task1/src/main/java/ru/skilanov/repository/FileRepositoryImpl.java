@@ -9,23 +9,20 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class FileRepositoryImpl<K, V> implements FileRepository<K, V> {
     @Override
     public V readFile(K file, String path) {
-        StringBuilder builder = new StringBuilder();
         var dir = path + "/" + file;
         try (var reader = new FileReader(dir);
              var bufferedReader = new BufferedReader(reader)) {
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                builder.append(line).append("\n");
-            }
+            return (V) bufferedReader.lines()
+                    .collect(Collectors.joining("\n"));
         } catch (Exception e) {
             throw new FileDoesntExistException("File doesnt exist");
         }
-        return (V) builder.toString();
     }
 
     @Override
