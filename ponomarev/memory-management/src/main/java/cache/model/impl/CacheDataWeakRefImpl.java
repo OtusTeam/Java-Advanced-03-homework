@@ -23,7 +23,7 @@ public class CacheDataWeakRefImpl extends AbstractCacheData<String, WeakReferenc
             return dataMap.put(key, new WeakReference<>((Files.readAllLines(value.toPath()))));
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println(EXEPTION_MESSAGE);
+            System.out.println(EXCEPTION_MESSAGE);
         }
         return null;
     }

@@ -9,7 +9,7 @@ import java.util.Map;
  */
 public abstract class AbstractCacheData<String, Reference> {
     protected final Map<String, Reference> dataMap;
-    protected final java.lang.String EXEPTION_MESSAGE = "Dо время загрузки файла в кэш произошла ошибка";
+    protected final java.lang.String EXCEPTION_MESSAGE = "Во время загрузки файла в кэш произошла ошибка";
 
     public AbstractCacheData(Map<String, Reference> dataMap) {
         this.dataMap = dataMap;
