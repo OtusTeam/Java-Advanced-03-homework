@@ -1,12 +1,10 @@
 package cache.menu;
 
 import cache.model.AbstractCacheData;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.ref.Reference;
 import java.nio.file.Path;
@@ -17,7 +15,6 @@ import java.util.List;
  * @author Anton on 20.04.2024
  * @project memory-management(Otus Java Developer. Advanced)
  */
-@Slf4j
 public class Emulator {
     private String directory = "";
     private final AbstractCacheData<String, Reference> data;
@@ -81,7 +78,7 @@ public class Emulator {
         runEmulator();
     }
 
-    private void uploadFile()  {
+    private void uploadFile() {
         if (StringUtils.isEmpty(directory)) {
             cacheDirectory();
             return;
