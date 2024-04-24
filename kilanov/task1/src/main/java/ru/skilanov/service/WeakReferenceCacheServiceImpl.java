@@ -19,12 +19,17 @@ public class WeakReferenceCacheServiceImpl<K, V> implements CacheService<K, V> {
     }
 
     @Override
-    public V get(K key) {
+    public V get(String path, K key) {
+        loadFileIfWasNotCached(path, key);
         return cache.get(key);
     }
 
     @Override
     public void load(String path, K key) {
+        loadFileIfWasNotCached(path, key);
+    }
+
+    private void loadFileIfWasNotCached(String path, K key) {
         if (!cache.containsKey(key)) {
             V value = fileService.readFile(key, path);
             cache.put(key, value);

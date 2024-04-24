@@ -5,8 +5,6 @@ import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
-import ru.skilanov.exception.FileDoesntExistException;
-import ru.skilanov.exception.NoSuchDirectoryException;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,8 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -45,7 +42,7 @@ public class FileRepositoryImplTest {
         Throwable throwable = assertThrows(
                 Throwable.class, () -> fileRepository.readFile(new File("te.txt"), VALID_FILES_PATH)
         );
-        assertEquals(FileDoesntExistException.class, throwable.getClass());
+        assertEquals(RuntimeException.class, throwable.getClass());
     }
 
     @Test
@@ -65,10 +62,17 @@ public class FileRepositoryImplTest {
     }
 
     @Test
-    public void whenGetAllFilesThenItThrowsException() {
-        Throwable throwable = assertThrows(
-                Throwable.class, () ->  fileRepository.getAllFiles(new File(INVALID_FILES_PATH))
-        );
-        assertEquals(NoSuchDirectoryException.class, throwable.getClass());
+    public void whenGetAllFilesThenItReturnEmptyList() {
+        File file1 = new File("test.txt");
+        File file2 = new File("test2.txt");
+
+        File mockDirectory = mock(File.class);
+        when(mockDirectory.listFiles()).thenReturn(new File[]{file1, file2});
+
+        List<String> result = fileRepository.getAllFiles(new File(INVALID_FILES_PATH)).stream()
+                .map(File::getName)
+                .toList();
+
+        assertTrue(result.isEmpty());
     }
 }

@@ -1,16 +1,19 @@
 package ru.skilanov.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import ru.skilanov.exception.DirectoryDoesNotSpecifiedException;
-import ru.skilanov.exception.FileDoesntExistException;
 import ru.skilanov.repository.FileRepository;
 
 import java.io.File;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class CacheRunnerServiceImpl implements CacheRunnerService {
+
+    Logger logger = LoggerFactory.getLogger(CacheRunnerServiceImpl.class);
+
     private String path;
     private final CacheService<String, String> cacheService;
     private final FileRepository<File, String> fileRepository;
@@ -30,7 +33,7 @@ public class CacheRunnerServiceImpl implements CacheRunnerService {
         validatePath();
         return fileRepository.getAllFiles(new File(this.path)).stream()
                 .map(File::getName)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -42,9 +45,10 @@ public class CacheRunnerServiceImpl implements CacheRunnerService {
     @Override
     public String getFileByName(String fileName) {
         validatePath();
-        var result = cacheService.get(fileName);
+        var result = cacheService.get(this.path, fileName);
         if (result == null) {
-            throw new FileDoesntExistException("File doesnt exist");
+            logger.atDebug().log("File doesn't exist");
+            return String.format("%s %s", "File doesn't exist: ", fileName);
         }
         return result;
     }

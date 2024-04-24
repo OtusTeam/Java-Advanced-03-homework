@@ -73,7 +73,7 @@ public class CacheRunnerServiceImplTest {
     @Test
     public void whenGetFileByNameThenItReturns() {
         cacheRunnerService.setDirectory(PATH);
-        when(cacheService.get(FILE_NAME)).thenReturn(RESULT);
+        when(cacheService.get(PATH, FILE_NAME)).thenReturn(RESULT);
         var fileContent = cacheRunnerService.getFileByName(FILE_NAME);
 
         assertEquals(RESULT, fileContent);
