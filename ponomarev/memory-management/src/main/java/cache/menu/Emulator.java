@@ -81,7 +81,7 @@ public class Emulator {
         runEmulator();
     }
 
-    private void uploadFile() throws IOException {
+    private void uploadFile()  {
         if (StringUtils.isEmpty(directory)) {
             cacheDirectory();
             return;
