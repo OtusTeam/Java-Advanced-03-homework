@@ -1,6 +1,7 @@
 package cache.menu;
 
 import cache.model.AbstractCacheData;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.BufferedReader;
@@ -16,6 +17,7 @@ import java.util.List;
  * @author Anton on 20.04.2024
  * @project memory-management(Otus Java Developer. Advanced)
  */
+@Slf4j
 public class Emulator {
     private String directory = "";
     private final AbstractCacheData<String, Reference> data;
@@ -52,11 +54,11 @@ public class Emulator {
             }
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
-    private void cacheDirectory() throws IOException {
+    private void cacheDirectory() {
         System.out.println("укажите директорию с файлами");
 
         try {
@@ -106,7 +108,7 @@ public class Emulator {
         runEmulator();
     }
 
-    private void getFile() throws IOException {
+    private void getFile() {
         if (StringUtils.isEmpty(directory)) {
             cacheDirectory();
             return;
@@ -123,8 +125,12 @@ public class Emulator {
             if (file.exists()) {
                 if (!data.containsFile(filename)) {
                     System.out.println("В кеше отсутсвует файл, загружаем его из директории...");
-                    data.uploadFile(filename, file);
-                    System.out.println(data.getDataFile(filename).get());
+                    var reference = data.uploadFile(filename, file);
+                    if (reference == null) {
+                        System.out.println(EXC_MESSAGE);
+                    } else {
+                        System.out.println(data.getDataFile(filename).get());
+                    }
                 } else {
                     System.out.println("Получаем файл из кеша...");
                     System.out.println(data.getDataFile(filename).get());

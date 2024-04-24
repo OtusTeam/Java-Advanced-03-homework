@@ -22,7 +22,9 @@ public class CacheDataSoftRefImpl extends AbstractCacheData<String, SoftReferenc
         try {
             return dataMap.put(key, new SoftReference<>((Files.readAllLines(value.toPath()))));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.out.println(EXEPTION_MESSAGE);
         }
+        return null;
     }
 }

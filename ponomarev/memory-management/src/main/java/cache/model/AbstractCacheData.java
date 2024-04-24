@@ -1,7 +1,5 @@
 package cache.model;
 
-import lombok.Data;
-
 import java.io.File;
 import java.util.Map;
 
@@ -9,9 +7,9 @@ import java.util.Map;
  * @author Anton Ponomarev on 22.04.2024
  * @project memory-management(Otus Java Developer. Advanced)
  */
-//@Data
 public abstract class AbstractCacheData<String, Reference> {
     protected final Map<String, Reference> dataMap;
+    protected final java.lang.String EXEPTION_MESSAGE = "Dо время загрузки файла в кэш произошла ошибка";
 
     public AbstractCacheData(Map<String, Reference> dataMap) {
         this.dataMap = dataMap;
