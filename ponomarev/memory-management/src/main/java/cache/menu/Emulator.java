@@ -53,7 +53,7 @@ public class Emulator {
                 case "4" -> reader.close();
             }
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
