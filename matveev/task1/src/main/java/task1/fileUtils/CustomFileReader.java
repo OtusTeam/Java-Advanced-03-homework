@@ -12,7 +12,7 @@ public class CustomFileReader {
             byte[] bytes = Files.readAllBytes(Paths.get(path));
             return new String(bytes, Charset.defaultCharset());
         } catch (IOException e) {
-            throw new IllegalStateException(e);
+            throw new IllegalStateException("Couldn't read file");
         }
     }
 }

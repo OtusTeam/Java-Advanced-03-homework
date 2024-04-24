@@ -4,6 +4,7 @@ import lombok.Setter;
 import task1.cache.SoftRefCache;
 import task1.cache.WeakRefCache;
 import task1.fileUtils.FileService;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Emulator {
@@ -16,11 +17,18 @@ public class Emulator {
     private void choseCacheType() {
         System.out.println("Select type of cache: 1- softRef, 2 - weakRef");
         Scanner scanner = new Scanner(System.in);
-        switch (scanner.nextInt()) {
-            case 1 -> {
-                fileService = new FileService(new SoftRefCache());
-            }
-            case 2 -> {
+        int input = 0;
+        try {
+            input = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Incorrect input, try again");
+            choseCacheType();
+        }
+        switch (input) {
+            case 1 -> fileService = new FileService(new SoftRefCache());
+            case 2 -> fileService = new FileService(new WeakRefCache());
+            default -> {
+                System.out.printf("Incorrect input: %s, default Weak cache was created \n", input);
                 fileService = new FileService(new WeakRefCache());
             }
         }
@@ -68,7 +76,6 @@ public class Emulator {
                 case 7 -> setMenuState(false);
 
                 default -> System.out.println("Wrong action");
-
             }
         }
     }

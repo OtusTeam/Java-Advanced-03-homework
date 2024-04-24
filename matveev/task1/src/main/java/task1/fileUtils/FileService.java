@@ -20,17 +20,27 @@ public class FileService {
     private CustomFileReader fileReader = new CustomFileReader();
 
     public void put(String fileName) {
-        String fileContent = fileReader.readFile(fileDir + "/" + fileName);
-        cache.put(fileName, fileContent);
-        System.out.println("Added " + fileName + " to cache with content: " + fileContent);
+        try {
+            String fileContent = fileReader.readFile(fileDir + "/" + fileName);
+            cache.put(fileName, fileContent);
+            System.out.println("Added " + fileName + " to cache with content: " + fileContent);
+        } catch (Exception e) {
+            System.out.println("File not found");
+        }
     }
 
     public void get(String fileName) {
-        String fileContentFromCache = cache.get(fileName);
-        if (fileContentFromCache != null) {
-            System.out.println("Get file" + fileName + " content from cache successfully, content: " + fileContentFromCache);
-        } else {
-            System.out.println("File not found: " + fileName);
+        try {
+            String fileContentFromCache = cache.get(fileName);
+            if (fileContentFromCache != null) {
+                System.out.println("Get file" + fileName + " content from cache successfully, content: " + fileContentFromCache);
+            } else {
+                String fileContent = fileReader.readFile(fileDir + "/" + fileName);
+                cache.put(fileName, fileContent);
+                System.out.println("Added " + fileName + " to cache with content: " + fileContent);
+            }
+        } catch (Exception e) {
+            System.out.println("File not found");
         }
     }
 
@@ -57,6 +67,5 @@ public class FileService {
         cache.clean();
         System.out.println("-----------------------");
         System.out.println("Cache size after: " + cache.getCacheSize());
-        System.out.println("-----------------------");
     }
 }
