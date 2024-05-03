@@ -14,7 +14,7 @@ import static org.modelmapper.convention.MatchingStrategies.STRICT;
 @Service
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
-    private Map<Long, Users> userCache = new HashMap<>();
+    private Map<Long, Users> userCache = new WeakHashMap<>();
 
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
