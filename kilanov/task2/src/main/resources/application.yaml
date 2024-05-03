@@ -1,0 +1,17 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  datasource:
+    hikari:
+      maximumPoolSize: 5
+      leak-detection-threshold: 80000
+      connectionTimeout: 60000
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  liquibase:
+    enabled: true
+    change-log: classpath:db.changelog/db.changelog-master.yml
