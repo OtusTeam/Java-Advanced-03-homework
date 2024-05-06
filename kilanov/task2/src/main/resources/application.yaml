@@ -5,10 +5,6 @@ spring:
       settings:
         web-allow-others: true
   datasource:
-    hikari:
-      maximumPoolSize: 5
-      leak-detection-threshold: 80000
-      connectionTimeout: 60000
     driver-class-name: org.h2.Driver
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect

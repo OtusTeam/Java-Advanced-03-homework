@@ -3,20 +3,23 @@
 ### Стэк:
 Spring Boot, Spring Data JPA, Liquibase, H2, Spring Boot Test
 
-### Параметры запуска приложения для получения OotOfMemoryError
-Создал postman коллекцию и запустил параллельно 3 запроса в рест сервис из 3 коллекций.
-Параметры запуска: 
--Xms30m -Xmx30m -XX:+UseParallelGC -XX:+HeapDumpOnOutOfMemoryError
+### Тестирование
+Для тестирования приложения использовал JMeter.
 
-### Анализ MAT Dump
-В ходе анализа dump было найдено 3 проблемы:
+<img alt="img_5.png" height="300" src="img_5.png" width="600"/>
+
+### Параметры запуска приложения для получения OutOfMemoryError
+-Xms80m -Xmx80m -XX:+UseParallelGC -XX:+HeapDumpOnOutOfMemoryError
+
+### Анализ Eclipse MAT Dump
+В ходе анализа dump было найдено 2 проблемы и первая из них указывала на утечку:
 
 <img alt="img.png" height="300" src="img.png" width="600"/>
 
-Построил dominator tree, отсортировал и нашел класс из приложения
+Построил dominator tree, отсортировал и нашел класс SimpleCacheImpl из приложения
 
 <img alt="img_1.png" height="300" src="img_1.png" width="600"/>
 
-Содержащаяся в нём Map содержит почти 2000 записей:
+Содержащаяся в нём Map содержит большое количество записей и занимает 41.39%:
 
 <img alt="img_2.png" height="300" src="img_2.png" width="600"/>

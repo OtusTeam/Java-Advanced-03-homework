@@ -1,11 +1,13 @@
-package ru.skilanov.web.request;
+package ru.skilanov.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-public class CreateUserRequest {
+@AllArgsConstructor
+public class UserCreateDto {
     @NotNull(message = "Login can not be null")
     @Size(min = 2, message = "Login must not be less than two characters")
     private String login;

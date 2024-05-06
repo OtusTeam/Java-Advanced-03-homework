@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.annotation.DirtiesContext;
 import ru.skilanov.domain.Users;
-import ru.skilanov.dto.UserDto;
+import ru.skilanov.dto.UserCreateDto;
 import ru.skilanov.repository.UserRepository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,13 +23,13 @@ public class UserServiceTest {
     @MockBean
     private UserRepository userRepository;
 
-    UserDto dto;
+    UserCreateDto dto;
     Users entityToSave;
     Users savedEntity;
 
     @BeforeEach
     public void setUp() {
-        dto = new UserDto("test", "login");
+        dto = new UserCreateDto("test", "login");
 
         entityToSave = new Users();
         entityToSave.setLogin("test");
@@ -45,8 +45,8 @@ public class UserServiceTest {
     public void whenCreateUserThenItCreated() {
         when(userRepository.save(entityToSave)).thenReturn(savedEntity);
 
-        var createdUser = userService.insert(dto);
+        var userDto = userService.create(dto);
 
-        assertEquals(dto, createdUser);
+        assertEquals(dto.getLogin(), userDto.getLogin());
     }
 }
