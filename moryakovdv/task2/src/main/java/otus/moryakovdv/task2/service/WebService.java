@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.WeakHashMap;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -16,7 +17,9 @@ import org.springframework.stereotype.Component;
 public class WebService {
 
 	//кеш
-	private Map<Integer, byte[]> cache = new HashMap<>();
+	//private Map<Integer, byte[]> cache = new HashMap<>();
+	  private Map<Integer, byte[]> cache = new WeakHashMap<>();
+
 	
 	
 	//Попадания в кеш
