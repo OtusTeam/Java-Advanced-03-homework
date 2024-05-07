@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.annotation.DirtiesContext;
+
+import ru.skilanov.cache.Cache;
 import ru.skilanov.domain.Users;
 import ru.skilanov.dto.UserCreateDto;
 import ru.skilanov.repository.UserRepository;
@@ -22,6 +24,9 @@ public class UserServiceTest {
 
     @MockBean
     private UserRepository userRepository;
+
+    @MockBean
+    private Cache<Long, Users> cache;
 
     UserCreateDto dto;
     Users entityToSave;
