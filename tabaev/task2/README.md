@@ -1,5 +1,8 @@
 # Поиск утечки памяти в приложении
 
+## Стек
+Java 17, Spring-boot, Spring Data JPA, Spring Security, H2, FlyWay, Lombook
+
 ## Запуск приложения
 
 Для запуска приложения требуется Java 17 или выше.
