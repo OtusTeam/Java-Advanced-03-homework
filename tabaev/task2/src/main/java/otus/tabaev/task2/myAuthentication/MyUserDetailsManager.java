@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Service;
+import otus.tabaev.task2.cache.MyCache;
 import otus.tabaev.task2.model.MyUser;
 import otus.tabaev.task2.repository.MyUserRepository;
 
@@ -53,6 +54,7 @@ public class MyUserDetailsManager implements UserDetailsManager {
     }
 
     @Override
+    @MyCache
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<MyUser> optionalMyUser = myUserRepository.findByLogin(username);
         MyUser myUser = optionalMyUser.orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
