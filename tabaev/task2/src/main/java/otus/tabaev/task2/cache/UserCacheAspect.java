@@ -20,13 +20,13 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class UserCacheAspect {
 
-//    private Cache<String, UserDetails> userCache = Caffeine
-//            .newBuilder()
-//            .expireAfterWrite(30, TimeUnit.MINUTES)
-//            .maximumSize(1000)
-//            .build();
+    private Cache<Object, Object> userCache = Caffeine
+            .newBuilder()
+            .expireAfterWrite(30, TimeUnit.MINUTES)
+            .maximumSize(1000)
+            .build();
 
-    ConcurrentHashMap<Object, Object> userCache = new ConcurrentHashMap<>();
+//    ConcurrentHashMap<Object, Object> userCache = new ConcurrentHashMap<>();
 
     @Pointcut("@annotation(otus.tabaev.task2.cache.MyCache)")
     public void myCache() {
@@ -39,19 +39,16 @@ public class UserCacheAspect {
 
         Object key = args[0];
 
-        if (userCache.containsKey(key)) {
-            return userCache.get(key);
-        } else {
+        Object result = userCache.getIfPresent(key);
 
-            Object result;
+        if (result == null) {
             try {
                 result = proceedingJoinPoint.proceed(args);
                 userCache.put(key, result);
             } catch (Throwable e) {
                 throw new RuntimeException(e);
             }
-
-            return result;
         }
+        return result;
     }
 }
