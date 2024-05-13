@@ -4,7 +4,9 @@ import ru.nicshal.advanced.caches.ReferenceCache;
 import ru.nicshal.advanced.caches.SoftReferenceCacheImpl;
 import ru.nicshal.advanced.caches.WeakReferenceCacheImpl;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 import static ru.nicshal.advanced.utils.ApplicationConstant.SOFT_REFERENCE_TYPE;

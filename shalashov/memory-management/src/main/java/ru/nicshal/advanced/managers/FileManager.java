@@ -27,7 +27,7 @@ public class FileManager {
             Scanner scanner = new Scanner(System.in);
             String inputFileName = "";
             while (!EXIT.equals(inputFileName)) {
-                inputFileName = getFileName(scanner);
+                inputFileName = setFileName(scanner);
                 if (fileList.contains(inputFileName)) {
                     long startTime = System.nanoTime();
                     handler.printFileContents(WORK_DIRECTORY_PATH + inputFileName);
@@ -45,7 +45,7 @@ public class FileManager {
         List<String> fileList = new ArrayList<>();
         File file = new File(WORK_DIRECTORY_PATH);
         for (File item : Objects.requireNonNull(file.listFiles())) {
-            if (item.getName().endsWith(FILE_END_WITH)) {
+            if (item.getName().endsWith(".txt")) {
                 fileList.add(item.getName());
             }
         }
@@ -59,7 +59,7 @@ public class FileManager {
         }
     }
 
-    private String getFileName(Scanner scanner) {
+    private String setFileName(Scanner scanner) {
         System.out.println("Введите имя файла, с которым Вы будете работать:");
         return scanner.nextLine();
     }
