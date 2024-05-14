@@ -37,7 +37,7 @@ Choose action:
 
 1
 Set path: 
-/Users/userEntity/Java-Advanced-homework/hello-my-pet/src/main/resources/files
+/Users/user/Java-Advanced-homework/hello-my-pet/src/main/resources/files
 =====================
 Choose action:
     1) Set directory path
@@ -50,7 +50,7 @@ Choose action:
 =====================
 
 2
-/Users/userEntity/Java-Advanced-homework/hello-my-pet/src/main/resources/files
+/Users/user/Java-Advanced-homework/hello-my-pet/src/main/resources/files
 =====================
 Choose action:
     1) Set directory path

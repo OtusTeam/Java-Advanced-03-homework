@@ -48,7 +48,6 @@ public class WebEmulator {
                     log.error(e.getMessage(), e);
                 }
             }
-//        });
         }, executor);
     }
 }
