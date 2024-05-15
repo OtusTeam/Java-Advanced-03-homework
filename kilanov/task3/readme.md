@@ -20,4 +20,6 @@ Spring Boot, Spring Data JPA, Liquibase, H2, Spring Boot Test
 Также был создан скрипт make_cds.sh, который обходит ошибку "[error][cds] Error: non-empty directory" и формирует большой
 cds архив, однако время старта приложения с таким архивом превышает время запуска приложения без него.
 
+<img alt="img_2.png" height="100" src="img_2.png" width="300"/>
+
 
