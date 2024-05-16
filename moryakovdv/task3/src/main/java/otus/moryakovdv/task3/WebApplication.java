@@ -24,6 +24,8 @@ import com.google.gwt.user.client.rpc.core.java.lang.NullPointerException_Custom
 import com.mysql.cj.jdbc.MysqlDataSource;
 
 
+import org.hibernate.*;
+
 @SpringBootApplication
 
 @Configuration
@@ -38,17 +40,15 @@ public class WebApplication {
 
 	public static void main(String[] args) throws Exception {
 		
-		includeSomeTrashForCDSTesting();
+		//includeSomeTrashForCDSTesting();
 		
 		SpringApplication.run(WebApplication.class, args);
 	}
 	
+	
+	@SuppressWarnings("unused")
 	private static void includeSomeTrashForCDSTesting() {
-		XWPFDocument doc = new XWPFDocument();
-		com.google.gwt.user.client.rpc.core.java.lang.NullPointerException_CustomFieldSerializer n = new NullPointerException_CustomFieldSerializer();
 		
-		MysqlDataSource ds = new MysqlDataSource();
-
 		
 
 	}
