@@ -2,8 +2,9 @@
 ## moryakovdv
 
 ## Class data sharing
-
-
+Springboot-приложение с несколькими веб-сервисами и использованием H2.  
+В качестве системы управления структурой БД используется liquibase.  
+Changeset-ы в ресурсах.  
 
 ## Стек:
 JDK 17  
@@ -13,6 +14,7 @@ Jetty
 
 # Сборка
 *$ mvn clean package*
+
 
 # Запуск
 *$ java -jar cds.jar*  
