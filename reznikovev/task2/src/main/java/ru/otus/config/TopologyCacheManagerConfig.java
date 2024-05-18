@@ -15,9 +15,11 @@ package ru.otus.config;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
+import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -29,22 +31,37 @@ import java.util.concurrent.TimeUnit;
 @EnableCaching
 public class TopologyCacheManagerConfig {
 
-    public static final String APP_CACHE_MANAGER = "appCacheManager";
     public static final String USER_NAME = "userName";
 
 
-    @Bean(APP_CACHE_MANAGER)
+    @ConditionalOnProperty(
+            value = "user-cache.type",
+            havingValue = "caffeine",
+            matchIfMissing = true)
+    @Bean
     @Primary
-    public CacheManager accessRelationshipCacheManager(@Value("${user_cache.maximumSize}") long maximumSize,
-                                                       @Value("${user_cache.expireAfterAccessInMinutes}") long expireAfterAccessInMinutes) {
-        CaffeineCacheManager caffeineCacheManager = new CaffeineCacheManager();
-        caffeineCacheManager.setAllowNullValues(false);
-        caffeineCacheManager.setCaffeine(Caffeine.newBuilder()
+    public CacheManager caffeineCacheManager(@Value("${user-cache.caffeine.maximumSize}") long maximumSize,
+                                             @Value("${user-cache.caffeine.expireAfterAccessInMinutes}") long expireAfterAccessInMinutes) {
+        CaffeineCacheManager cacheManager = new CaffeineCacheManager();
+        cacheManager.setAllowNullValues(false);
+        cacheManager.setCaffeine(Caffeine.newBuilder()
                 .expireAfterAccess(expireAfterAccessInMinutes, TimeUnit.MINUTES)
                 .maximumSize(maximumSize)
                 .recordStats());
-        caffeineCacheManager.setCacheNames(List.of(USER_NAME));
-        return caffeineCacheManager;
+        cacheManager.setCacheNames(List.of(USER_NAME));
+        return cacheManager;
     }
 
+    @ConditionalOnProperty(
+            value = "user-cache.type",
+            havingValue = "concurrent-map",
+            matchIfMissing = false)
+    @Bean
+    @Primary
+    public CacheManager concurrentMapCacheManager() {
+        ConcurrentMapCacheManager cacheManager = new ConcurrentMapCacheManager();
+        cacheManager.setAllowNullValues(false);
+        cacheManager.setCacheNames(List.of(USER_NAME));
+        return cacheManager;
+    }
 }

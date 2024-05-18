@@ -12,11 +12,10 @@ import ru.otus.exception.ObjectNotFoundException;
 import ru.otus.model.User;
 import ru.otus.repo.UserRepository;
 
-import static ru.otus.config.TopologyCacheManagerConfig.APP_CACHE_MANAGER;
 import static ru.otus.config.TopologyCacheManagerConfig.USER_NAME;
 
 @Service
-@CacheConfig(cacheNames = USER_NAME, cacheManager = APP_CACHE_MANAGER)
+@CacheConfig(cacheNames = USER_NAME)
 @Slf4j
 @Data
 public class UserService {
