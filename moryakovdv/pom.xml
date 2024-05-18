@@ -9,7 +9,23 @@
 
     <packaging>pom</packaging>
 
-    <modules>
-        <module>task1</module>
-    </modules>
+           <modules>
+		<module>task1</module>
+		<module>task2</module>
+		<module>task3</module>
+		
+	</modules>
+
+	<properties>
+		<javaVersion>17</javaVersion>
+		<project.source.version>${javaVersion}</project.source.version>
+		<project.target.version>${javaVersion}</project.target.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.encoding>UTF-8</project.encoding>
+
+		<maven.compiler.source>${javaVersion}</maven.compiler.source>
+		<maven.compiler.target>${javaVersion}</maven.compiler.target>
+
+	</properties>
+
 </project>
