@@ -1,0 +1,11 @@
+time java -XX:SharedArchiveFile=app_cds.jsa \
+          -Xlog:class+load:file=app_cds_on.log \
+          -Dspring.output.ansi.enabled=always \
+          -Dcom.sun.management.jmxremote \
+          -Dspring.jmx.enabled=true \
+          -Dspring.liveBeansView.mbeanDomain \
+          -Dspring.application.admin.enabled=true \
+          -Dfile.encoding=UTF-8 \
+          -Dsun.stdout.encoding=UTF-8 \
+          -Dsun.stderr.encoding=UTF-8 \
+          -jar ./target/task3-0.0.1-SNAPSHOT.jar

@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-05-03--0001--users
+      author: kilanov
+      createTable:
+        tableName: users
+        columns:
+        - column:
+            name: id
+            type: bigint
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: pk_users
+        - column:
+            name: login
+            type: varchar(50)
+            constraints:
+              nullable: false
+        - column:
+            name: password
+            type: varchar(50)
+            constraints:
+              nullable: false
