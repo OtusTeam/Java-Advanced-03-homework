@@ -8,10 +8,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 /**Сущность Пользователь*/
 @Entity
 @Table(name = "USERS")
+@NoArgsConstructor
+@EqualsAndHashCode(of = {"id"})
+@Getter
+@Setter
 public class User {
 
 	@Id
@@ -19,77 +28,25 @@ public class User {
 	private long id;
 	
 	private String userName;
+	
 	private String password;
 	
 	@Transient
+	/**Сессия юзера*/
 	private String sessionId;
 
-	/**Сессия юзера*/
-	public String getSessionId() {
-		return sessionId;
-	}
 	
-	/**Сессия юзера*/
-	public void setSessionId(String sessionId) {
-		this.sessionId = sessionId;
-	}
-
-	/**Дефолтный конструктор, ибо JPA*/
-	public User() {}
 	
 	/**Конструктор по логину и паролю*/
 	public User(String userName, String password) {
 		this.userName=userName;
 		this.password=password;
 	}
-	
-	/**Первичный ключ, автоинкремент*/
-	public long getId() {
-		return id;
-	}
-	/**Первичный ключ, автоинкремент*/
-	public void setId(long id) {
-		this.id = id;
-	}
 
-	/**login*/
-	public String getUserName() {
-		return userName;
-	}
 
-	/**login*/
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	/**password*/
-	public String getPassword() {
-		return password;
-	}
-	
-	/**password*/
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 	
-	/**Hashcode+equals на поле id*/
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		return id == other.id;
-	}
+	
 
 	
 
