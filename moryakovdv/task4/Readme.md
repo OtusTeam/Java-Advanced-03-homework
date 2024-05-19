@@ -15,8 +15,12 @@ Maven
 # Запуск
 
 ## Оcновные классы:
+Модульный проект.  
+- api
+- service
+- provider
+- core 
 
 ## команды
 
 
-## Пример работы с WeakReferenceCache
