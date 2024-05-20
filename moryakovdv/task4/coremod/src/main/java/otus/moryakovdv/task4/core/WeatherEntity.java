@@ -1,7 +1,5 @@
 package otus.moryakovdv.task4.core;
 
-import java.util.Objects;
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
