@@ -4,7 +4,7 @@ module api {
 	requires spring.web;
 	requires service;
 	
-	exports otus.moryakovdv.task4.api.applicaion;
+	exports otus.moryakovdv.task4.api.application;
 	
 	//requires
 }

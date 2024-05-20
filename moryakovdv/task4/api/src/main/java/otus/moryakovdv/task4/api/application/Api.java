@@ -1,4 +1,4 @@
-package otus.moryakovdv.task4.api.applicaion;
+package otus.moryakovdv.task4.api.application;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
