@@ -1,7 +1,8 @@
 /**CORE
  
  */
-module core {
-	requires provider;
-	requires api;
+module coremod {
+	requires weatherdata;
+	
+	exports otus.moryakovdv.task4.core;
 }

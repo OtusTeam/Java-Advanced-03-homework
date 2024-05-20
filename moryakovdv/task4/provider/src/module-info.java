@@ -1,5 +1,6 @@
 /**PROVIDER MODULE
  */
 module provider {
-		requires api;
+		
+		exports otus.moryakovdv.task4.provider;
 }
