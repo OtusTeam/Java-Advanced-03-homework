@@ -23,7 +23,7 @@
 		<module>weatherdata</module>
 		<module>provider</module>
 	
-		<module>core</module>
+		<module>coremod</module>
 		<module>service</module>
 			
 		<module>api</module>
