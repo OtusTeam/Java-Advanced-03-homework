@@ -12,7 +12,8 @@ import otus.moryakovdv.task4.service.WeatherService;
 @Slf4j
 public class Api {
 
-	
+	private WeatherService weatherService = new WeatherService();
+
 	/**тестовый метод**/
 	@RequestMapping(path = "/test")
 	public String test() {
@@ -25,7 +26,6 @@ public class Api {
 	public String weatherConditions() {
 		log.debug("Weather method called");
 		
-		WeatherService weatherService = new WeatherService();
 		long result = weatherService.identifyAndSaveCurrentWeatherConditions();
 		
 		return String.format("saved with id "+result); 
