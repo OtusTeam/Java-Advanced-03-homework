@@ -14,7 +14,7 @@ Maven
 *$ mvn clean package*
 
 # Запуск
-
+*$ java -jar weatherapi-jar-with-dependencies.jar*
 
 ## Оcновные модули и классы:
 Модульный проект.  
