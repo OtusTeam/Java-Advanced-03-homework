@@ -4,6 +4,7 @@ import otus.moryakovdv.task4.core.Core;
 import otus.moryakovdv.task4.provider.WeatherProvider;
 import otus.moryakovdv.task4.weatherdata.WeatherConditions;
 
+
 /**Преобразовывает данные от модуля Provider в WeatherConditions и передает в CORE для записи в хранилище
  */
 public class WeatherService {
@@ -16,7 +17,7 @@ public class WeatherService {
 	 *  @param conditions - принятый от модуля Provider идентификатор погодных условий 
 	 * 	@return - идентификатор созраненной сущности
 	 * */
-	private long saveCurrentWeatherConditions(int conditions) {
+	public  long saveCurrentWeatherConditions(int conditions) {
 		WeatherConditions curConditions = WeatherConditions.UNDEFINED;
 		if (conditions< WeatherConditions.values().length)
 			curConditions = WeatherConditions.values()[conditions];
@@ -24,8 +25,10 @@ public class WeatherService {
 		return coreModule.saveCurrentConditions(curConditions);
 		
 		
+		
 	
 	}
+	
 	
 	/**метод для доступа к сервису извне*/
 	public long identifyAndSaveCurrentWeatherConditions() {

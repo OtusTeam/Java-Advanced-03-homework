@@ -8,9 +8,11 @@
 	<packaging>pom</packaging>
 
 	<parent>
-		<groupId>ru.otus</groupId>
-		<artifactId>moryakovdv</artifactId>
-		<version>1.0</version>
+		<!-- Your own application should inherit from spring-boot-starter-parent -->
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.2.5</version>
+		<relativePath/>
 	</parent>
 
 	<properties>
@@ -21,13 +23,11 @@
 
 	<modules>
 		<module>weatherdata</module>
-		<module>provider</module>
-
-
-		<module>service</module>
-
-		<module>api</module>
+		<module>weatherprovider</module>
 		<module>coremod</module>
+		<module>weatherservice</module>	
+		<module>weatherapi</module>
+		
 
 
 	</modules>
@@ -38,44 +38,37 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
-			<version>3.2.5</version>
 
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jetty</artifactId>
-			<version>3.2.5</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>6.1.6</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>3.2.5</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>2.2.224</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.15.4</version>
 		</dependency>
 
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.32</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -83,7 +76,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<version>3.2.5</version>
 
 			<scope>test</scope>
 		</dependency>
@@ -91,7 +83,6 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.13.2</version>
 
 			<scope>test</scope>
 		</dependency>
@@ -102,53 +93,23 @@
 
 	<build>
 		<finalName>module-system</finalName>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.8.1</version>
-					<configuration>
-						<release>17</release>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-
-
+		
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.4.0</version>
 				<configuration>
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>
-								otus.moryakovdv.task4.api.application.Application</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
 							<mainClass>otus.moryakovdv.task4.api.application.Application</mainClass>
 						</manifest>
 					</archive>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
 				</configuration>
+
 			</plugin>
-
-
+			
 		</plugins>
-
 	</build>
 
 

@@ -1,8 +1,8 @@
 /**Основной модуль API*/
-module api {
+module otus.moryakovdv.task4.weatherapi {
 	
 	requires spring.web;
-	requires service;
+	requires weatherservice;
 	
 	exports otus.moryakovdv.task4.api.application;
 	

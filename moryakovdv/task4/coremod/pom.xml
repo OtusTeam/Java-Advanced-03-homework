@@ -11,5 +11,7 @@
 		<version>0.0.1-SNAPSHOT</version> 
 	 </parent>
  
- 
+ <build>
+		 		<finalName>coremod</finalName>
+	 </build>
 </project>

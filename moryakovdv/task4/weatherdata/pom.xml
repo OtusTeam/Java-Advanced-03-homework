@@ -10,6 +10,8 @@
 		<artifactId>task4</artifactId>	
 		<version>0.0.1-SNAPSHOT</version> 
 	 </parent>
- 
+ 	<build>
+		 		<finalName>weatherdata</finalName>
+	 </build>
  
 </project>

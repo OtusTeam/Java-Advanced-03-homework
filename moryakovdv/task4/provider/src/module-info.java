@@ -1,6 +1,6 @@
 /**PROVIDER MODULE
  */
-module provider {
+module otus.moryakovdv.task4.weatherprovider {
 		
 		exports otus.moryakovdv.task4.provider;
 }
