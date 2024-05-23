@@ -11,5 +11,6 @@
 
     <modules>
         <module>memory-management</module>
+        <module>keytool-jlink-task</module>
     </modules>
 </project>
