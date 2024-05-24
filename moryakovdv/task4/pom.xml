@@ -20,8 +20,6 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-
 	</properties>
 
 	<modules>
@@ -30,10 +28,7 @@
 		<module>coremod</module>
 		<module>service</module>
 		<module>api</module>
-
-
 	</modules>
-
 
 	<dependencies>
 		<dependency>
@@ -51,13 +46,11 @@
 			<artifactId>spring-webmvc</artifactId>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -76,10 +69,7 @@
 
 	<build>
 		<finalName>module-system</finalName>
-
 		<plugins>
-			
-
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<executions>
@@ -98,7 +88,7 @@
 							<mainClass>
 								otus.moryakovdv.task4.api.application.Application</mainClass>
 						</manifest>
-						
+
 					</archive>
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
