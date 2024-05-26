@@ -1,6 +1,7 @@
 time java -Xshare:on -XX:ArchiveClassesAtExit=app_cds.jsa \
      -Xlog:cds:file=cds_fail.log \
      -Dspring.output.ansi.enabled=always \
+     -Dspring.context.exit=onRefresh \
      -Dcom.sun.management.jmxremote \
      -Dspring.jmx.enabled=true \
      -Dspring.liveBeansView.mbeanDomain \
