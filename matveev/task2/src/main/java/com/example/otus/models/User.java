@@ -2,27 +2,29 @@ package com.example.otus.models;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Getter
 @Setter
-@Entity
+@Entity(name = "users")
 @Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotBlank(message = "Name may not be blank")
     private String name;
-    private String email;
+    @NotNull
     private Integer password;
 
-    public User() {}
+    public User() {
+    }
 
-    public User(String name, String email, Integer password) {
+    public User(String name, Integer password) {
         this.name = name;
-        this.email = email;
         this.password = password;
     }
 }

@@ -58,13 +58,11 @@ java.lang.OutOfMemoryError: Java heap space
 
 If you check heapdump file you will see that most part of memory will be hold by out memoryLeakList or int[] array (depends on case) 
 
-![Screen1.png](..%2F..%2F..%2F..%2FDesktop%2FScreen1.png)
-
+![Screen1.png](Screen1.png)
 
 Check this Array list in dominators tree:
 
-![Screen2.png](..%2F..%2F..%2F..%2FDesktop%2FScreen2.png)
-
+![Screen2.png](Screen2.png)
 
 Conclusion:
 All these parts: app.log + heapdump.dump - help us to understand what happens wrong with our application, discover leak problem and good practice to be calm that our application works as we expect.
