@@ -45,3 +45,4 @@ bin/
 /.idea/.gitignore
 /.idea/misc.xml
 /target/
+/.idea/
