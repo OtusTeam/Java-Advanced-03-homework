@@ -23,3 +23,5 @@
 #### jlink --launcher customjrelauncher=skilanov/ru.skilanov.Application --module-path "C:\projects\Java-Advanced-homework\kilanov\task5\jlink-target;C:\Program Files\BellSoft\LibericaJDK-21\jmods" --add-modules skilanov --output jlink-customjre
 Запуск приложения с помощью комманды:
 #### .\jlink-customjre\bin\customjrelauncher.bat
+
+<img alt="img_3.png" height="200" src="img_3.png" width="600"/>
