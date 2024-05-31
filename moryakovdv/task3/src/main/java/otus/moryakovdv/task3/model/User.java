@@ -1,7 +1,6 @@
-package otus.moryakovdv.task2.model;
+package otus.moryakovdv.task3.model;
 
-import java.util.Objects;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,7 +10,6 @@ import jakarta.persistence.Transient;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 /**Сущность Пользователь*/
@@ -27,16 +25,16 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@Column(name = "username")
 	private String userName;
 	
+	@Column(name = "password")
 	private String password;
 	
 	@Transient
 	/**Сессия юзера*/
 	private String sessionId;
 
-	
-	
 	/**Конструктор по логину и паролю*/
 	public User(String userName, String password) {
 		this.userName=userName;

@@ -1,33 +1,34 @@
-
-package otus.moryakovdv.task2.web;
+package otus.moryakovdv.task3.web;
 
 import java.io.IOException;
-import java.util.Optional;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import lombok.extern.slf4j.Slf4j;
-import otus.moryakovdv.task2.model.User;
-import otus.moryakovdv.task2.repository.UsersCrudRepository;
-import otus.moryakovdv.task2.service.LoginFailedException;
-import otus.moryakovdv.task2.service.WebService;
 
-/** Контроллер, обеспечивающий вызов веб-методов **/
+import lombok.extern.slf4j.Slf4j;
+import otus.moryakovdv.task3.model.User;
+import otus.moryakovdv.task3.repository.UsersCrudRepository;
+import otus.moryakovdv.task3.service.LoginFailedException;
+import otus.moryakovdv.task3.service.WebService;
+
+/**Рест- Контроллер для пользователей*/
 @RestController
 @Slf4j
-public class WebController {
+public class UserController {
 
 	private AtomicLong requestsCount = new AtomicLong();
 
@@ -39,17 +40,7 @@ public class WebController {
 
 	
 
-	/** Вывод сообщения "помощь" **/
-	@RequestMapping("/")
-	public String base() {
-		return this.webService.getHelpMessage();
-	}
 
-	/** Тестовый метод */
-	@RequestMapping("/test")
-	public String testMethod() {
-		return this.webService.getTestMessage();
-	}
 
 	/**
 	 * Метод аутентификации пользователя. Хранит зарегистрированных пользователей в
@@ -68,7 +59,6 @@ public class WebController {
 			@RequestParam(defaultValue = "false") boolean createIfAbsent) {
 
 		
-		
 		User user = usersRepo.findByUserNameAndPassword(userName, passwd).orElseGet(()->createUser(userName, passwd, createIfAbsent));
 		user.setSessionId(UUID.randomUUID().toString());
 		return user;
@@ -76,6 +66,9 @@ public class WebController {
 		
 		
 	}
+	
+	
+	
 	
 	/** Количество пользователей в репозитории */
 	@RequestMapping(value = "/userCount", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -100,6 +93,7 @@ public class WebController {
 	public String processRequest(@RequestParam String sessionId) throws IOException {
 		long requests = requestsCount.incrementAndGet();
 		long hits = webService.processContent(sessionId);
+
 
 		String result = String.format("{Processed queries: %d hits:%d}", requests, hits);
 		log.debug(result);

@@ -1,4 +1,4 @@
-package otus.moryakovdv.task2.service;
+package otus.moryakovdv.task3.service;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

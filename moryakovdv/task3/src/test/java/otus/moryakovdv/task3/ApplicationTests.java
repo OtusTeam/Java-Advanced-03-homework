@@ -14,25 +14,23 @@
  * limitations under the License.
  */
 
-package otus.moryakovdv.task2;
+package otus.moryakovdv.task3;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.net.URI;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.List;
 import java.util.UUID;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.DirtiesContext;
@@ -40,25 +38,18 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import otus.moryakovdv.task2.WebApplication;
-import otus.moryakovdv.task2.model.User;
-import otus.moryakovdv.task2.service.LoginFailedException;
+import otus.moryakovdv.task3.model.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = WebApplication.class)
+@SpringBootTest( webEnvironment = WebEnvironment.RANDOM_PORT)
 @WebAppConfiguration
 @DirtiesContext
 public class ApplicationTests {
 
-	@BeforeAll
-	public static void beforeAll() throws Exception {
-
-		WebApplication.main(new String[] {});
-	}
 	
 
 
-	@Value("${local.server.port:8081}")
+	@LocalServerPort
 	private int port;
 
 	@Test
@@ -69,15 +60,27 @@ public class ApplicationTests {
 		assertTrue(entity.getBody().contains("USAGE"));
 	}
 
-	
+	@Test
+	public void testGetAllUsers() {
+		
+		URI uri= UriComponentsBuilder.fromHttpUrl(String.format("http://127.0.0.1:%d",this.port))
+				 .path("/user/all")
+				 .build().toUri();
+				 
+				 
+				
+				ResponseEntity<List> entity1 = new TestRestTemplate().getForEntity(
+						uri, List.class);
+				
+				assertEquals(200, entity1.getStatusCode());
+	}
 
 	@Test
 	public void testLogin() {
 		 
-		// testFailLogin();		 
 		 
 		URI uri= UriComponentsBuilder.fromHttpUrl(String.format("http://127.0.0.1:%d",this.port))
-		 .path("/login")
+		 .path("/user/login")
 		 .queryParam("userName", "user2")
 		 .queryParam("passwd", "user2")
 		 .queryParam("createIfAbsent", "true")

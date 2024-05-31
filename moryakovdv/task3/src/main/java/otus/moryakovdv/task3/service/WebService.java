@@ -1,5 +1,5 @@
 
-package otus.moryakovdv.task2.service;
+package otus.moryakovdv.task3.service;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
