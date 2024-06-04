@@ -28,7 +28,6 @@
             <groupId>ru.otus.provider</groupId>
             <artifactId>provider</artifactId>
             <version>1.0.1</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 
