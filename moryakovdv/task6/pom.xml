@@ -11,6 +11,7 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.2.5</version>
 	</parent>
+
 	<artifactId>jmh</artifactId>
 	<groupId>otus.moryakovdv</groupId>
 
@@ -23,7 +24,7 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
+		<start-class>otus.moryakovdv.task6.jmh.BenchmarkStarter</start-class>
 
 	</properties>
 	<dependencies>
@@ -80,25 +81,48 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.openjdk.jmh/jmh-core -->
+		<dependency>
+			<groupId>org.openjdk.jmh</groupId>
+			<artifactId>jmh-core</artifactId>
+			<version>1.37</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.openjdk.jmh</groupId>
+			<artifactId>jmh-generator-annprocess</artifactId>
+			<version>1.37</version>
+			<scope>provided</scope>
+		</dependency>
+
 
 	</dependencies>
 	<build>
 		<finalName>jmh</finalName>
 		<plugins>
+			<!--
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			-->
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
+				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<includes>
-						<include>ApplicationMockingTests.class</include>
-
-					</includes>
+					<compilerVersion>17</compilerVersion>
+					<source>17</source>
+					<target>17</target>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+	
+			</plugin>
+
 
 			<plugin>
 				<groupId>org.liquibase</groupId>
@@ -110,6 +134,22 @@
 					<password />
 					<outputChangeLogFile>
 						src/main/resources/liquibase-outputChangeLog.xml</outputChangeLogFile>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+
+					<redirectTestOutputToFile>false</redirectTestOutputToFile>
+
+					<excludes>
+						<exclude>otus.moryakovdv.task6.ApplicationMockingTests</exclude>
+						<exclude>otus.moryakovdv.task6.ApplicationTests</exclude>
+						<exclude>otus.moryakovdv.task6.HasherTest</exclude>
+					</excludes>
 				</configuration>
 			</plugin>
 
