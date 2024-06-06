@@ -78,10 +78,6 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.TearDown;
-import org.openjdk.jmh.runner.Runner;
-import org.openjdk.jmh.runner.RunnerException;
-import org.openjdk.jmh.runner.options.Options;
-import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 
 @BenchmarkMode(Mode.AverageTime)
@@ -223,24 +219,7 @@ public class JMHSample_33_SecurityManager {
      */
 
 
-    public static void main(String[] args) throws RunnerException {
-
-        Options opt = new OptionsBuilder()
-
-                .include(JMHSample_33_SecurityManager.class.getSimpleName())
-
-                .warmupIterations(5)
-
-                .measurementIterations(5)
-
-                .forks(1)
-
-                .build();
-
-
-        new Runner(opt).run();
-
-    }
+    /** public static void main(String[] args) throws RunnerException {} moved to BencharkStarter class**/
 
 
 }

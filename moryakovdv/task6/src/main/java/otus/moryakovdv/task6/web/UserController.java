@@ -20,12 +20,11 @@ import otus.moryakovdv.task6.repository.UsersCrudRepository;
 import otus.moryakovdv.task6.service.LoginFailedException;
 import otus.moryakovdv.task6.service.PasswordHasher;
 
-/**Рест- Контроллер для пользователей*/
+/** Рест- Контроллер для пользователей */
 @RestController
 @Slf4j
 public class UserController {
 
-	
 	@Autowired
 	private UsersCrudRepository usersRepo;
 
@@ -42,59 +41,55 @@ public class UserController {
 	 *                       false
 	 * @return ResponseEntity<User> - json-описание созданного или залогиненного
 	 *         User
-	 * @throws NoSuchAlgorithmException 
-	 * @throws UnsupportedEncodingException 
-	 * @throws LoginFailedException - если юзер не найден и флаг создания не поднят
+	 * @throws NoSuchAlgorithmException
+	 * @throws UnsupportedEncodingException
+	 * @throws LoginFailedException         - если юзер не найден и флаг создания не
+	 *                                      поднят
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public User login(@RequestParam String userName, @RequestParam String passwd,
-			@RequestParam(defaultValue = "false") boolean createIfAbsent) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+			@RequestParam(defaultValue = "false") boolean createIfAbsent)
+			throws UnsupportedEncodingException, NoSuchAlgorithmException {
 
 		String passHash = passwordHasher.hash(passwd);
-		User user = usersRepo.findByUserNameAndPassword(userName, passHash).orElseGet(()->{
-			
-				return createUser(userName, passwd, createIfAbsent);
-			
+		User user = usersRepo.findByUserNameAndPassword(userName, passHash).orElseGet(() -> {
+
+			return createUser(userName, passwd, createIfAbsent);
+
 		});
 		user.setSessionId(UUID.randomUUID().toString());
 		return user;
-		
-		
-		
+
 	}
-	
-	
-	
-	
+
 	/** Количество пользователей в репозитории */
 	@RequestMapping(value = "/userCount", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public int countAllUsers() {
 		AtomicInteger c = new AtomicInteger();
-		usersRepo.findAll().forEach(u->c.incrementAndGet());
+		usersRepo.findAll().forEach(u -> c.incrementAndGet());
 		return c.get();
 	}
 
-	/** Сохраненение пользователя в репозитории, хеширует пароль перед записью
-	 * @throws NoSuchAlgorithmException 
-	 * @throws UnsupportedEncodingException */
+	/**
+	 * Сохраненение пользователя в репозитории, хеширует пароль перед записью
+	 * 
+	 * @throws NoSuchAlgorithmException
+	 * @throws UnsupportedEncodingException
+	 */
 	private User createUser(String userName, String password, boolean createIfAbsent) throws ResponseStatusException {
 		if (createIfAbsent) {
-			
+
 			try {
 				password = passwordHasher.hash(password);
 				User newUser = new User(userName, password);
 				return usersRepo.save(newUser);
 			} catch (UnsupportedEncodingException | NoSuchAlgorithmException e) {
-				throw new  ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Password hash exception");
+				throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Password hash exception");
 			}
-			
-		
-			
+
 		} else
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User Not Found");
 
 	}
-
-	
 
 }

@@ -16,6 +16,7 @@ import otus.moryakovdv.task6.service.PasswordHasher;
 @EnableAutoConfiguration
 @EnableJpaRepositories
 @ComponentScan
+/***Запуск SpringBoot приложения*/
 public class WebApplication {
 
 	public static void main(String[] args) throws Exception {
@@ -23,7 +24,8 @@ public class WebApplication {
 		SpringApplication.run(WebApplication.class, args);
 	}
 
-	
+
+	/***Подстановка хешировщика в контекст*/
 	@Bean
 	public PasswordHasher getPaswordHasherImplementation() {
 		

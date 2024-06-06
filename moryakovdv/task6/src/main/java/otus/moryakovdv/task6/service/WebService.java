@@ -77,17 +77,7 @@ public class WebService {
 	
 	}
 	
-	public String hashMd5(final String input) {
-		return "";
-	}
 	
-	public String hashSHA256(final String input) {
-		return null;
-	}
-	
-	public String hashSHA512(final String input) {
-		return null;
-	}
 	
 	
 
