@@ -2,10 +2,12 @@
 ## moryakovdv
 
 ## Java Microbenchmark Harness
-Springboot-приложение с несколькими веб-сервисами.  
-Замеры производительности для различных реализаций хеширования паролей  
-Также тестируются классы *JMHSample_21_ConsumeCPU, JMHSample_27_Params, JMHSample_33_SecurityManager* из библиотеки примеров JMH Oracle  
+1. Springboot-приложение с несколькими веб-сервисами.  
+2. Замеры производительности для различных реализаций хеширования паролей  
+3. Тестируются классы *JMHSample_21_ConsumeCPU, JMHSample_27_Params, JMHSample_33_SecurityManager* из библиотеки примеров JMH Oracle  
 
+4. Реализовано тестирование веб-сервисов через Junit c *Spring ApplicationContext*.  
+Идея взята тут [https://gist.github.com/msievers/ce80d343fc15c44bea6cbb741dde7e45]
 
 ## Стек:
 JDK 17  
@@ -21,20 +23,24 @@ Java Microbenchmark Harness
 - ParentBenchmark и его наследники - инфраструктура для тестирования различных метрик производительности методов из классов-хешировщиков
 - BenchmarkStarter - запускающий JMH-тесты класс.
 
+- BenchmarkSpringBase - JUNIT-обертка для запуска JMH, позволяет доступиться к SpringContext в методах классов-наследниках
+- UserServiceJmhBenchmark - класс JUNIT-теста, наследник от BenchmarkSpringBase, содержит метод тестирования производительности вызова login-сервиса
+
 ## Сборка
 *$ mvn clean verify*
+
+
 
 ## Запуск
 *$ java -jar jmh.jar* - запуск с параметрами по-умолчанию, вывод результатов тестирования в консоль.  
   
 *$ ./startup.sh* - shell-скрипт перенаправляющий вывод результатов в лог-файл 
 
+*$ mvn test* - запуск обычных Unit-тестов и BenchmarkSpringBase
+
 ## Результаты
 
-При сравнении средневзвешенного времени выполнения среди трех алгоритмов хеширования более производительным представляется реализация SHA256Hasher.  
-![image](https://github.com/OtusTeam/Java-Advanced-homework/assets/14349345/1bcd5c6b-3dce-411d-ac8c-5b48459f03f0)
-
-В целом на одних и тех же входных данных *The quick brown fox jumps over the lazy dog* показаны схожие результаты.  
+На одних и тех же входных данных *The quick brown fox jumps over the lazy dog* при сравнении средневзвешенного времени выполнения среди трех алгоритмов хеширования более производительным ожидаемо является реализация MD5.  
 
 Полные результаты тестов в файлe *benchmark.log*
 

@@ -13,7 +13,7 @@ import otus.moryakovdv.task6.service.SHA512Hasher;
 @Slf4j
 /**базовый класс для описания тестов. 
  * Содержит методы хеширования по различным алгоритмам.
- *  замеры производительности по различным метрикам реализуются в наследникаханнотациями JMH*/
+ *  замеры производительности по различным метрикам реализуются в наследниках аннотациями JMH*/
 public class ParentBenchmark {
 
 	protected static final String INPUT = "The quick brown fox jumps over the lazy dog";

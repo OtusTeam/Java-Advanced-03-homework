@@ -4,6 +4,7 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
+import org.openjdk.jmh.runner.options.TimeValue;
 
 import otus.moryakovdv.task6.jmh.oracle.JMHSample_21_ConsumeCPU;
 import otus.moryakovdv.task6.jmh.oracle.JMHSample_27_Params;
@@ -38,19 +39,21 @@ public class BenchmarkStarter {
 		Options opt = new OptionsBuilder().jvmArgsAppend("-Djmh.ignoreLock=true")
 
 				// классы тестов для метрик алгоритмов хеширования
+				
 				.include(BenchmarkAverageTime.class.getSimpleName())
-				//.include(BenchmarkSampleTime.class.getSimpleName())
-				//.include(BenchmarkSingleShotTime.class.getSimpleName())
-				//.include(BenchmarkThroughput.class.getSimpleName())
+				.include(BenchmarkSampleTime.class.getSimpleName())
+				.include(BenchmarkSingleShotTime.class.getSimpleName())
+				.include(BenchmarkThroughput.class.getSimpleName())
 
 				// классы тестов из примеров Oracle
-				//.include(JMHSample_21_ConsumeCPU.class.getSimpleName())
-				//.include(JMHSample_27_Params.class.getSimpleName())
-				//.include(JMHSample_33_SecurityManager.class.getSimpleName())
+				.include(JMHSample_21_ConsumeCPU.class.getSimpleName())
+				.include(JMHSample_27_Params.class.getSimpleName())
+				.include(JMHSample_33_SecurityManager.class.getSimpleName())
 
 				.warmupIterations(warmups)
 
 				.measurementIterations(iterations)
+				.measurementTime(TimeValue.seconds(5))
 
 				.forks(forks).build();
 

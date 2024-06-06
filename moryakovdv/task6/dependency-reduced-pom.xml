@@ -37,12 +37,12 @@
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
-          <redirectTestOutputToFile>false</redirectTestOutputToFile>
-          <excludes>
-            <exclude>otus.moryakovdv.task6.ApplicationMockingTests</exclude>
-            <exclude>otus.moryakovdv.task6.ApplicationTests</exclude>
-            <exclude>otus.moryakovdv.task6.HasherTest</exclude>
-          </excludes>
+          <redirectTestOutputToFile>true</redirectTestOutputToFile>
+          <includes>
+            <include>ApplicationMockingTest.java</include>
+            <include>HasherTest.java</include>
+            <include>UserServiceJmhBenchmark.java</include>
+          </includes>
         </configuration>
       </plugin>
     </plugins>

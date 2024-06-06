@@ -1,15 +1,21 @@
 package otus.moryakovdv.task6;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Scope;
+import org.springframework.core.annotation.Order;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import otus.moryakovdv.task6.service.Md5Hasher;
 import otus.moryakovdv.task6.service.PasswordHasher;
+import otus.moryakovdv.task6.service.SHA256Hasher;
+import otus.moryakovdv.task6.service.SHA512Hasher;
 
 @SpringBootApplication
 @Configuration
@@ -26,10 +32,32 @@ public class WebApplication {
 
 
 	/***Подстановка хешировщика в контекст*/
-	@Bean
-	public PasswordHasher getPaswordHasherImplementation() {
+	@Bean	
+	@Primary
+	public PasswordHasher getDefaultPaswordHasherImplementation() {
 		
 		return new Md5Hasher();
 		
 	}
+	
+	@Bean(name="sha-256")
+	@Scope("prototype")
+	public PasswordHasher get256HasherImplementation() {
+		
+		return new SHA256Hasher();
+		
+	}
+	
+	@Bean(name="sha-512")
+	@Scope("prototype")
+	public PasswordHasher get512HasherImplementation() {
+		
+		return new SHA512Hasher();
+		
+	}
+	
+	
+	
+	
+	
 }

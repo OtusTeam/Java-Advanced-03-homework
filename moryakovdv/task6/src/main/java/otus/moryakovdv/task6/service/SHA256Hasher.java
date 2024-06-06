@@ -7,15 +7,18 @@ import java.security.NoSuchAlgorithmException;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-/**реализация SHA-256 хеширования без StringBuffer*/
+/**реализация SHA-256 хеширования*/
 public class SHA256Hasher implements PasswordHasher {
 
 	@Override
 	public String hash(String input) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-		byte[] data = input.getBytes("UTF-8");
-		MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-		byte[] digest = messageDigest.digest(data);
-		String result = new String(digest,"UTF-8");
+		java.security.MessageDigest md = java.security.MessageDigest.getInstance("SHA-256");
+		byte[] array = md.digest(input.getBytes("UTF-8"));
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < array.length; ++i) {
+			sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1, 3));
+		}
+		String result = sb.toString();
 		log.debug("Hash calculated: {}",result);
 		return result;
 	}

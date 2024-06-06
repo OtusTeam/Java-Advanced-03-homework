@@ -43,7 +43,7 @@ class HasherTest {
 	
 	@Test
 	public void testMd5Hashes() throws UnsupportedEncodingException, NoSuchAlgorithmException {
-		 PasswordHasher hasher = context.getBean(Md5Hasher.class);
+		 PasswordHasher hasher = context.getBean(PasswordHasher.class);
 		
 		assertEquals("827ccb0eea8a706c4c34a16891f84e7b",hasher.hash("12345"));
 		
@@ -52,18 +52,16 @@ class HasherTest {
 	
 	@Test
 	public void test256Hashes() throws UnsupportedEncodingException, NoSuchAlgorithmException {
-		 PasswordHasher hasher = context.getBean(SHA256Hasher.class);
-
-		assertEquals("827ccb0eea8a706c4c34a16891f84e7b",hasher.hash("12345"));
+		PasswordHasher hasher = context.getBean("sha-256",PasswordHasher.class);
+		assertEquals("5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",hasher.hash("12345"));
 		
 		
 	}
 	
 	@Test
 	public void test512Hashes() throws UnsupportedEncodingException, NoSuchAlgorithmException {
-		PasswordHasher hasher = context.getBean(SHA512Hasher.class);
-
-		assertEquals("827ccb0eea8a706c4c34a16891f84e7b",hasher.hash("12345"));
+		PasswordHasher hasher = context.getBean("sha-512",PasswordHasher.class);
+		assertEquals("3627909a29c31381a071ec27f7c9ca97726182aed29a7ddd2e54353322cfb30abb9e3a6df2ac2c20fe23436311d678564d0c8d305930575f60e2d3d048184d79",hasher.hash("12345"));
 		
 		
 	}
