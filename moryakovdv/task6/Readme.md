@@ -32,6 +32,7 @@ Java Microbenchmark Harness
 ## Результаты
 
 При сравнении средневзвешенного времени выполнения среди трех алгоритмов хеширования более производительным представляется реализация SHA256Hasher.  
+![image](https://github.com/OtusTeam/Java-Advanced-homework/assets/14349345/1bcd5c6b-3dce-411d-ac8c-5b48459f03f0)
 
 В целом на одних и тех же входных данных *The quick brown fox jumps over the lazy dog* показаны схожие результаты.  
 
