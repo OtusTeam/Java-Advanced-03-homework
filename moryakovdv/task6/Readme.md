@@ -41,6 +41,7 @@ Java Microbenchmark Harness
 ## Результаты
 
 На одних и тех же входных данных *The quick brown fox jumps over the lazy dog* при сравнении средневзвешенного времени выполнения среди трех алгоритмов хеширования более производительным ожидаемо является реализация MD5.  
+![image](https://github.com/OtusTeam/Java-Advanced-homework/assets/14349345/541dfba8-c400-4f14-bef6-7901d66e1b2b)
 
 Полные результаты тестов в файлe *benchmark.log*
 
