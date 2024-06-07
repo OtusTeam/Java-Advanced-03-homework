@@ -18,6 +18,7 @@
     <modules>
         <module>memory-management</module>
         <module>user-service</module>
+        <module>heads-and-tails-service</module>
     </modules>
 
     <properties>
