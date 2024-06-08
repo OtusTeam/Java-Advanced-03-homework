@@ -5,7 +5,6 @@
 ```java -Xshare:dump```
 
 ## Run without sharing classes:
-
 ```time java -jar -Xshare:off -Xmx1g target/task3-0.0.1-SNAPSHOT.jar```
 
 ```
@@ -32,6 +31,29 @@ StopWatch 'App': 2.742528917 seconds
 Seconds       %       Task name
 ----------------------------------------
 2.742528917   100%    App Startup
+
+```
+
+
+
+## Run with app_cds.jsa:
+#### Generate archive data:
+```
+run sh: start_dump_class_list.sh - will generate app_classes.lst
+
+run start_dump_at_exit.sh - will generate archive app_cds.jsa
+
+run application with generated class arhive: run start_with_app_cds.sh
+```
+#### Result
+```
+ Started Homework3Application in 2.262 seconds (process running for 2.592)
+Seconds = 2.356336166
+StopWatch 'App': 2.356336166 seconds
+----------------------------------------
+Seconds       %       Task name
+----------------------------------------
+2.356336166   100%    App Startup
 
 ```
 
