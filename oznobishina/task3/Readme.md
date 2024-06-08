@@ -30,14 +30,26 @@ CDS с использованием Spring
 Started MemoryDumpApplication in 3.32 seconds (process running for 3.812)
 
 ### C CDS
-Error: 
-Must enable AllowArchivingWithJavaAgent in order to run Java agent during CDS dumping
-Solution: add flags -XX:+UnlockDiagnosticVMOptions -XX:+AllowArchivingWithJavaAgent
+Примечания:
+   Error:   
+   Must enable AllowArchivingWithJavaAgent in order to run Java agent during CDS dumping
+   Solution: add flags -XX:+UnlockDiagnosticVMOptions -XX:+AllowArchivingWithJavaAgent
 
-Вести лог: -Xlog:class+load:file=cds_off.log - тут видно откуда загрузились классы
-Включить использование архива-Xshare:on
+   Вести лог: -Xlog:class+load:file=cds_off.log - тут видно откуда загрузились классы
+   Включить использование архива-Xshare:on
 
-Запускать приложение с VM-options
+
+#### 1 Вариант(с использованием onRefresh):
+
+1. Создаем jar файл:
+mvn clean package
+2. Создаем архив:
+java -XX:ArchiveClassesAtExit=application.jsa -Dspring.context.exit=onRefresh -jar target/cds-1.jar
+3. Запускаем приложение с архивом:
+   java -Xmx100m -Xlog:class+load:file=cds_on.log -XX:SharedArchiveFile=application.jsa -jar target/cds-1.jar
+
+#### 2 Вариант:
+Запускать приложение c использованием архива с VM-options
 -Xmx100m
 -Xshare:off (или on)
 -XX:+UnlockDiagnosticVMOptions
