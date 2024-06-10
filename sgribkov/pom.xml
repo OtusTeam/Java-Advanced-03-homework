@@ -19,6 +19,7 @@
         <module>memory-management</module>
         <module>user-service</module>
         <module>heads-and-tails-service</module>
+        <module>jvminfo</module> 
     </modules>
 
     <properties>
