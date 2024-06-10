@@ -29,10 +29,6 @@
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>service</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>service</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

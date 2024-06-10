@@ -13,6 +13,9 @@ public class ApiApplication {
 
         CustomerService customerService = new CustomerService();
         Customer customer = customerService.getCustomerById(1);
+        customer.setName("Patric");
+        customerService.save(customer);
+
 
         System.out.println("Customer: " + customer.getName() + " " + customer.getEmail());
     }
