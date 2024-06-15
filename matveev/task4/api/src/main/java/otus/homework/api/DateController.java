@@ -3,6 +3,8 @@ package otus.homework.api;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import otus.homework.core.DateStore;
+import otus.homework.provider.DataProvider;
+import otus.homework.service.DateService;
 import java.time.ZonedDateTime;
 import java.util.List;
 
@@ -10,16 +12,17 @@ import java.util.List;
 @RequestMapping("/date")
 public class DateController {
     DateStore dateStore = new DateStore();
+    DateService dateService = new DateService();
 
     @PostMapping("")
     public ResponseEntity<ZonedDateTime> saveDate(@RequestBody String zoneId) {
-        ZonedDateTime date = dateStore.save(zoneId);
+        ZonedDateTime date = dateService.saveData(zoneId);
         return ResponseEntity.ok(date);
     }
 
     @GetMapping("")
     public ResponseEntity<List<String>> getStore() {
-        return ResponseEntity.ok(dateStore.getAllData());
+        return ResponseEntity.ok(dateService.getAllData());
     }
 
 }

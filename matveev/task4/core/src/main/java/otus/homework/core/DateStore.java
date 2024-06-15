@@ -1,27 +1,20 @@
 package otus.homework.core;
 
-import otus.homework.provider.DataProvider;
-import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class DateStore {
-    private final List<String> storage = new ArrayList<>();
+    private final Map<String, ZonedDateTime> storage = new HashMap<>();
 
-    public ZonedDateTime save(String zoneId) {
-        ZonedDateTime currentDate = ZonedDateTime.now(ZoneId.of(DataProvider.defaultUtcProvider()));
-        try {
-            currentDate = ZonedDateTime.now(ZoneId.of(zoneId));
-        } catch (Exception e) {
-            System.out.println("Can't read zoneId, using default:" + DataProvider.defaultUtcProvider());
-        }
-        storage.add(zoneId + ": " + currentDate);
-        System.out.printf("Saved data with id: %s, currentDate: %s %n", zoneId, currentDate);
-        return currentDate;
+    public void save(String zoneId, ZonedDateTime zonedDateTime) {
+        storage.put(zoneId, zonedDateTime);
+        System.out.printf("Saved data with zoneId: %s, currentDate: %s %n", zoneId, zonedDateTime);
     }
 
-    public List<String> getAllData() {
-        return storage;
+    public List<String> getStorage() {
+        return storage.keySet().stream()
+                .map(key -> String.format("ZoneId: %s, Date: %s", key, storage.get(key)))
+                .collect(Collectors.toList());
     }
 }
