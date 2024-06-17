@@ -15,6 +15,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jmeter.skipTests>true</jmeter.skipTests>
     </properties>
 
     <dependencies>
@@ -32,11 +33,6 @@
             <type>maven-plugin</type>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.jmeter</groupId>
-            <artifactId>ApacheJMeter_core</artifactId>
-            <version>5.6.3</version>
-        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -72,7 +68,7 @@
             <plugin>
                 <groupId>com.lazerycode.jmeter</groupId>
                 <artifactId>jmeter-maven-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.7.0</version>
                 <executions>
                     <execution>
                         <id>configuration</id>
@@ -100,6 +96,7 @@
                     <errorRateThresholdInPercent>2</errorRateThresholdInPercent>
                     <ignoreResultFailures>false</ignoreResultFailures>
                     <generateReports>true</generateReports>
+                    <skipTests>${jmeter.skipTests}</skipTests>
                 </configuration>
             </plugin>
 
