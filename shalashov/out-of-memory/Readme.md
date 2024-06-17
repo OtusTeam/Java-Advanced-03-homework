@@ -2,8 +2,8 @@
 
 ## Запуск приложения
 
-Для запуска приложения требуется Java 17 или выше.
-Приложение запускается с опциями: -Xmx56m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/home/nicshal/tmp/heapdump2.hprof
+ - Для запуска приложения требуется Java 17 или выше.
+ - Приложение запускается с опциями: -Xmx56m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/home/nicshal/tmp/heapdump2.hprof
 
 ## Описание воспроизведения утечки памяти
  - запустить приложение с опциями -Xmx56m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath="путь_куда_сохранить_дапм"
