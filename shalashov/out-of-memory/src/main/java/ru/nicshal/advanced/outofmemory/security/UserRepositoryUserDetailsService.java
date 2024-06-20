@@ -31,13 +31,13 @@ public class UserRepositoryUserDetailsService
         }
 
         //TODO - внесенная ошибка для эмуляции OutOfMemoryError
-        List<Object[]> arrays = new LinkedList<>();
+        /*List<Object[]> arrays = new LinkedList<>();
         for (; ; ) {
             arrays.add(new Object[10]);
-        }
+        }*/
 
-        /*throw new UsernameNotFoundException(
-                "Пользователь '" + username + "' не найден");*/
+        throw new UsernameNotFoundException(
+                "Пользователь '" + username + "' не найден");
     }
 
 }
