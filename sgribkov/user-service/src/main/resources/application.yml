@@ -18,3 +18,8 @@ server:
   port: 8080
   servlet:
     contextPath: /user-service
+
+passwordEncryptor:
+  charset: "UTF-8"
+  algorithm: "SHA-512"
+  isSalted: true
