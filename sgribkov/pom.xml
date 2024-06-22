@@ -19,12 +19,13 @@
         <module>memory-management</module>
         <module>user-service</module>
         <module>heads-and-tails-service</module>
-        <module>jvminfo</module> 
+        <module>jvminfo</module>
     </modules>
 
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
 
@@ -32,6 +33,8 @@
 
         <flyway.version>9.5.1</flyway.version>
         <h2database.version>2.1.214</h2database.version>
+
+        <jmh.version>1.37</jmh.version>
 
         <logback.version>1.4.6</logback.version>
         <projectlombok.version>1.18.26</projectlombok.version>
@@ -65,6 +68,17 @@
                 <artifactId>h2</artifactId>
                 <version>${h2.version}</version>
                 <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.openjdk.jmh</groupId>
+                <artifactId>jmh-core</artifactId>
+                <version>${jmh.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openjdk.jmh</groupId>
+                <artifactId>jmh-generator-annprocess</artifactId>
+                <version>${jmh.version}</version>
+                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
