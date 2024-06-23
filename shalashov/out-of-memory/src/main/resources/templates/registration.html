@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Java Advanced</title>
+</head>
+
+<body>
+<h1>Регистрация</h1>
+
+<img th:src="@{/images/JavaAdvanced.png}"/>
+
+<form method="POST" th:action="@{/register}" id="registerForm">
+
+    <label for="username">Имя пользователя: </label>
+    <input type="text" name="username"/><br/>
+
+    <label for="password">Пароль: </label>
+    <input type="password" name="password"/><br/>
+
+    <label for="confirm">Подтвердите пароль: </label>
+    <input type="password" name="confirm"/><br/>
+
+    <label for="fullname">Полное имя: </label>
+    <input type="text" name="fullname"/><br/>
+
+    <label for="state">Страна: </label>
+    <input type="text" name="state"/><br/>
+
+    <label for="street">Город: </label>
+    <input type="text" name="street"/><br/>
+
+    <label for="city">Улица: </label>
+    <input type="text" name="city"/><br/>
+
+    <label for="zip">Почтовый индекс: </label>
+    <input type="text" name="zip"/><br/>
+
+    <label for="phone">Телефон: </label>
+    <input type="text" name="phone"/><br/>
+
+    <input type="submit" value="Зарегистрироваться"/>
+</form>
+
+</body>
+</html>
