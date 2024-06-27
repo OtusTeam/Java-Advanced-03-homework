@@ -6,19 +6,15 @@
 ## Result:
 ![HashAlgComparaion.png](HashAlgComparaion.png)
 
-
-
 ## Run JMHSample_11_Loops.java
 
 ## Result:
 ![JMHSample_11_Loops_result.png](JMHSample_11_Loops_Result.png)
 
-
 ## Run JMHSample_09_Blackholes.java
 
 ## Result:
 ![JMHSample09BlackholesResult.png](JMHSample09BlackholesResult.png)
-
 
 ## Run JMHSample_26_BatchSize.java
 
