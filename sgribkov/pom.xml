@@ -20,6 +20,7 @@
         <module>user-service</module>
         <module>heads-and-tails-service</module>
         <module>jvminfo</module>
+        <module>user-service-load-testing</module>
     </modules>
 
     <properties>
@@ -28,6 +29,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
+        <jmeter-maven.version>3.5.0</jmeter-maven.version>
 
         <spring.version>3.0.5</spring.version>
 
@@ -132,6 +134,11 @@
                         </excludes>
                         <executable>true</executable>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.lazerycode.jmeter</groupId>
+                    <artifactId>jmeter-maven-plugin</artifactId>
+                    <version>${jmeter-maven.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
