@@ -21,7 +21,7 @@
 
 ### Run performance tests via load profile HTTPRequestDefaults.jmx
 ```
-mvn clean install -P performance-test
+mvn clean install
 ```
 
 ### Results:
