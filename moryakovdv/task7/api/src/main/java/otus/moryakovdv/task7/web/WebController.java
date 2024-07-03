@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import otus.moryakovdv.task7.repository.UsersCrudRepository;
+import lombok.extern.slf4j.Slf4j;
 import otus.moryakovdv.task7.service.WebService;
 
 /** Контроллер, обеспечивающий вызов веб-методов **/
 @Controller
+@Slf4j
 public class WebController {
 
 	private AtomicLong requestsCount = new AtomicLong();
@@ -24,8 +25,7 @@ public class WebController {
 	@Autowired
 	private WebService webService;
 
-	@Autowired
-	private UsersCrudRepository usersRepo;
+	
 
 	/** Вывод сообщения "помощь" **/
 	@RequestMapping("/")
@@ -46,7 +46,7 @@ public class WebController {
 		long hits = webService.processContent(sessionId);
 
 		String result = String.format("{Processed queries: %d hits:%d}", requests, hits);
-		System.out.println(result);
+		log.debug(result);
 
 		return ResponseEntity.ok(String.format("{\"Processed queries\":%d}", requests));
 

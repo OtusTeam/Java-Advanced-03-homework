@@ -7,7 +7,8 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>otus.moryakovdv</groupId>
-  <artifactId>jmeter</artifactId>
+  <artifactId>task7</artifactId>
+  <packaging>pom</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <build>
     <finalName>jmeter</finalName>
@@ -46,6 +47,10 @@
       </plugin>
     </plugins>
   </build>
+  <modules>
+    <module>api</module>
+    <module>embeddedjmeter</module>
+  </modules>
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
