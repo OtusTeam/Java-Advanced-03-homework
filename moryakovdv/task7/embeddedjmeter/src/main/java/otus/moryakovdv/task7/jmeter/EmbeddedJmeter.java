@@ -3,6 +3,11 @@ package otus.moryakovdv.task7.jmeter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.nio.file.Paths;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.jmeter.engine.StandardJMeterEngine;
 import org.apache.jmeter.save.SaveService;
@@ -20,31 +25,75 @@ public class EmbeddedJmeter {
 
 	/**
 	 * @param args - либо пустой, тогда параметра запуска JMeter по умолчанию, либо
-	 *             три строки с путями к jmx, jmeter.properties, и самому jmeter
+	 * три строки с путями к jmx, jmeter.properties, и самому jmeter.
+	 * 
+	 * В конфигурации Jmeter указана опция 
+	 *   jmeterengine.force.system.exit=true
+	 *	 но работает она не всегда и есть риск подвисшего потока тестирования.
+	 *
+	 *   Поэтому выполнение потока тестирования прерывается по таймауту CountDownLatch.	
 	 */
 	public static void main(String[] args) {
 
-		String jmxPath = "/home/moryakov/apache-jmeter-5.5/bin/task-7.jmx";
-		String jmeterProperties = "/home/moryakov/apache-jmeter-5.5/bin/jmeter.properties";
+		int duration = 65000;
+		String jmxPath = "./task7.jmx";
+		String jmeterProperties = "./jmeter.properties";
 		String jmeterHome = "/home/moryakov/apache-jmeter-5.5";
 
-		StandardJMeterEngine engine = new StandardJMeterEngine();
-
 		JMeterUtils.loadJMeterProperties(jmeterProperties);
+
 		JMeterUtils.setJMeterHome(jmeterHome);
 
 		JMeterUtils.initLocale();
 
+		StandardJMeterEngine engine = new StandardJMeterEngine();
+
+		CountDownLatch latch = new CountDownLatch(1);
+
+		ExecutorService executor = Executors.newSingleThreadExecutor();
+		Future<?> testing;
+		Runnable r = new Runnable() {
+
+			@Override
+			public void run() {
+				try {
+					SaveService.loadProperties();
+
+					File file = new File(jmxPath);
+					HashTree testPlanTree = SaveService.loadTree(file);
+					engine.configure(testPlanTree);
+
+					engine.run();
+				} catch (Exception e) {
+					log.error(e.getMessage());
+					Thread.currentThread().interrupt();
+
+				} finally {
+					latch.countDown();
+				}
+
+			}
+		};
+
 		try {
 
-			SaveService.loadProperties();
-			File file = new File(jmxPath);
-			HashTree testPlanTree = SaveService.loadTree(file);
-			engine.configure(testPlanTree);
-			engine.run();
+			testing = executor.submit(r);
+			latch.await(duration, TimeUnit.MILLISECONDS);
+			testing.cancel(true);
 
-		} catch (Exception e) {
+		} catch (InterruptedException e) {
 			log.error(e.getMessage());
+			Thread.currentThread().interrupt();
+		} finally {
+			
+			engine.stopTest(true);
+			StandardJMeterEngine.stopEngineNow();
+			
+			log.info("Testing completed");
+			
+			System.exit(0);
+			
+			
 		}
 
 	}
