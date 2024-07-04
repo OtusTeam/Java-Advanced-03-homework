@@ -30,12 +30,17 @@ ApacheJMeter
 ## Скриншоты
 
 Профиль и результаты тестирования из GUI
+![Selection_1380](https://github.com/OtusTeam/Java-Advanced-homework/assets/14349345/f445cdce-a4ce-4e94-9b0e-8e53539bca57)
+![Selection_1381](https://github.com/OtusTeam/Java-Advanced-homework/assets/14349345/f20172d6-5bf6-4f7f-8318-f83a3368a8ba)
+![Selection_1382](https://github.com/OtusTeam/Java-Advanced-homework/assets/14349345/df99363c-6aff-45f1-81d8-5ce416c77aed)
+
 
 ## результаты запуска теста
 
 см. файлы jmeter.log
 
 Скриншот
+![Selection_1383](https://github.com/OtusTeam/Java-Advanced-homework/assets/14349345/b826d125-e3a8-4958-abab-9afe87fc6a71)
 
 
 
