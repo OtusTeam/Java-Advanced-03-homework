@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 @Repository
 public interface CustomerRepository extends ReactiveCrudRepository<Customer, Long> {
 
-    @Query("select c from Customer c where c.login=:login and c.password = :password")
+    @Query("select c from Customer c where c.login=:login and c.password=:password")
     Mono<Customer> findOne(@Param("login") String login, @Param("password") String password);
 
     @Query("select c.email from Customer c")

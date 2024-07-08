@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class HashService {
+public class HashUtils {
 
     private static final String MD5 = "MD5";
     private static final String SHA256 = "SHA-256";

@@ -18,12 +18,12 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
     public Mono<Customer> findCustomer(String login, String password) {
-        String hashedPassword = HashService.hash512(password, ITERATIOIN_NUMBER);
+        String hashedPassword = HashUtils.hash512(password, ITERATIOIN_NUMBER);
         return customerRepository.findOne(login, hashedPassword);
     }
 
     public Mono<Customer> saveCustomer(Customer customer) {
-        String hashedPassword = HashService.hash512(customer.getPassword(), ITERATIOIN_NUMBER);
+        String hashedPassword = HashUtils.hash512(customer.getPassword(), ITERATIOIN_NUMBER);
         customer.setPassword(hashedPassword);
 
         return customerRepository.save(customer);
