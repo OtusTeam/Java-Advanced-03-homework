@@ -1,0 +1,64 @@
+12:26:33.026 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [otus.moryakovdv.task7.HasherTest]: HasherTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+12:26:33.130 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration otus.moryakovdv.task7.WebApplication for test class otus.moryakovdv.task7.HasherTest
+12:26:33.454 [main] INFO  otus.moryakovdv.task7.HasherTest - Starting HasherTest using Java 17.0.11 with PID 1580353 (started by moryakov in /home/moryakov/git/repository/otus-master/moryakovdv/task7/api)
+12:26:33.455 [main] INFO  otus.moryakovdv.task7.HasherTest - No active profile set, falling back to 1 default profile: "default"
+12:26:33.900 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+12:26:33.970 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 64 ms. Found 1 JPA repository interface.
+12:26:34.547 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+12:26:34.734 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./db-task7 user=
+12:26:34.736 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+12:26:34.795 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+12:27:03.336 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+12:27:03.373 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+12:27:03.378 [main] INFO  liquibase.util - UPDATE SUMMARY
+12:27:03.378 [main] INFO  liquibase.util - Run:                          0
+12:27:03.378 [main] INFO  liquibase.util - Previously run:               2
+12:27:03.378 [main] INFO  liquibase.util - Filtered out:                 0
+12:27:03.378 [main] INFO  liquibase.util - -------------------------------
+12:27:03.378 [main] INFO  liquibase.util - Total change sets:            2
+12:27:03.378 [main] INFO  liquibase.util - Update summary generated
+12:27:03.395 [main] INFO  liquibase.lockservice - Successfully released change log lock
+12:27:03.396 [main] INFO  liquibase.command - Command execution complete
+12:27:03.514 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+12:27:03.556 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+12:27:03.581 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+12:27:03.772 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+12:27:04.418 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+12:27:04.441 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+12:27:04.889 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+12:27:05.255 [main] INFO  otus.moryakovdv.task7.HasherTest - Started HasherTest in 32.024 seconds (process running for 33.259)
+12:27:05.809 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+12:27:05.821 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+12:27:05.840 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+12:44:49.164 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [otus.moryakovdv.task7.HasherTest]: HasherTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+12:44:49.267 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration otus.moryakovdv.task7.WebApplication for test class otus.moryakovdv.task7.HasherTest
+12:44:49.592 [main] INFO  otus.moryakovdv.task7.HasherTest - Starting HasherTest using Java 17.0.11 with PID 1607509 (started by moryakov in /home/moryakov/git/repository/otus-master/moryakovdv/task7/api)
+12:44:49.593 [main] INFO  otus.moryakovdv.task7.HasherTest - No active profile set, falling back to 1 default profile: "default"
+12:44:50.076 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+12:44:50.142 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 60 ms. Found 1 JPA repository interface.
+12:44:50.693 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+12:44:50.876 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./db-task7 user=
+12:44:50.878 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+12:44:50.933 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+12:45:19.425 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+12:45:19.454 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+12:45:19.458 [main] INFO  liquibase.util - UPDATE SUMMARY
+12:45:19.458 [main] INFO  liquibase.util - Run:                          0
+12:45:19.458 [main] INFO  liquibase.util - Previously run:               2
+12:45:19.458 [main] INFO  liquibase.util - Filtered out:                 0
+12:45:19.458 [main] INFO  liquibase.util - -------------------------------
+12:45:19.459 [main] INFO  liquibase.util - Total change sets:            2
+12:45:19.459 [main] INFO  liquibase.util - Update summary generated
+12:45:19.473 [main] INFO  liquibase.lockservice - Successfully released change log lock
+12:45:19.473 [main] INFO  liquibase.command - Command execution complete
+12:45:19.589 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+12:45:19.631 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+12:45:19.656 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+12:45:19.835 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+12:45:20.439 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+12:45:20.459 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+12:45:20.945 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+12:45:21.317 [main] INFO  otus.moryakovdv.task7.HasherTest - Started HasherTest in 31.929 seconds (process running for 33.119)
+12:45:21.835 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+12:45:21.851 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+12:45:21.867 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
