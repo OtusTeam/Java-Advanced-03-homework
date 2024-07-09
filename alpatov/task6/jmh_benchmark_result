@@ -1,0 +1,973 @@
+[
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.HashPasswordUtilBenchMark.passwordHashingBenchmark",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "algorithm" : "TBASAEEAtAgMAUDA2AA====="
+        },
+        "primaryMetric" : {
+            "score" : 925920.6882941959,
+            "scoreError" : 91523.21118263982,
+            "scoreConfidence" : [
+                834397.4771115561,
+                1017443.8994768357
+            ],
+            "scorePercentiles" : {
+                "0.0" : 898054.1364302719,
+                "50.0" : 939148.9283428364,
+                "90.0" : 949536.1090510417,
+                "95.0" : 949536.1090510417,
+                "99.0" : 949536.1090510417,
+                "99.9" : 949536.1090510417,
+                "99.99" : 949536.1090510417,
+                "99.999" : 949536.1090510417,
+                "99.9999" : 949536.1090510417,
+                "100.0" : 949536.1090510417
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    940276.3973680794,
+                    939148.9283428364,
+                    898054.1364302719,
+                    949536.1090510417,
+                    902587.8702787501
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.HashPasswordUtilBenchMark.passwordHashingBenchmark",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "algorithm" : "TBASAEEAtAQNAEDAyAA====="
+        },
+        "primaryMetric" : {
+            "score" : 909056.8533976476,
+            "scoreError" : 28336.108523753097,
+            "scoreConfidence" : [
+                880720.7448738945,
+                937392.9619214007
+            ],
+            "scorePercentiles" : {
+                "0.0" : 897847.6304188784,
+                "50.0" : 911214.438932291,
+                "90.0" : 915465.9057760505,
+                "95.0" : 915465.9057760505,
+                "99.0" : 915465.9057760505,
+                "99.9" : 915465.9057760505,
+                "99.99" : 915465.9057760505,
+                "99.999" : 915465.9057760505,
+                "99.9999" : 915465.9057760505,
+                "100.0" : 915465.9057760505
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    915465.9057760505,
+                    905809.8770475105,
+                    911214.438932291,
+                    914946.4148135085,
+                    897847.6304188784
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.HashPasswordUtilBenchMark.passwordHashingBenchmark",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "algorithm" : "NBARA0CA1AA====="
+        },
+        "primaryMetric" : {
+            "score" : 1065922.3518294238,
+            "scoreError" : 10685.215909660497,
+            "scoreConfidence" : [
+                1055237.1359197632,
+                1076607.5677390844
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1062632.1371336835,
+                "50.0" : 1067493.6596072216,
+                "90.0" : 1068362.4392776685,
+                "95.0" : 1068362.4392776685,
+                "99.0" : 1068362.4392776685,
+                "99.9" : 1068362.4392776685,
+                "99.99" : 1068362.4392776685,
+                "99.999" : 1068362.4392776685,
+                "99.9999" : 1068362.4392776685,
+                "100.0" : 1068362.4392776685
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    1067493.6596072216,
+                    1068362.4392776685,
+                    1062632.1371336835,
+                    1063185.6248771576,
+                    1067937.898251388
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.JMHSample_11_Loops.measureRight",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 412152.78739790694,
+            "scoreError" : 36404.886181419315,
+            "scoreConfidence" : [
+                375747.90121648763,
+                448557.67357932625
+            ],
+            "scorePercentiles" : {
+                "0.0" : 399616.4489600377,
+                "50.0" : 417681.9048514936,
+                "90.0" : 419879.08012665046,
+                "95.0" : 419879.08012665046,
+                "99.0" : 419879.08012665046,
+                "99.9" : 419879.08012665046,
+                "99.99" : 419879.08012665046,
+                "99.999" : 419879.08012665046,
+                "99.9999" : 419879.08012665046,
+                "100.0" : 419879.08012665046
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    419204.2251112081,
+                    404382.2779401447,
+                    419879.08012665046,
+                    399616.4489600377,
+                    417681.9048514936
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.JMHSample_11_Loops.measureWrong_1",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 413648.5060541692,
+            "scoreError" : 79048.87052975988,
+            "scoreConfidence" : [
+                334599.63552440936,
+                492697.37658392906
+            ],
+            "scorePercentiles" : {
+                "0.0" : 381801.5702622058,
+                "50.0" : 427461.916078655,
+                "90.0" : 427548.05302087736,
+                "95.0" : 427548.05302087736,
+                "99.0" : 427548.05302087736,
+                "99.9" : 427548.05302087736,
+                "99.99" : 427548.05302087736,
+                "99.999" : 427548.05302087736,
+                "99.9999" : 427548.05302087736,
+                "100.0" : 427548.05302087736
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    403905.8202265813,
+                    381801.5702622058,
+                    427548.05302087736,
+                    427525.1706825266,
+                    427461.916078655
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.JMHSample_11_Loops.measureWrong_10",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 4007282.7289166814,
+            "scoreError" : 28119.700719463726,
+            "scoreConfidence" : [
+                3979163.0281972177,
+                4035402.429636145
+            ],
+            "scorePercentiles" : {
+                "0.0" : 3994855.616497137,
+                "50.0" : 4009085.96136814,
+                "90.0" : 4013897.7693765177,
+                "95.0" : 4013897.7693765177,
+                "99.0" : 4013897.7693765177,
+                "99.9" : 4013897.7693765177,
+                "99.99" : 4013897.7693765177,
+                "99.999" : 4013897.7693765177,
+                "99.9999" : 4013897.7693765177,
+                "100.0" : 4013897.7693765177
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    4007902.8143909574,
+                    3994855.616497137,
+                    4009085.96136814,
+                    4010671.482950656,
+                    4013897.7693765177
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.JMHSample_11_Loops.measureWrong_100",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 1.7802530752543177E7,
+            "scoreError" : 133430.9862780822,
+            "scoreConfidence" : [
+                1.7669099766265094E7,
+                1.793596173882126E7
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1.774181834044128E7,
+                "50.0" : 1.7815582611303974E7,
+                "90.0" : 1.782498908387771E7,
+                "95.0" : 1.782498908387771E7,
+                "99.0" : 1.782498908387771E7,
+                "99.9" : 1.782498908387771E7,
+                "99.99" : 1.782498908387771E7,
+                "99.999" : 1.782498908387771E7,
+                "99.9999" : 1.782498908387771E7,
+                "100.0" : 1.782498908387771E7
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    1.7823025969934076E7,
+                    1.782498908387771E7,
+                    1.774181834044128E7,
+                    1.780723775715886E7,
+                    1.7815582611303974E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.JMHSample_11_Loops.measureWrong_1000",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 3.0495561528545756E7,
+            "scoreError" : 6737406.555453851,
+            "scoreConfidence" : [
+                2.3758154973091904E7,
+                3.7232968083999604E7
+            ],
+            "scorePercentiles" : {
+                "0.0" : 2.786477709672832E7,
+                "50.0" : 3.090957388084921E7,
+                "90.0" : 3.2668154238741316E7,
+                "95.0" : 3.2668154238741316E7,
+                "99.0" : 3.2668154238741316E7,
+                "99.9" : 3.2668154238741316E7,
+                "99.99" : 3.2668154238741316E7,
+                "99.999" : 3.2668154238741316E7,
+                "99.9999" : 3.2668154238741316E7,
+                "100.0" : 3.2668154238741316E7
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    3.005289554026982E7,
+                    2.786477709672832E7,
+                    3.0982406886140116E7,
+                    3.090957388084921E7,
+                    3.2668154238741316E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.JMHSample_11_Loops.measureWrong_10000",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 2.41526391213599E7,
+            "scoreError" : 51863.50038493764,
+            "scoreConfidence" : [
+                2.410077562097496E7,
+                2.4204502621744838E7
+            ],
+            "scorePercentiles" : {
+                "0.0" : 2.413515894372176E7,
+                "50.0" : 2.414948627465992E7,
+                "90.0" : 2.4170708632195286E7,
+                "95.0" : 2.4170708632195286E7,
+                "99.0" : 2.4170708632195286E7,
+                "99.9" : 2.4170708632195286E7,
+                "99.99" : 2.4170708632195286E7,
+                "99.999" : 2.4170708632195286E7,
+                "99.9999" : 2.4170708632195286E7,
+                "100.0" : 2.4170708632195286E7
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    2.414948627465992E7,
+                    2.4160258967250083E7,
+                    2.413515894372176E7,
+                    2.4170708632195286E7,
+                    2.4147582788972456E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.JMHSample_11_Loops.measureWrong_100000",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 2.450486312938449E7,
+            "scoreError" : 366118.42490180477,
+            "scoreConfidence" : [
+                2.4138744704482686E7,
+                2.4870981554286297E7
+            ],
+            "scorePercentiles" : {
+                "0.0" : 2.4336776823392313E7,
+                "50.0" : 2.454699443086084E7,
+                "90.0" : 2.4561162781441465E7,
+                "95.0" : 2.4561162781441465E7,
+                "99.0" : 2.4561162781441465E7,
+                "99.9" : 2.4561162781441465E7,
+                "99.99" : 2.4561162781441465E7,
+                "99.999" : 2.4561162781441465E7,
+                "99.9999" : 2.4561162781441465E7,
+                "100.0" : 2.4561162781441465E7
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    2.4556077231325444E7,
+                    2.4336776823392313E7,
+                    2.4523304379902378E7,
+                    2.454699443086084E7,
+                    2.4561162781441465E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.JMHSample_13_RunToRun.baseline",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 0.0018589344247656753,
+            "scoreError" : 1.4467420863691476E-5,
+            "scoreConfidence" : [
+                0.0018444670039019838,
+                0.001873401845629367
+            ],
+            "scorePercentiles" : {
+                "0.0" : 0.0018548917429021994,
+                "50.0" : 0.0018580848957000695,
+                "90.0" : 0.0018650982945688538,
+                "95.0" : 0.0018650982945688538,
+                "99.0" : 0.0018650982945688538,
+                "99.9" : 0.0018650982945688538,
+                "99.99" : 0.0018650982945688538,
+                "99.999" : 0.0018650982945688538,
+                "99.9999" : 0.0018650982945688538,
+                "100.0" : 0.0018650982945688538
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    0.0018588452562730519,
+                    0.0018548917429021994,
+                    0.0018650982945688538,
+                    0.0018580848957000695,
+                    0.0018577519343842017
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.JMHSample_13_RunToRun.fork_1",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 0.0011100485798615663,
+            "scoreError" : 5.483539585081329E-6,
+            "scoreConfidence" : [
+                0.001104565040276485,
+                0.0011155321194466477
+            ],
+            "scorePercentiles" : {
+                "0.0" : 0.0011090076415306513,
+                "50.0" : 0.001109476251626163,
+                "90.0" : 0.0011125392301288715,
+                "95.0" : 0.0011125392301288715,
+                "99.0" : 0.0011125392301288715,
+                "99.9" : 0.0011125392301288715,
+                "99.99" : 0.0011125392301288715,
+                "99.999" : 0.0011125392301288715,
+                "99.9999" : 0.0011125392301288715,
+                "100.0" : 0.0011125392301288715
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    0.0011125392301288715,
+                    0.0011090076415306513,
+                    0.001109476251626163,
+                    0.0011098469645893616,
+                    0.0011093728114327844
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.JMHSample_13_RunToRun.fork_2",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 0.0028401454341698265,
+            "scoreError" : 4.011209293152314E-5,
+            "scoreConfidence" : [
+                0.002800033341238303,
+                0.0028802575271013498
+            ],
+            "scorePercentiles" : {
+                "0.0" : 0.0028240485928317962,
+                "50.0" : 0.00284234630070647,
+                "90.0" : 0.002852537931808563,
+                "95.0" : 0.002852537931808563,
+                "99.0" : 0.002852537931808563,
+                "99.9" : 0.002852537931808563,
+                "99.99" : 0.002852537931808563,
+                "99.999" : 0.002852537931808563,
+                "99.9999" : 0.002852537931808563,
+                "100.0" : 0.002852537931808563
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    0.002843671863539558,
+                    0.0028240485928317962,
+                    0.00284234630070647,
+                    0.002852537931808563,
+                    0.0028381224819627455
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.JMHSample_26_BatchSize.measureRight",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 5000,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 5000,
+        "primaryMetric" : {
+            "score" : 0.009321608538231003,
+            "scoreError" : 4.203643095803249E-4,
+            "scoreConfidence" : [
+                0.008901244228650679,
+                0.009741972847811328
+            ],
+            "scorePercentiles" : {
+                "0.0" : 0.009215046517296353,
+                "50.0" : 0.00926291995357978,
+                "90.0" : 0.009443397084441736,
+                "95.0" : 0.009443397084441736,
+                "99.0" : 0.009443397084441736,
+                "99.9" : 0.009443397084441736,
+                "99.99" : 0.009443397084441736,
+                "99.999" : 0.009443397084441736,
+                "99.9999" : 0.009443397084441736,
+                "100.0" : 0.009443397084441736
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    0.009443397084441736,
+                    0.009215046517296353,
+                    0.00925089164400583,
+                    0.00926291995357978,
+                    0.00943578749183132
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.JMHSample_26_BatchSize.measureWrong_1",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 47.41822351906681,
+            "scoreError" : 0.6935630675100499,
+            "scoreConfidence" : [
+                46.72466045155676,
+                48.111786586576855
+            ],
+            "scorePercentiles" : {
+                "0.0" : 47.187323785661675,
+                "50.0" : 47.42301389384662,
+                "90.0" : 47.64581039006102,
+                "95.0" : 47.64581039006102,
+                "99.0" : 47.64581039006102,
+                "99.9" : 47.64581039006102,
+                "99.99" : 47.64581039006102,
+                "99.999" : 47.64581039006102,
+                "99.9999" : 47.64581039006102,
+                "100.0" : 47.64581039006102
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    47.528463962777316,
+                    47.187323785661675,
+                    47.64581039006102,
+                    47.42301389384662,
+                    47.30650556298738
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.22",
+        "benchmark" : "ru.otus.java.advanced.jmh.JMHSample_26_BatchSize.measureWrong_5",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dmaven.multiModuleProjectDirectory=/Users/alpatov/IdeaProjects/Java-Advanced-homework/alpatov/task6",
+            "-Djansi.passthrough=true",
+            "-Dmaven.home=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3",
+            "-Dclassworlds.conf=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf",
+            "-Dmaven.ext.class.path=/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49752:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8",
+            "-Dsun.stdout.encoding=UTF-8",
+            "-Dsun.stderr.encoding=UTF-8"
+        ],
+        "jdkVersion" : "21.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "21.0.2+13-LTS-58",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 47.42777491029333,
+            "scoreError" : 0.9964831590035577,
+            "scoreConfidence" : [
+                46.43129175128977,
+                48.42425806929689
+            ],
+            "scorePercentiles" : {
+                "0.0" : 47.2110818493229,
+                "50.0" : 47.28668529205652,
+                "90.0" : 47.8256514979181,
+                "95.0" : 47.8256514979181,
+                "99.0" : 47.8256514979181,
+                "99.9" : 47.8256514979181,
+                "99.99" : 47.8256514979181,
+                "99.999" : 47.8256514979181,
+                "99.9999" : 47.8256514979181,
+                "100.0" : 47.8256514979181
+            },
+            "scoreUnit" : "ops/ms",
+            "rawData" : [
+                [
+                    47.2110818493229,
+                    47.55247587732124,
+                    47.8256514979181,
+                    47.28668529205652,
+                    47.26298003484787
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+
