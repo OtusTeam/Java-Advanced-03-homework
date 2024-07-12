@@ -1,0 +1,402 @@
+/Users/kseniya/Library/Java/JavaVirtualMachines/liberica-17.0.9/bin/java -Dvisualvm.id=151440970995583 -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=54213:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -classpath /Users/kseniya/IdeaProjects/Java-Advanced-homework/oznobishina/task6/jmh/target/classes:/Users/kseniya/IdeaProjects/Java-Advanced-homework/out/production/main:/Users/kseniya/.m2/repository/org/openjdk/jmh/jmh-core/1.37/jmh-core-1.37.jar:/Users/kseniya/.m2/repository/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar:/Users/kseniya/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar:/Users/kseniya/.m2/repository/org/openjdk/jmh/jmh-generator-annprocess/1.37/jmh-generator-annprocess-1.37.jar:/Users/kseniya/.m2/repository/org/codehaus/mojo/exec-maven-plugin/3.3.0/exec-maven-plugin-3.3.0.jar:/Users/kseniya/.m2/repository/org/apache/maven/resolver/maven-resolver-util/1.4.1/maven-resolver-util-1.4.1.jar:/Users/kseniya/.m2/repository/org/apache/maven/resolver/maven-resolver-api/1.4.1/maven-resolver-api-1.4.1.jar:/Users/kseniya/.m2/repository/org/codehaus/plexus/plexus-utils/4.0.1/plexus-utils-4.0.1.jar:/Users/kseniya/.m2/repository/org/codehaus/plexus/plexus-xml/3.0.0/plexus-xml-3.0.0.jar:/Users/kseniya/.m2/repository/org/apache/commons/commons-exec/1.4.0/commons-exec-1.4.0.jar:/Users/kseniya/.m2/repository/org/ow2/asm/asm/9.7/asm-9.7.jar:/Users/kseniya/.m2/repository/org/ow2/asm/asm-commons/9.7/asm-commons-9.7.jar:/Users/kseniya/.m2/repository/org/ow2/asm/asm-tree/9.7/asm-tree-9.7.jar:/Users/kseniya/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/3.6.1/maven-dependency-plugin-3.6.1.jar:/Users/kseniya/.m2/repository/org/apache/maven/doxia/doxia-sink-api/1.11.1/doxia-sink-api-1.11.1.jar:/Users/kseniya/.m2/repository/org/apache/maven/doxia/doxia-logging-api/1.11.1/doxia-logging-api-1.11.1.jar:/Users/kseniya/.m2/repository/org/apache/maven/reporting/maven-reporting-api/3.1.1/maven-reporting-api-3.1.1.jar:/Users/kseniya/.m2/repository/org/apache/maven/reporting/maven-reporting-impl/3.2.0/maven-reporting-impl-3.2.0.jar:/Users/kseniya/.m2/repository/org/apache/maven/maven-core/3.1.0/maven-core-3.1.0.jar:/Users/kseniya/.m2/repository/org/apache/maven/maven-settings/3.1.0/maven-settings-3.1.0.jar:/Users/kseniya/.m2/repository/org/apache/maven/maven-settings-builder/3.1.0/maven-settings-builder-3.1.0.jar:/Users/kseniya/.m2/repository/org/apache/maven/maven-repository-metadata/3.1.0/maven-repository-metadata-3.1.0.jar:/Users/kseniya/.m2/repository/org/apache/maven/maven-model-builder/3.1.0/maven-model-builder-3.1.0.jar:/Users/kseniya/.m2/repository/org/apache/maven/maven-aether-provider/3.1.0/maven-aether-provider-3.1.0.jar:/Users/kseniya/.m2/repository/org/eclipse/aether/aether-spi/0.9.0.M2/aether-spi-0.9.0.M2.jar:/Users/kseniya/.m2/repository/org/eclipse/aether/aether-impl/0.9.0.M2/aether-impl-0.9.0.M2.jar:/Users/kseniya/.m2/repository/org/eclipse/aether/aether-api/0.9.0.M2/aether-api-0.9.0.M2.jar:/Users/kseniya/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.plexus/0.0.0.M2a/org.eclipse.sisu.plexus-0.0.0.M2a.jar:/Users/kseniya/.m2/repository/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar:/Users/kseniya/.m2/repository/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar:/Users/kseniya/.m2/repository/com/google/guava/guava/10.0.1/guava-10.0.1.jar:/Users/kseniya/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/kseniya/.m2/repository/org/sonatype/sisu/sisu-guice/3.1.0/sisu-guice-3.1.0-no_aop.jar:/Users/kseniya/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/Users/kseniya/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M2a/org.eclipse.sisu.inject-0.0.0.M2a.jar:/Users/kseniya/.m2/repository/asm/asm/3.3.1/asm-3.3.1.jar:/Users/kseniya/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.16/plexus-interpolation-1.16.jar:/Users/kseniya/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.4.2/plexus-classworlds-2.4.2.jar:/Users/kseniya/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar:/Users/kseniya/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar:/Users/kseniya/.m2/repository/org/apache/maven/maven-artifact/3.1.0/maven-artifact-3.1.0.jar:/Users/kseniya/.m2/repository/org/apache/maven/maven-plugin-api/3.1.0/maven-plugin-api-3.1.0.jar:/Users/kseniya/.m2/repository/org/apache/maven/doxia/doxia-decoration-model/1.11.1/doxia-decoration-model-1.11.1.jar:/Users/kseniya/.m2/repository/org/apache/maven/doxia/doxia-core/1.11.1/doxia-core-1.11.1.jar:/Users/kseniya/.m2/repository/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar:/Users/kseniya/.m2/repository/org/apache/commons/commons-text/1.3/commons-text-1.3.jar:/Users/kseniya/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/kseniya/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/kseniya/.m2/repository/commons-codec/commons-codec/1.16.1/commons-codec-1.16.1.jar:/Users/kseniya/.m2/repository/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar:/Users/kseniya/.m2/repository/org/apache/maven/doxia/doxia-integration-tools/1.11.1/doxia-integration-tools-1.11.1.jar:/Users/kseniya/.m2/repository/org/apache/maven/doxia/doxia-site-renderer/1.11.1/doxia-site-renderer-1.11.1.jar:/Users/kseniya/.m2/repository/org/apache/maven/doxia/doxia-skin-model/1.11.1/doxia-skin-model-1.11.1.jar:/Users/kseniya/.m2/repository/org/apache/maven/doxia/doxia-module-xhtml/1.11.1/doxia-module-xhtml-1.11.1.jar:/Users/kseniya/.m2/repository/org/apache/maven/doxia/doxia-module-xhtml5/1.11.1/doxia-module-xhtml5-1.11.1.jar:/Users/kseniya/.m2/repository/org/codehaus/plexus/plexus-velocity/1.2/plexus-velocity-1.2.jar:/Users/kseniya/.m2/repository/org/apache/velocity/velocity/1.7/velocity-1.7.jar:/Users/kseniya/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4.jar:/Users/kseniya/.m2/repository/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.jar:/Users/kseniya/.m2/repository/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar:/Users/kseniya/.m2/repository/commons-digester/commons-digester/1.8/commons-digester-1.8.jar:/Users/kseniya/.m2/repository/commons-chain/commons-chain/1.1/commons-chain-1.1.jar:/Users/kseniya/.m2/repository/dom4j/dom4j/1.1/dom4j-1.1.jar:/Users/kseniya/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/Users/kseniya/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/Users/kseniya/.m2/repository/org/codehaus/plexus/plexus-archiver/4.8.0/plexus-archiver-4.8.0.jar:/Users/kseniya/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/Users/kseniya/.m2/repository/commons-io/commons-io/2.13.0/commons-io-2.13.0.jar:/Users/kseniya/.m2/repository/org/apache/commons/commons-compress/1.23.0/commons-compress-1.23.0.jar:/Users/kseniya/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/kseniya/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/Users/kseniya/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/Users/kseniya/.m2/repository/com/github/luben/zstd-jni/1.5.5-5/zstd-jni-1.5.5-5.jar:/Users/kseniya/.m2/repository/org/codehaus/plexus/plexus-io/3.4.1/plexus-io-3.4.1.jar:/Users/kseniya/.m2/repository/org/codehaus/plexus/plexus-i18n/1.0-beta-10/plexus-i18n-1.0-beta-10.jar:/Users/kseniya/.m2/repository/org/apache/maven/shared/maven-dependency-analyzer/1.13.2/maven-dependency-analyzer-1.13.2.jar:/Users/kseniya/.m2/repository/org/apache/maven/maven-model/3.2.5/maven-model-3.2.5.jar:/Users/kseniya/.m2/repository/org/apache/maven/shared/maven-dependency-tree/3.2.1/maven-dependency-tree-3.2.1.jar:/Users/kseniya/.m2/repository/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.jar:/Users/kseniya/.m2/repository/org/apache/maven/shared/maven-common-artifact-filters/3.3.2/maven-common-artifact-filters-3.3.2.jar:/Users/kseniya/.m2/repository/org/apache/maven/shared/maven-artifact-transfer/0.13.1/maven-artifact-transfer-0.13.1.jar:/Users/kseniya/.m2/repository/org/codehaus/plexus/plexus-component-annotations/2.0.0/plexus-component-annotations-2.0.0.jar:/Users/kseniya/.m2/repository/org/apache/maven/shared/maven-shared-utils/3.4.2/maven-shared-utils-3.4.2.jar:/Users/kseniya/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/Users/kseniya/.m2/repository/org/sonatype/plexus/plexus-build-api/0.0.7/plexus-build-api-0.0.7.jar:/Users/kseniya/.m2/repository/org/springframework/boot/spring-boot-starter/3.3.0/spring-boot-starter-3.3.0.jar:/Users/kseniya/.m2/repository/org/springframework/boot/spring-boot/3.3.0/spring-boot-3.3.0.jar:/Users/kseniya/.m2/repository/org/springframework/spring-context/6.1.8/spring-context-6.1.8.jar:/Users/kseniya/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.3.0/spring-boot-autoconfigure-3.3.0.jar:/Users/kseniya/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.3.0/spring-boot-starter-logging-3.3.0.jar:/Users/kseniya/.m2/repository/ch/qos/logback/logback-classic/1.5.6/logback-classic-1.5.6.jar:/Users/kseniya/.m2/repository/ch/qos/logback/logback-core/1.5.6/logback-core-1.5.6.jar:/Users/kseniya/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.23.1/log4j-to-slf4j-2.23.1.jar:/Users/kseniya/.m2/repository/org/apache/logging/log4j/log4j-api/2.23.1/log4j-api-2.23.1.jar:/Users/kseniya/.m2/repository/org/slf4j/jul-to-slf4j/2.0.13/jul-to-slf4j-2.0.13.jar:/Users/kseniya/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/kseniya/.m2/repository/org/springframework/spring-core/6.1.8/spring-core-6.1.8.jar:/Users/kseniya/.m2/repository/org/springframework/spring-jcl/6.1.8/spring-jcl-6.1.8.jar:/Users/kseniya/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/Users/kseniya/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/Users/kseniya/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/Users/kseniya/.m2/repository/net/bytebuddy/byte-buddy/1.14.16/byte-buddy-1.14.16.jar:/Users/kseniya/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.3.1/spring-boot-starter-web-3.3.1.jar:/Users/kseniya/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.3.0/spring-boot-starter-json-3.3.0.jar:/Users/kseniya/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.1/jackson-databind-2.17.1.jar:/Users/kseniya/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.1/jackson-annotations-2.17.1.jar:/Users/kseniya/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.1/jackson-core-2.17.1.jar:/Users/kseniya/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.17.1/jackson-datatype-jdk8-2.17.1.jar:/Users/kseniya/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.17.1/jackson-datatype-jsr310-2.17.1.jar:/Users/kseniya/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.17.1/jackson-module-parameter-names-2.17.1.jar:/Users/kseniya/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.3.0/spring-boot-starter-tomcat-3.3.0.jar:/Users/kseniya/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.24/tomcat-embed-core-10.1.24.jar:/Users/kseniya/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.24/tomcat-embed-el-10.1.24.jar:/Users/kseniya/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.24/tomcat-embed-websocket-10.1.24.jar:/Users/kseniya/.m2/repository/org/springframework/spring-web/6.1.8/spring-web-6.1.8.jar:/Users/kseniya/.m2/repository/org/springframework/spring-beans/6.1.8/spring-beans-6.1.8.jar:/Users/kseniya/.m2/repository/io/micrometer/micrometer-observation/1.13.0/micrometer-observation-1.13.0.jar:/Users/kseniya/.m2/repository/io/micrometer/micrometer-commons/1.13.0/micrometer-commons-1.13.0.jar:/Users/kseniya/.m2/repository/org/springframework/spring-webmvc/6.1.8/spring-webmvc-6.1.8.jar:/Users/kseniya/.m2/repository/org/springframework/spring-aop/6.1.8/spring-aop-6.1.8.jar:/Users/kseniya/.m2/repository/org/springframework/spring-expression/6.1.8/spring-expression-6.1.8.jar:/Users/kseniya/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.3.1/spring-boot-starter-data-jpa-3.3.1.jar:/Users/kseniya/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.3.0/spring-boot-starter-aop-3.3.0.jar:/Users/kseniya/.m2/repository/org/aspectj/aspectjweaver/1.9.22/aspectjweaver-1.9.22.jar:/Users/kseniya/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.3.0/spring-boot-starter-jdbc-3.3.0.jar:/Users/kseniya/.m2/repository/com/zaxxer/HikariCP/5.1.0/HikariCP-5.1.0.jar:/Users/kseniya/.m2/repository/org/springframework/spring-jdbc/6.1.8/spring-jdbc-6.1.8.jar:/Users/kseniya/.m2/repository/org/hibernate/orm/hibernate-core/6.5.2.Final/hibernate-core-6.5.2.Final.jar:/Users/kseniya/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/Users/kseniya/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/kseniya/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/Users/kseniya/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.6.Final/hibernate-commons-annotations-6.0.6.Final.jar:/Users/kseniya/.m2/repository/io/smallrye/jandex/3.1.2/jandex-3.1.2.jar:/Users/kseniya/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar:/Users/kseniya/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar:/Users/kseniya/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar:/Users/kseniya/.m2/repository/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar:/Users/kseniya/.m2/repository/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar:/Users/kseniya/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/Users/kseniya/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/Users/kseniya/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/Users/kseniya/.m2/repository/org/springframework/data/spring-data-jpa/3.3.0/spring-data-jpa-3.3.0.jar:/Users/kseniya/.m2/repository/org/springframework/data/spring-data-commons/3.3.0/spring-data-commons-3.3.0.jar:/Users/kseniya/.m2/repository/org/springframework/spring-orm/6.1.8/spring-orm-6.1.8.jar:/Users/kseniya/.m2/repository/org/springframework/spring-tx/6.1.8/spring-tx-6.1.8.jar:/Users/kseniya/.m2/repository/org/springframework/spring-aspects/6.1.8/spring-aspects-6.1.8.jar:/Users/kseniya/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/Users/kseniya/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar com.example.HashBenchmark
+# JMH version: 1.37
+# VM version: JDK 17.0.9, OpenJDK 64-Bit Server VM, 17.0.9+11-LTS
+# VM invoker: /Users/kseniya/Library/Java/JavaVirtualMachines/liberica-17.0.9/bin/java
+# VM options: -Dvisualvm.id=151440970995583 -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=54213:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: <none>
+# Measurement: 1 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.example.HashBenchmark.hashShort_1
+
+# Run progress: 0.00% complete, ETA 00:00:54
+# Fork: 1 of 1
+# Warmup Iteration   1: 360573.431 ops/s
+
+# Warmup Iteration   1: 39430.173 ops/s
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+Iteration   1: 393426.528 ops/s
+
+
+Result "com.example.HashBenchmark.hashShort_1":
+  393426.528 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 17.0.9, OpenJDK 64-Bit Server VM, 17.0.9+11-LTS
+# VM invoker: /Users/kseniya/Library/Java/JavaVirtualMachines/liberica-17.0.9/bin/java
+# VM options: -Dvisualvm.id=151440970995583 -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=54213:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: <none>
+# Measurement: 1 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.example.HashBenchmark.hashShort_2
+
+# Run progress: 1.85% complete, ETA 00:11:12
+# Fork: 1 of 1
+# Warmup Iteration   1: 355116.734 ops/s
+
+# Warmup Iteration   1: 37369.122 ops/s
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+Iteration   1: 38991.333 ops/s
+
+
+Result "com.example.HashBenchmark.hashShort_2":
+  38991.333 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 17.0.9, OpenJDK 64-Bit Server VM, 17.0.9+11-LTS
+# VM invoker: /Users/kseniya/Library/Java/JavaVirtualMachines/liberica-17.0.9/bin/java
+# VM options: -Dvisualvm.id=151440970995583 -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=54213:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: <none>
+# Measurement: 1 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.example.HashBenchmark.hashShort_1
+
+# Run progress: 3.70% complete, ETA 00:10:59
+# Fork: 1 of 1
+# Warmup Iteration   1: 367795.042 ops/s
+
+# Warmup Iteration   1: 39271.694 ops/s
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+Iteration   1: ≈ 10⁻⁶ s/op
+
+
+Result "com.example.HashBenchmark.hashShort_1":
+  ≈ 10⁻⁶ s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 17.0.9, OpenJDK 64-Bit Server VM, 17.0.9+11-LTS
+# VM invoker: /Users/kseniya/Library/Java/JavaVirtualMachines/liberica-17.0.9/bin/java
+# VM options: -Dvisualvm.id=151440970995583 -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=54213:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: <none>
+# Measurement: 1 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.example.HashBenchmark.hashShort_2
+
+# Run progress: 5.55% complete, ETA 00:10:46
+# Fork: 1 of 1
+# Warmup Iteration   1: 375432.220 ops/s
+
+# Warmup Iteration   1: 39655.106 ops/s
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+Iteration   1: ≈ 10⁻⁵ s/op
+
+
+Result "com.example.HashBenchmark.hashShort_2":
+  ≈ 10⁻⁵ s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 17.0.9, OpenJDK 64-Bit Server VM, 17.0.9+11-LTS
+# VM invoker: /Users/kseniya/Library/Java/JavaVirtualMachines/liberica-17.0.9/bin/java
+# VM options: -Dvisualvm.id=151440970995583 -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=54213:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: <none>
+# Measurement: 1 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Sampling time
+# Benchmark: com.example.HashBenchmark.hashShort_1
+
+# Run progress: 7.40% complete, ETA 00:10:33
+# Fork: 1 of 1
+# Warmup Iteration   1: 371070.624 ops/s
+
+# Warmup Iteration   1: 39645.257 ops/s
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+Iteration   1: ≈ 10⁻⁶ s/op
+                 p0.00:   ≈ 10⁻⁶ s/op
+                 p0.50:   ≈ 10⁻⁶ s/op
+                 p0.90:   ≈ 10⁻⁶ s/op
+                 p0.95:   ≈ 10⁻⁶ s/op
+                 p0.99:   ≈ 10⁻⁵ s/op
+                 p0.999:  ≈ 10⁻⁵ s/op
+                 p0.9999: ≈ 10⁻⁴ s/op
+                 p1.00:   0.001 s/op
+
+
+
+Result "com.example.HashBenchmark.hashShort_1":
+  N = 24837
+  mean =     ≈ 10⁻⁶ ±(99.9%) 0.001 s/op
+
+  Histogram, s/op:
+    [0.000, 0.000) = 24835
+    [0.000, 0.000) = 0
+    [0.000, 0.000) = 0
+    [0.000, 0.000) = 0
+    [0.000, 0.000) = 0
+    [0.000, 0.000) = 0
+    [0.000, 0.000) = 0
+    [0.000, 0.000) = 0
+    [0.000, 0.000) = 0
+    [0.000, 0.001) = 1
+    [0.001, 0.001) = 1
+
+  Percentiles, s/op:
+      p(0.0000) =     ≈ 10⁻⁶ s/op
+     p(50.0000) =     ≈ 10⁻⁶ s/op
+     p(90.0000) =     ≈ 10⁻⁶ s/op
+     p(95.0000) =     ≈ 10⁻⁶ s/op
+     p(99.0000) =     ≈ 10⁻⁵ s/op
+     p(99.9000) =     ≈ 10⁻⁵ s/op
+     p(99.9900) =     ≈ 10⁻⁴ s/op
+     p(99.9990) =      0.001 s/op
+     p(99.9999) =      0.001 s/op
+    p(100.0000) =      0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 17.0.9, OpenJDK 64-Bit Server VM, 17.0.9+11-LTS
+# VM invoker: /Users/kseniya/Library/Java/JavaVirtualMachines/liberica-17.0.9/bin/java
+# VM options: -Dvisualvm.id=151440970995583 -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=54213:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: <none>
+# Measurement: 1 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Sampling time
+# Benchmark: com.example.HashBenchmark.hashShort_2
+
+# Run progress: 9.26% complete, ETA 00:10:21
+# Fork: 1 of 1
+# Warmup Iteration   1: 372386.031 ops/s
+
+# Warmup Iteration   1: 39595.118 ops/s
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+Iteration   1: ≈ 10⁻⁵ s/op
+                 p0.00:   ≈ 10⁻⁵ s/op
+                 p0.50:   ≈ 10⁻⁵ s/op
+                 p0.90:   ≈ 10⁻⁵ s/op
+                 p0.95:   ≈ 10⁻⁵ s/op
+                 p0.99:   ≈ 10⁻⁴ s/op
+                 p0.999:  ≈ 10⁻⁴ s/op
+                 p0.9999: 0.001 s/op
+                 p1.00:   0.001 s/op
+
+
+
+Result "com.example.HashBenchmark.hashShort_2":
+  N = 19816
+  mean =     ≈ 10⁻⁵ ±(99.9%) 0.001 s/op
+
+  Histogram, s/op:
+    [0.000, 0.000) = 19778
+    [0.000, 0.000) = 21
+    [0.000, 0.000) = 2
+    [0.000, 0.000) = 0
+    [0.000, 0.000) = 0
+    [0.000, 0.000) = 0
+    [0.000, 0.000) = 0
+    [0.000, 0.000) = 0
+    [0.000, 0.000) = 0
+    [0.000, 0.001) = 7
+    [0.001, 0.001) = 7
+
+  Percentiles, s/op:
+      p(0.0000) =     ≈ 10⁻⁵ s/op
+     p(50.0000) =     ≈ 10⁻⁵ s/op
+     p(90.0000) =     ≈ 10⁻⁵ s/op
+     p(95.0000) =     ≈ 10⁻⁵ s/op
+     p(99.0000) =     ≈ 10⁻⁴ s/op
+     p(99.9000) =     ≈ 10⁻⁴ s/op
+     p(99.9900) =      0.001 s/op
+     p(99.9990) =      0.001 s/op
+     p(99.9999) =      0.001 s/op
+    p(100.0000) =      0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 17.0.9, OpenJDK 64-Bit Server VM, 17.0.9+11-LTS
+# VM invoker: /Users/kseniya/Library/Java/JavaVirtualMachines/liberica-17.0.9/bin/java
+# VM options: -Dvisualvm.id=151440970995583 -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=54213:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: <none>
+# Measurement: 1 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread
+# Benchmark mode: Single shot invocation time
+# Benchmark: com.example.HashBenchmark.hashShort_1
+
+# Run progress: 11.11% complete, ETA 00:10:08
+# Fork: 1 of 1
+# Warmup Iteration   1: 374145.560 ops/s
+
+# Warmup Iteration   1: 39677.747 ops/s
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+Iteration   1: ≈ 10⁻⁵ s/op
+
+
+
+# JMH version: 1.37
+# VM version: JDK 17.0.9, OpenJDK 64-Bit Server VM, 17.0.9+11-LTS
+# VM invoker: /Users/kseniya/Library/Java/JavaVirtualMachines/liberica-17.0.9/bin/java
+# VM options: -Dvisualvm.id=151440970995583 -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=54213:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: <none>
+# Measurement: 1 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread
+# Benchmark mode: Single shot invocation time
+# Benchmark: com.example.HashBenchmark.hashShort_2
+
+# Run progress: 11.11% complete, ETA 00:11:41
+# Fork: 1 of 1
+# Warmup Iteration   1: 376380.826 ops/s
+
+# Warmup Iteration   1: 39642.726 ops/s
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+# Warmup Iteration   1: ≈ 10⁻⁵ s/op
+
+Iteration   1: ≈ 10⁻⁵ s/op
+
+
+
+# Run complete. Total time: 00:01:39
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                            Mode    Cnt       Score    Error  Units
+HashBenchmark.hashShort_1           thrpt         393426.528           ops/s
+HashBenchmark.hashShort_2           thrpt          38991.333           ops/s
+HashBenchmark.hashShort_1            avgt             ≈ 10⁻⁶            s/op
+HashBenchmark.hashShort_2            avgt             ≈ 10⁻⁵            s/op
+HashBenchmark.hashShort_1          sample  24837      ≈ 10⁻⁶            s/op
+HashBenchmark.hashShort_1:p0.00    sample             ≈ 10⁻⁶            s/op
+HashBenchmark.hashShort_1:p0.50    sample             ≈ 10⁻⁶            s/op
+HashBenchmark.hashShort_1:p0.90    sample             ≈ 10⁻⁶            s/op
+HashBenchmark.hashShort_1:p0.95    sample             ≈ 10⁻⁶            s/op
+HashBenchmark.hashShort_1:p0.99    sample             ≈ 10⁻⁵            s/op
+HashBenchmark.hashShort_1:p0.999   sample             ≈ 10⁻⁵            s/op
+HashBenchmark.hashShort_1:p0.9999  sample             ≈ 10⁻⁴            s/op
+HashBenchmark.hashShort_1:p1.00    sample              0.001            s/op
+HashBenchmark.hashShort_2          sample  19816      ≈ 10⁻⁵            s/op
+HashBenchmark.hashShort_2:p0.00    sample             ≈ 10⁻⁵            s/op
+HashBenchmark.hashShort_2:p0.50    sample             ≈ 10⁻⁵            s/op
+HashBenchmark.hashShort_2:p0.90    sample             ≈ 10⁻⁵            s/op
+HashBenchmark.hashShort_2:p0.95    sample             ≈ 10⁻⁵            s/op
+HashBenchmark.hashShort_2:p0.99    sample             ≈ 10⁻⁴            s/op
+HashBenchmark.hashShort_2:p0.999   sample             ≈ 10⁻⁴            s/op
+HashBenchmark.hashShort_2:p0.9999  sample              0.001            s/op
+HashBenchmark.hashShort_2:p1.00    sample              0.001            s/op
+HashBenchmark.hashShort_1              ss             ≈ 10⁻⁵            s/op
+HashBenchmark.hashShort_2              ss             ≈ 10⁻⁵            s/op
+
+Process finished with exit code 0
