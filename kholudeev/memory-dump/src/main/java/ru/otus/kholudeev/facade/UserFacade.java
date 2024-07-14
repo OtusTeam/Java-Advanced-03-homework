@@ -15,7 +15,10 @@ import ru.otus.kholudeev.dto.response.UsersResponse;
 import ru.otus.kholudeev.exception.UserExistsException;
 import ru.otus.kholudeev.mapper.UserMapper;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static java.lang.String.format;
 import static ru.otus.kholudeev.constant.ApiErrorResponseCodeConstant.UNKNOWN_ERROR;
@@ -25,17 +28,8 @@ import static ru.otus.kholudeev.constant.ApiErrorResponseCodeConstant.USER_EXIST
 @AllArgsConstructor
 @Slf4j
 public class UserFacade {
-    private static final HashMap<String, String> users = new HashMap<>();
     private final UserRepoService userRepoService;
     private final UserMapper userMapper;
-
-    private static String generateLargeString() {
-        char[] chars = new char[1024 * 32];
-        for (int i = 0; i < chars.length; i++) {
-            chars[i] = 'a';
-        }
-        return new String(chars);
-    }
 
     public UsersResponse createAll(UsersRequest request) {
         try {
@@ -117,7 +111,6 @@ public class UserFacade {
             }
 
             User user = userMapper.toUser(userRequest);
-            users.put(user.getLogin(), generateLargeString() + user.getLogin());
             userRepoService.save(user);
 
             userResponse = userMapper.toUserResponse(user);
