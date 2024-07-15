@@ -6,6 +6,12 @@
     <groupId>ru.otus</groupId>
     <artifactId>ponomarev</artifactId>
     <version>1.0</version>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.5</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
     <packaging>pom</packaging>
 
@@ -14,5 +20,6 @@
         <module>keytool-jlink-task</module>
         <module>out-of-memory-task</module>
         <module>jmeter-task</module>
+        <module>task6-jmh</module>
     </modules>
 </project>
