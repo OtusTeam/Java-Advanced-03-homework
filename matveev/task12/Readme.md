@@ -8,7 +8,7 @@ mvn clean verify
 ### build image with our *.jar and run it on port 8081
 
 ```
-docker build -t myhomeworkapp . && docker run -p 8081:8081 myhomeworkapp:latest
+docker build -t myhomeworkapp . && docker run -p 80:8081 myhomeworkapp:latest
 ```
 
 ### Check that our container started:
@@ -39,3 +39,6 @@ curl --location 'http://127.0.0.1:8081/users/create' \
 ```
 curl --location 'http://localhost:8081/users' 
 ```
+
+#### Get HelloWorld:
+curl --location 'http://127.0.0.1:80/users/helloworld'

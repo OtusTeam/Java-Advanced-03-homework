@@ -22,6 +22,12 @@ public class UserController {
     public synchronized ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(userRepository.findAll());
     }
+
+    @GetMapping("/helloworld")
+    public  ResponseEntity<String> getHelloWorld() {
+        return ResponseEntity.ok("Hello world!");
+    }
+
     @PostMapping("/create")
     public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
         user.setPassword(user.getPassword());
