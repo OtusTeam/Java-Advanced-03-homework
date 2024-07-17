@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myhomeworkapp
+  name: myhomeworkapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myhomeworkapp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: myhomeworkapp
+    spec:
+      containers:
+      - image: myhomeworkapp
+        name: myhomeworkapp
+        imagePullPolicy: Never
+        resources: {}
+status: {}
