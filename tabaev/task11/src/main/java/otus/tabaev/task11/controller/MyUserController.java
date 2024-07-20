@@ -1,5 +1,8 @@
 package otus.tabaev.task11.controller;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.ReactiveAuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,13 +19,13 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/user")
+@RequiredArgsConstructor
 public class MyUserController {
 
     private final MyUserService userService;
 
-    public MyUserController(MyUserService userService) {
-        this.userService = userService;
-    }
+    private final ReactiveAuthenticationManager authenticationManager;
+
 
     @PostMapping("/registration")
     public Mono<CreateUserResponse> registration(@RequestBody CreateUserRequest request) {
@@ -32,8 +35,8 @@ public class MyUserController {
 
     @PostMapping("/login")
     public Mono<LoginUserResponse> login(@RequestBody LoginUserRequest request) {
-        return userService.loginUser(request)
-                .map(user -> new LoginUserResponse(user.getLogin(), true));
+        return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getLogin(), request.getPassword()))
+                .map(authentication -> new LoginUserResponse(authentication.getName(), authentication.isAuthenticated()));
     }
 
     @GetMapping
