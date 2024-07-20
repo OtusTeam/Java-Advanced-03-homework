@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>memory-dump</module>
         <module>docker-container</module>
     </modules>
 </project>
