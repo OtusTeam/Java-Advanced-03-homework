@@ -1,12 +1,13 @@
 spring:
-  datasource:
-    url: jdbc:h2:mem:userservice
-    driverClassName: org.h2.Driver
+  r2dbc:
+    url: r2dbc:h2:mem:///userservice;DB_CLOSE_ON_EXIT=TRUE
     username: usr
     password: pwd
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
   flyway:
+    url: jdbc:h2:mem:userservice;DB_CLOSE_DELAY=-1
+    user: ${spring.r2dbc.username}
+    password: ${spring.r2dbc.password}
+    baseline-on-migrate: true
     enabled: true
 
 logging:

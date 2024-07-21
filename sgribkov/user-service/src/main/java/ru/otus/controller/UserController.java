@@ -1,15 +1,14 @@
 package ru.otus.controller;
 
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import ru.otus.dao.UserDao;
 import ru.otus.model.User;
 import ru.otus.model.UserData;
+import ru.otus.model.UserIdentity;
 import ru.otus.service.UserMonitoringService;
-import java.util.List;
 
 
 @RestController
@@ -20,41 +19,31 @@ public class UserController {
     private final UserMonitoringService userMonitoringService;
 
     @GetMapping("/{login}")
-    public ResponseEntity<String> getUser(@PathVariable String login) {
-        User user = userDao.findByLogin(login);
-        return ResponseEntity.ok(user.getId());
+    public Mono<String> getUser(@PathVariable String login) {
+        return userDao.findByLogin(login).map(User::getId);
     }
 
     @GetMapping("/report")
-    public ResponseEntity<List<UserData>> getUserIdentity() {
-        List<UserData> reportData = userMonitoringService.getUserReport();
-        return ResponseEntity.ok(reportData);
+    public Flux<UserData> getUserReport() {
+        return userMonitoringService.getUserReport();
     }
 
     @PostMapping
-    public ResponseEntity<String> saveUser(Model model,
-                                           @RequestBody User user) {
-        User savedUser = userDao.save(user);
-        userMonitoringService.run(savedUser);
-        return ResponseEntity.ok(savedUser.getId());
+    public Mono<String> saveUser(@RequestBody User user) {
+        return userDao.save(user)
+                .doOnNext(userMonitoringService::run)
+                .map(User::getId);
     }
 
     @PutMapping
-    public ResponseEntity<String> updateUser(Model model,
-                                             @RequestBody User user) {
-        User updatedUser = userDao.update(user);
-        return ResponseEntity.ok(updatedUser.getId());
+    public Mono<String> updateUser(@RequestBody User user) {
+        return userDao
+                .update(user).map(User::getId);
     }
 
     @DeleteMapping("/{login}")
-    public ResponseEntity<String> deleteUser(@PathVariable String login) {
-        String deletedUserLogin = userDao.delete(login);
-        boolean userMonitoringResult = userMonitoringService.stop(deletedUserLogin);
-
-        if (!userMonitoringResult) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } else {
-            return ResponseEntity.ok(deletedUserLogin);
-        }
+    public Mono<String> deleteUser(@PathVariable String login) {
+        return userDao.delete(login)
+                .doOnNext(userMonitoringService::stop);
     }
 }

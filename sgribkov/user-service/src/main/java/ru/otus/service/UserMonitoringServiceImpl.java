@@ -4,12 +4,12 @@ import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import ru.otus.model.User;
 import ru.otus.model.UserData;
 import ru.otus.model.UserIdentity;
 
 import java.time.Instant;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.*;
 
@@ -22,7 +22,7 @@ public class UserMonitoringServiceImpl implements UserMonitoringService {
     private static final Map<String, MonitoringRunningTask> users = new ConcurrentHashMap<>();
 
     @Override
-    public void run(User user) {
+    public UserIdentity run(User user) {
         var userIdentity = new UserIdentity(user);
 
         var runMonitoring = new Runnable() {
@@ -49,6 +49,8 @@ public class UserMonitoringServiceImpl implements UserMonitoringService {
 
         var monitoringRunningTask = new MonitoringRunningTask(userIdentity, scheduled, stopMonitoring);
         users.put(userIdentity.getLogin(), monitoringRunningTask);
+
+        return userIdentity;
     }
 
     @Override
@@ -71,10 +73,10 @@ public class UserMonitoringServiceImpl implements UserMonitoringService {
     }
 
     @Override
-    public List<UserData> getUserReport() {
-        return history.keySet().stream()
-                .map(key -> new UserData(key.getId(), key.getLogin(), history.get(key)))
-                .toList();
+    public Flux<UserData> getUserReport() {
+        return Flux.fromStream(
+                history.keySet().stream()
+                        .map(key -> new UserData(key.getId(), key.getLogin(), history.get(key))));
     }
 
     private class MonitoringRunningTask implements Callable<Boolean> {

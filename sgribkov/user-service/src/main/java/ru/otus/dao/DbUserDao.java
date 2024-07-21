@@ -1,12 +1,15 @@
 package ru.otus.dao;
 
 import lombok.AllArgsConstructor;
+import org.apache.commons.math3.analysis.function.Identity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import ru.otus.db.repository.UserRepository;
-import ru.otus.db.sessionmanager.TransactionManager;
 import ru.otus.model.User;
 import ru.otus.service.encryptor.UserEncryptor;
 
@@ -14,51 +17,47 @@ import ru.otus.service.encryptor.UserEncryptor;
 @AllArgsConstructor
 public class DbUserDao implements UserDao {
     private static final Logger log = LoggerFactory.getLogger(DbUserDao.class);
-
-    private final TransactionManager transactionManager;
     private final UserRepository userRepository;
     @Autowired
     private final UserEncryptor userEncryptor;
 
     @Override
-    public User findByLogin(String login) {
-        return userRepository.findById(login).orElseThrow(() ->
-                new RuntimeException(
-                        String.format("User with login: %s not found", login)));
+    public Mono<User> findByLogin(String login) {
+        return userRepository.findById(login).switchIfEmpty(
+                Mono.error(
+                        new RuntimeException(
+                                String.format("User with login: %s not found", login))));
     }
 
     @Override
-    public User save(User user) {
-        return transactionManager.doInTransaction(() -> {
-            User userEncrypted = userEncryptor.encrypt(user);
-            userEncrypted.setNew(true);
-            var savedUser = userRepository.save(userEncrypted);
-            log.info("Saved user: {} with encrypted password: {}",
-                     savedUser.getId(),
-                     savedUser.getPassword());
-            return savedUser;
-        });
+    @Transactional
+    public Mono<User> save(User user) {
+        User userEncrypted = userEncryptor.encrypt(user);
+        userEncrypted.setNew(true);
+        return userRepository.save(userEncrypted)
+                .doOnNext(u ->
+                        log.info("Saved user: {} with encrypted password: {}",
+                                u.getId(),
+                                u.getPassword()));
     }
 
     @Override
-    public User update(User user) {
-        return transactionManager.doInTransaction(() -> {
-            User userEncrypted = userEncryptor.encrypt(user);
-            userEncrypted.setNew(false);
-            var updatedUser = userRepository.save(user);
-            log.info("Updated user: {} with encrypted password: {}",
-                     updatedUser.getId(),
-                     updatedUser.getPassword());
-            return updatedUser;
-        });
+    @Transactional
+    public Mono<User> update(User user) {
+        User userEncrypted = userEncryptor.encrypt(user);
+        userEncrypted.setNew(false);
+        return userRepository.save(userEncrypted)
+                .doOnNext(u ->
+                        log.info("Updated user: {} with encrypted password: {}",
+                                u.getId(),
+                                u.getPassword()));
     }
 
     @Override
-    public String delete(String login) {
-        return transactionManager.doInTransaction(() -> {
-            userRepository.deleteById(login);
-            log.info("Deleted user: {}", login);
-            return login;
-        });
+    @Transactional
+    public Mono<String> delete(String login) {
+        return userRepository.deleteById(login)
+                .thenReturn(login)
+                .doOnNext(l -> log.info("Deleted user: {}", login));
     }
 }
