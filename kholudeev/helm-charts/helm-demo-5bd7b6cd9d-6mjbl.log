@@ -1,0 +1,75 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+{"logDate":"2024-07-21T20:05:41.436942029+03:00","message":"Starting ApplicationLauncher v1.0-0 using Java 17.0.5 with PID 1 (/app/app.jar started by root in /app)","logger":"ru.otus.kholudeev.ApplicationLauncher","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:05:41.469516085+03:00","message":"No active profile set, falling back to 1 default profile: \"default\"","logger":"ru.otus.kholudeev.ApplicationLauncher","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:05:56.468467612+03:00","message":"Bootstrapping Spring Data JPA repositories in DEFAULT mode.","logger":"org.springframework.data.repository.config.RepositoryConfigurationDelegate","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:05:57.398497094+03:00","message":"Finished Spring Data repository scanning in 810 ms. Found 1 JPA repository interface.","logger":"org.springframework.data.repository.config.RepositoryConfigurationDelegate","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:07.081494625+03:00","message":"Tomcat initialized with port 8080 (http)","logger":"org.springframework.boot.web.embedded.tomcat.TomcatWebServer","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:07.19804172+03:00","message":"Initializing ProtocolHandler [\"http-nio-8080\"]","logger":"org.apache.coyote.http11.Http11NioProtocol","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:07.279557557+03:00","message":"Starting service [Tomcat]","logger":"org.apache.catalina.core.StandardService","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:07.280834849+03:00","message":"Starting Servlet engine: [Apache Tomcat/10.1.20]","logger":"org.apache.catalina.core.StandardEngine","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:08.321422419+03:00","message":"Initializing Spring embedded WebApplicationContext","logger":"org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:08.362078933+03:00","message":"Root WebApplicationContext: initialization completed in 26062 ms","logger":"org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:10.468360875+03:00","message":"HikariPool-1 - Starting...","logger":"com.zaxxer.hikari.HikariDataSource","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:13.099433038+03:00","message":"HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA","logger":"com.zaxxer.hikari.pool.HikariPool","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:13.119483319+03:00","message":"HikariPool-1 - Start completed.","logger":"com.zaxxer.hikari.HikariDataSource","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:14.020365392+03:00","message":"Set default schema name to PUBLIC","logger":"liquibase.database","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:22.366418946+03:00","message":"Creating database history table with name: PUBLIC.DATABASECHANGELOG","logger":"liquibase.changelog","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:23.350910076+03:00","message":"Reading from PUBLIC.DATABASECHANGELOG","logger":"liquibase.changelog","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:24.680011067+03:00","message":"Successfully acquired change log lock","logger":"liquibase.lockservice","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:24.89048851+03:00","message":"Using deploymentId: 1581584889","logger":"liquibase.command","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:24.966224411+03:00","message":"Reading from PUBLIC.DATABASECHANGELOG","logger":"liquibase.changelog","thread":"main","logLevel":"INFO"}
+Running Changeset: db.changelog/v-1.0/changelog-v1.0-master.xml::otus-1::otus
+{"logDate":"2024-07-21T20:06:25.27161968+03:00","message":"Tag 'otus-1' applied to database","logger":"liquibase.changelog","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:25.277640405+03:00","message":"ChangeSet db.changelog/v-1.0/changelog-v1.0-master.xml::otus-1::otus ran successfully in 11ms","logger":"liquibase.changelog","thread":"main","logLevel":"INFO"}
+Running Changeset: db.changelog/v-1.0/changelog-202407141100.xml::202407141100-1::otus
+{"logDate":"2024-07-21T20:06:25.530394675+03:00","message":"Sequence USER_SEQ created","logger":"liquibase.changelog","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:25.552119482+03:00","message":"ChangeSet db.changelog/v-1.0/changelog-202407141100.xml::202407141100-1::otus ran successfully in 109ms","logger":"liquibase.changelog","thread":"main","logLevel":"INFO"}
+Running Changeset: db.changelog/v-1.0/changelog-202407141100.xml::202407141100-2::otus
+{"logDate":"2024-07-21T20:06:26.068490606+03:00","message":"Table USER created","logger":"liquibase.changelog","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:26.069552675+03:00","message":"ChangeSet db.changelog/v-1.0/changelog-202407141100.xml::202407141100-2::otus ran successfully in 359ms","logger":"liquibase.changelog","thread":"main","logLevel":"INFO"}
+Running Changeset: db.changelog/v-1.0/changelog-v1.0-master.xml::otus-2::otus
+{"logDate":"2024-07-21T20:06:26.150237114+03:00","message":"Tag 'otus-2' applied to database","logger":"liquibase.changelog","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:26.150899565+03:00","message":"ChangeSet db.changelog/v-1.0/changelog-v1.0-master.xml::otus-2::otus ran successfully in 1ms","logger":"liquibase.changelog","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:26.207577594+03:00","message":"UPDATE SUMMARY","logger":"liquibase.util","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:26.208025884+03:00","message":"Run:                          4","logger":"liquibase.util","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:26.208588488+03:00","message":"Previously run:               0","logger":"liquibase.util","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:26.208914468+03:00","message":"Filtered out:                 0","logger":"liquibase.util","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:26.20914473+03:00","message":"-------------------------------","logger":"liquibase.util","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:26.209547965+03:00","message":"Total change sets:            4\n","logger":"liquibase.util","thread":"main","logLevel":"INFO"}
+
+UPDATE SUMMARY
+Run:                          4
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:            4
+
+{"logDate":"2024-07-21T20:06:26.211603354+03:00","message":"Update summary generated","logger":"liquibase.util","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:26.262076733+03:00","message":"Update command completed successfully.","logger":"liquibase.command","thread":"main","logLevel":"INFO"}
+Liquibase: Update has been successful. Rows affected: 4
+{"logDate":"2024-07-21T20:06:26.308672008+03:00","message":"Successfully released change log lock","logger":"liquibase.lockservice","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:26.309411984+03:00","message":"Command execution complete","logger":"liquibase.command","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:27.861277289+03:00","message":"HHH000204: Processing PersistenceUnitInfo [name: default]","logger":"org.hibernate.jpa.internal.util.LogHelper","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:28.650434089+03:00","message":"HHH000412: Hibernate ORM core version 6.4.4.Final","logger":"org.hibernate.Version","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:29.086711359+03:00","message":"HHH000026: Second-level cache disabled","logger":"org.hibernate.cache.internal.RegionFactoryInitiator","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:31.360868054+03:00","message":"No LoadTimeWeaver setup: ignoring JPA class transformer","logger":"org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:36.61312316+03:00","message":"HV000001: Hibernate Validator 8.0.1.Final","logger":"org.hibernate.validator.internal.util.Version","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:44.471662554+03:00","message":"HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)","logger":"org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:44.483007281+03:00","message":"Initialized JPA EntityManagerFactory for persistence unit 'default'","logger":"org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:06:48.473860605+03:00","message":"Hibernate is in classpath; If applicable, HQL parser will be used.","logger":"org.springframework.data.jpa.repository.query.QueryEnhancerFactory","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:07:14.054876335+03:00","message":"Starting ProtocolHandler [\"http-nio-8080\"]","logger":"org.apache.coyote.http11.Http11NioProtocol","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:07:14.247094961+03:00","message":"Tomcat started on port 8080 (http) with context path ''","logger":"org.springframework.boot.web.embedded.tomcat.TomcatWebServer","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:07:14.473492338+03:00","message":"Started ApplicationLauncher in 101.927 seconds (process running for 119.655)","logger":"ru.otus.kholudeev.ApplicationLauncher","thread":"main","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:21:31.269888532+03:00","message":"Initializing Spring DispatcherServlet 'dispatcherServlet'","logger":"org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]","thread":"http-nio-8080-exec-1","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:21:31.27065104+03:00","message":"Initializing Servlet 'dispatcherServlet'","logger":"org.springframework.web.servlet.DispatcherServlet","thread":"http-nio-8080-exec-1","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:21:31.350171499+03:00","message":"Completed initialization in 79 ms","logger":"org.springframework.web.servlet.DispatcherServlet","thread":"http-nio-8080-exec-1","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:21:34.660353401+03:00","message":"Начало создания пользователя, логин - Ivan32","logger":"ru.otus.kholudeev.facade.UserFacade","thread":"http-nio-8080-exec-1","logLevel":"INFO"}
+{"logDate":"2024-07-21T20:21:38.982292484+03:00","message":"Пользователь успешно создан, id - 1, login - Ivan32","logger":"ru.otus.kholudeev.facade.UserFacade","thread":"http-nio-8080-exec-1","logLevel":"INFO"}
