@@ -25,7 +25,7 @@ public class AbstractBenchmark {
                 .shouldDoGC(true)
                 .shouldFailOnError(true)
                 .resultFormat(ResultFormatType.JSON)
-                .result("./encrypting-benchmarking/jmh-result.json")
+                .result("./jmh-benchmarking/jmh-result.json")
                 .shouldFailOnError(true)
                 .jvmArgs("-server")
                 .build();
