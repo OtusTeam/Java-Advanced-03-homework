@@ -1,57 +1,33 @@
 package ru.otus;
 
-import ru.otus.service.FileSystemCache;
+import ru.otus.service.FileService;
 
-import java.io.File;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Emulator {
 
-    private final FileSystemCache cache;
+    private final FileService fileService;
 
-    public Emulator(File directory) {
-        this.cache = new FileSystemCache(directory);
-    }
-
-    public void loadFile(String filename) {
-        cache.loadData(filename);
-        System.out.println("Loaded file: " + filename);
-    }
-
-    public void printFile(String filename) {
-        String data = cache.getData(filename);
-        System.out.println(Objects.requireNonNullElseGet(data, () -> "File not found in cache: " + filename));
+    public Emulator(FileService fileService) {
+        this.fileService = fileService;
     }
 
     public void runCommand(String command) {
-        String filename;
-
         switch (command) {
-            case "load":
-                filename = promptUserForFilename("Enter a filename to load:");
-                if (filename != null) {
-                    loadFile(filename);
+            case "setdir":
+                String dir = promptUser("Enter a new directory name:");
+                fileService.setFolder(dir);
+                break;
+            case "getfile":
+                if (fileService.isPathFilled()) {
+                    String fileName = promptUser("Enter file name to get from dir");
+                    System.out.println(fileService.getFile(fileName));
                 }
-                break;
-            case "print":
-                filename = promptUserForFilename("Enter a filename to print:");
-                if (filename != null) {
-                    printFile(filename);
-                }
-                break;
-            case "dir":
-                filename = promptUserForFilename("Enter a new directory name:");
-                cache.setDirectory(new File(filename));
-                break;
-            default:
-                System.out.println("Unknown command.");
-                break;
         }
     }
 
-    private String promptUserForFilename(String messasge) {
-        System.out.println(messasge);
+    private String promptUser(String message) {
+        System.out.println(message);
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
