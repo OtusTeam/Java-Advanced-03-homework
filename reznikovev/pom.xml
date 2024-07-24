@@ -13,5 +13,6 @@
         <module>task1</module>
         <module>task2</module>
         <module>task7</module>
+        <module>task12_docker</module>
     </modules>
 </project>
