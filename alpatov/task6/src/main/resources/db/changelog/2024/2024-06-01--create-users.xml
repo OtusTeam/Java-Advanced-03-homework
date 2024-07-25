@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="2024-06-01--create-users" author="nik.alpatov@mail.ru">
+        <createTable tableName="USERS" remarks="Пользователи">
+            <column name="ID" type="uuid" remarks="Уникальный идентификатор пользователя" defaultValue="random_uuid()">
+                <constraints primaryKey="true" primaryKeyName="PK_USERS_ID"/>
+            </column>
+            <column name="LOGIN" type="text" remarks="Логин пользователя">
+                <constraints nullable="false" primaryKeyName="NOT_NULL_CONSTRAINT"/>
+            </column>
+            <column name="PASSWORD" type="text" remarks="Пароль пользователя"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

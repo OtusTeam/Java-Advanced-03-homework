@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>alpatov</module>
         <module>kilanov</module>
         <module>matveev</module>
         <module>moryakovdv</module>

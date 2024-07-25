@@ -1,0 +1,14 @@
+time java \
+     -Xshare:on \
+     -XX:ArchiveClassesAtExit=app_cds.jsa \
+     -Xlog:cds:file=cds_fail.log \
+     -Dspring.output.ansi.enabled=always \
+     -Dspring.context.exit=onRefresh \
+     -Dcom.sun.management.jmxremote \
+     -Dspring.jmx.enabled=true \
+     -Dspring.liveBeansView.mbeanDomain \
+     -Dspring.application.admin.enabled=true \
+     -Dfile.encoding=UTF-8 \
+     -Dsun.stdout.encoding=UTF-8 \
+     -Dsun.stderr.encoding=UTF-8 \
+     -jar ../../../target/Registration.jar

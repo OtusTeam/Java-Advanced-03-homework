@@ -1,0 +1,148 @@
+USAGE: ./startup.sh <warmups> <forks> <iterations>
+Using 1 warmup, 1 fork and 5 iterations
+# JMH version: 1.37
+# VM version: JDK 17.0.10, OpenJDK 64-Bit Server VM, 17.0.10+7-Ubuntu-120.04.1
+# VM invoker: /usr/lib/jvm/java-17-openjdk-amd64/bin/java
+# VM options: -Djmh.ignoreLock=true
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 10 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: otus.moryakovdv.task6.jmh.BenchmarkThroughput.measureMd5
+
+# Run progress: 0.00% complete, ETA 00:28:35
+# Fork: 1 of 1
+# Warmup Iteration   1: 16:21:52.085 [otus.moryakovdv.task6.jmh.BenchmarkThroughput.measureMd5-jmh-worker-1] INFO  o.m.task6.jmh.ParentBenchmark - md5hasher created: otus.moryakovdv.task6.service.Md5Hasher@1188c179
+16:21:52.088 [otus.moryakovdv.task6.jmh.BenchmarkThroughput.measureMd5-jmh-worker-1] INFO  o.m.task6.jmh.ParentBenchmark - sha256hasher created: otus.moryakovdv.task6.service.SHA256Hasher@28f7f4ad
+16:21:52.088 [otus.moryakovdv.task6.jmh.BenchmarkThroughput.measureMd5-jmh-worker-1] INFO  o.m.task6.jmh.ParentBenchmark - sha512hasher created: otus.moryakovdv.task6.service.SHA512Hasher@5ac1d358
+2.296 ops/us
+Iteration   1: 2.280 ops/us
+Iteration   2: 2.345 ops/us
+Iteration   3: 2.249 ops/us
+Iteration   4: 2.009 ops/us
+Iteration   5: 1.900 ops/us
+
+
+Result "otus.moryakovdv.task6.jmh.BenchmarkThroughput.measureMd5":
+  2.157 ±(99.9%) 0.738 ops/us [Average]
+  (min, avg, max) = (1.900, 2.157, 2.345), stdev = 0.192
+  CI (99.9%): [1.418, 2.895] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 17.0.10, OpenJDK 64-Bit Server VM, 17.0.10+7-Ubuntu-120.04.1
+# VM invoker: /usr/lib/jvm/java-17-openjdk-amd64/bin/java
+# VM options: -Djmh.ignoreLock=true
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 10 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: otus.moryakovdv.task6.jmh.BenchmarkThroughput.measureSha256
+
+# Run progress: 2.04% complete, ETA 00:28:19
+# Fork: 1 of 1
+# Warmup Iteration   1: 16:22:27.510 [otus.moryakovdv.task6.jmh.BenchmarkThroughput.measureSha256-jmh-worker-1] INFO  o.m.task6.jmh.ParentBenchmark - md5hasher created: otus.moryakovdv.task6.service.Md5Hasher@1188c179
+16:22:27.513 [otus.moryakovdv.task6.jmh.BenchmarkThroughput.measureSha256-jmh-worker-1] INFO  o.m.task6.jmh.ParentBenchmark - sha256hasher created: otus.moryakovdv.task6.service.SHA256Hasher@28f7f4ad
+16:22:27.513 [otus.moryakovdv.task6.jmh.BenchmarkThroughput.measureSha256-jmh-worker-1] INFO  o.m.task6.jmh.ParentBenchmark - sha512hasher created: otus.moryakovdv.task6.service.SHA512Hasher@5ac1d358
+0.977 ops/us
+Iteration   1: 0.922 ops/us
+Iteration   2: 0.897 ops/us
+Iteration   3: 0.771 ops/us
+Iteration   4: 0.940 ops/us
+Iteration   5: 0.923 ops/us
+
+
+Result "otus.moryakovdv.task6.jmh.BenchmarkThroughput.measureSha256":
+  0.891 ±(99.9%) 0.264 ops/us [Average]
+  (min, avg, max) = (0.771, 0.891, 0.940), stdev = 0.069
+  CI (99.9%): [0.627, 1.155] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 17.0.10, OpenJDK 64-Bit Server VM, 17.0.10+7-Ubuntu-120.04.1
+# VM invoker: /usr/lib/jvm/java-17-openjdk-amd64/bin/java
+# VM options: -Djmh.ignoreLock=true
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 10 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: otus.moryakovdv.task6.jmh.BenchmarkThroughput.measureSha512
+
+# Run progress: 4.08% complete, ETA 00:27:44
+# Fork: 1 of 1
+# Warmup Iteration   1: 16:23:02.989 [otus.moryakovdv.task6.jmh.BenchmarkThroughput.measureSha512-jmh-worker-1] INFO  o.m.task6.jmh.ParentBenchmark - md5hasher created: otus.moryakovdv.task6.service.Md5Hasher@1188c179
+16:23:02.993 [otus.moryakovdv.task6.jmh.BenchmarkThroughput.measureSha512-jmh-worker-1] INFO  o.m.task6.jmh.ParentBenchmark - sha256hasher created: otus.moryakovdv.task6.service.SHA256Hasher@28f7f4ad
+16:23:02.993 [otus.moryakovdv.task6.jmh.BenchmarkThroughput.measureSha512-jmh-worker-1] INFO  o.m.task6.jmh.ParentBenchmark - sha512hasher created: otus.moryakovdv.task6.service.SHA512Hasher@5ac1d358
+0.552 ops/us
+Iteration   1: 0.558 ops/us
+Iteration   2: 0.588 ops/us
+Iteration   3: 0.586 ops/us
+Iteration   4: 0.564 ops/us
+Iteration   5: 0.583 ops/us
+
+
+Result "otus.moryakovdv.task6.jmh.BenchmarkThroughput.measureSha512":
+  0.576 ±(99.9%) 0.053 ops/us [Average]
+  (min, avg, max) = (0.558, 0.576, 0.588), stdev = 0.014
+  CI (99.9%): [0.523, 0.629] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 17.0.10, OpenJDK 64-Bit Server VM, 17.0.10+7-Ubuntu-120.04.1
+# VM invoker: /usr/lib/jvm/java-17-openjdk-amd64/bin/java
+# VM options: -Djmh.ignoreLock=true
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 10 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: otus.moryakovdv.task6.jmh.BenchmarkAverageTime.measureMd5
+
+# Run progress: 6.12% complete, ETA 00:27:10
+# Fork: 1 of 1
+# Warmup Iteration   1: 16:23:38.447 [otus.moryakovdv.task6.jmh.BenchmarkAverageTime.measureMd5-jmh-worker-1] INFO  o.m.task6.jmh.ParentBenchmark - md5hasher created: otus.moryakovdv.task6.service.Md5Hasher@1188c179
+16:23:38.451 [otus.moryakovdv.task6.jmh.BenchmarkAverageTime.measureMd5-jmh-worker-1] INFO  o.m.task6.jmh.ParentBenchmark - sha256hasher created: otus.moryakovdv.task6.service.SHA256Hasher@28f7f4ad
+16:23:38.451 [otus.moryakovdv.task6.jmh.BenchmarkAverageTime.measureMd5-jmh-worker-1] INFO  o.m.task6.jmh.ParentBenchmark - sha512hasher created: otus.moryakovdv.task6.service.SHA512Hasher@5ac1d358
+0.573 us/op
+Iteration   1: 0.520 us/op
+Iteration   2: 0.520 us/op
+Iteration   3: 0.574 us/op
+Iteration   4: 0.531 us/op
+Iteration   5: 0.564 us/op
+
+
+Result "otus.moryakovdv.task6.jmh.BenchmarkAverageTime.measureMd5":
+  0.542 ±(99.9%) 0.097 us/op [Average]
+  (min, avg, max) = (0.520, 0.542, 0.574), stdev = 0.025
+  CI (99.9%): [0.445, 0.639] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 17.0.10, OpenJDK 64-Bit Server VM, 17.0.10+7-Ubuntu-120.04.1
+# VM invoker: /usr/lib/jvm/java-17-openjdk-amd64/bin/java
+# VM options: -Djmh.ignoreLock=true
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 10 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: otus.moryakovdv.task6.jmh.BenchmarkAverageTime.measureSha256
+
+# Run progress: 8.16% complete, ETA 00:26:34
+# Fork: 1 of 1
+# Warmup Iteration   1: 16:24:13.897 [otus.moryakovdv.task6.jmh.BenchmarkAverageTime.measureSha256-jmh-worker-1] INFO  o.m.task6.jmh.ParentBenchmark - md5hasher created: otus.moryakovdv.task6.service.Md5Hasher@1188c179
+16:24:13.901 [otus.moryakovdv.task6.jmh.BenchmarkAverageTime.measureSha256-jmh-worker-1] INFO  o.m.task6.jmh.ParentBenchmark - sha256hasher created: otus.moryakovdv.task6.service.SHA256Hasher@28f7f4ad
+16:24:13.901 [otus.moryakovdv.task6.jmh.BenchmarkAverageTime.measureSha256-jmh-worker-1] INFO  o.m.task6.jmh.ParentBenchmark - sha512hasher created: otus.moryakovdv.task6.service.SHA512Hasher@5ac1d358
+1.078 us/op
+Iteration   1: 0.990 us/op
+Iteration   2: 0.960 us/op
+Iteration   3: 0.961 us/op
+Iteration   4: 

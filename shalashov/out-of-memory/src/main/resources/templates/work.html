@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Java Advanced</title>
+</head>
+
+<body>
+<h1>Добро пожаловать ...</h1>
+<img th:src="@{/images/JavaAdvanced.png}"/>
+<form method="POST" th:action="@{/logout}" id="logoutForm">
+    <input type="submit" value="Выйти"/>
+</form>
+
+<h2>Вы успешно зашли. Можно поработать</h2>
+</body>
+</html>

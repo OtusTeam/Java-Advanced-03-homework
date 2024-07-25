@@ -1,0 +1,12 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/postgres?currentSchema=public
+    username: postgres
+    password: password
+  liquibase:
+    change-log: classpath:db/changelogs/db.changelog-master.xml
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=public
+    password: password
+    user: postgres
+hash:
+  algorithm: "SHA-256"

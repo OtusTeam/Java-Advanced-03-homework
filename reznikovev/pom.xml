@@ -11,5 +11,9 @@
 
     <modules>
         <module>task1</module>
+        <module>task2</module>
+        <module>task7</module>
+        <module>task11_flux</module>
+        <module>task12_docker</module>
     </modules>
 </project>

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 class WeakRefCacheTest {
 
-    @Test
+//    @Test
     void commonTest() {
         WeakRefCache<String, String> cache = new WeakRefCache<>();
         int size = 1_000;

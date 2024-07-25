@@ -1,0 +1,35 @@
+##Changeset с создание таблиц 
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog-create-structure.yaml
+  - changeSet:
+      id: A
+      author: moryakovdv
+##проверка на существование таблицы
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+           - tableExists:
+                 tableName: USERS
+      
+      changes:
+        - createTable:
+            tableName: USERS
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(512)
+                  constraints:
+                    nullable: false
