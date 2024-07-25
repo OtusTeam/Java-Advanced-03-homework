@@ -3,9 +3,9 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <changeSet id="2024-06-01--create-users" author="nik.alpatov@mail.ru">
+    <changeSet id="2024-06-01--create-users" author="nik.alpatov@mail.ru"  dbms="postgresql">
         <createTable tableName="USERS" remarks="Пользователи">
-            <column name="ID" type="uuid" remarks="Уникальный идентификатор пользователя" defaultValue="random_uuid()">
+            <column name="ID" type="uuid" remarks="Уникальный идентификатор пользователя" defaultValue="gen_random_uuid()">
                 <constraints primaryKey="true" primaryKeyName="PK_USERS_ID"/>
             </column>
             <column name="LOGIN" type="varchar(20)" remarks="Логин пользователя">

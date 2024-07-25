@@ -1,0 +1,22 @@
+version: '3.9'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:8080"
+    container_name: 'task11_task12'
+    environment:
+      - SPRING_R2DBC_URL=r2dbc:postgresql://db:5432/postgres
+      - SPRING_LIQUIBASE_URL=jdbc:postgresql://db:5432/postgres
+    depends_on:
+      - db
+  db:
+    image: "postgres:16"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres
