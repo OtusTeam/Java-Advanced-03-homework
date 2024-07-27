@@ -1,5 +1,6 @@
 java -XX:+UnlockDiagnosticVMOptions \
 	-XX:+AllowArchivingWithJavaAgent \
+	-Xshare:on \
 	-XX:SharedArchiveFile="C:\Users\dekholud\Documents\repos\java_pet\otus-java-advanced\app-cds.jsa" \
 	-Xlog:startuptime \
 	-Xlog:class+load:file=app_cds_on.log \

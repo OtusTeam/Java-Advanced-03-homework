@@ -22,7 +22,7 @@
 2. Run with option ```-Xshare:off -Xlog:startuptime```
    Create VM, 0.4560495 secs
    Started ApplicationLauncher in 5.661 seconds (process running for 6.665)
-3. Run with option ```-Xshare:on -Xlog:startuptime```
+3. Run with option ```-Xshare:on -Xlog:startuptime -Dspring.context.exit=onRefresh```
    Create VM, 0.4820600 secs
    Started ApplicationLauncher in 5.142 seconds (process running for 6.146)
 4.1 Run with option ```-XX:DumpLoadedClassList=classes.lst```

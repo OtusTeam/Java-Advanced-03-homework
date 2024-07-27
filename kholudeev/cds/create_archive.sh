@@ -5,6 +5,7 @@ java -Xshare:dump \
 	-XX:SharedArchiveFile=app-cds.jsa \
 	-XX:TieredStopAtLevel=1 \
 	-Dspring.profiles.active=local \
+	-Dspring.context.exit=onRefresh \
 	-Dspring.output.ansi.enabled=always \
 	-Dcom.sun.management.jmxremote \
 	-Dspring.jmx.enabled=true \
