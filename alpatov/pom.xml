@@ -18,6 +18,8 @@
         <module>task5</module>
         <module>task6</module>
         <module>task7</module>
+        <module>task8</module>
+        <module>task11_task12</module>
     </modules>
 
     <properties>

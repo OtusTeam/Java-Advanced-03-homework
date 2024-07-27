@@ -1,6 +1,7 @@
 package ru.otus.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -8,8 +9,8 @@ import ru.otus.dao.UserDao;
 import ru.otus.model.User;
 import ru.otus.model.UserData;
 import ru.otus.service.UserMonitoringService;
-
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/users")
@@ -48,6 +49,12 @@ public class UserController {
     @DeleteMapping("/{login}")
     public ResponseEntity<String> deleteUser(@PathVariable String login) {
         String deletedUserLogin = userDao.delete(login);
-        return ResponseEntity.ok(userDao.delete(login));
+        boolean userMonitoringResult = userMonitoringService.stop(deletedUserLogin);
+
+        if (!userMonitoringResult) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            return ResponseEntity.ok(deletedUserLogin);
+        }
     }
 }
