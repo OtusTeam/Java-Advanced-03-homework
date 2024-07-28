@@ -47,6 +47,7 @@ java.util.LinkedList @ 0xfccf6c68 retains 34 134 432 (62,18 %) bytes
 
 ## Запуск приложения
 создать .jar -> shalashov/out-of-memory:package
+
 выполнить
 ```
 cd shalashov/out-of-memory
