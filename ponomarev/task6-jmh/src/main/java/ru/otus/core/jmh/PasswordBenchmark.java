@@ -1,6 +1,5 @@
 package ru.otus.core.jmh;
 
-import lombok.RequiredArgsConstructor;
 import org.openjdk.jmh.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,7 +18,6 @@ public class PasswordBenchmark {
 
     @Autowired
     private HashPasswordService hashPasswordService;
-
 
     @Param({"MD5", "SHA-256", "SHA-512"})
     public String algorithm;

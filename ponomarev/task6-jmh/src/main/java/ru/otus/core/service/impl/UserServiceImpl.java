@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.otus.core.model.UserEntity;
 import ru.otus.core.repo.UserRepository;
+import ru.otus.core.service.HashPasswordService;
 import ru.otus.core.service.UserService;
 
 /**
@@ -18,12 +19,12 @@ import ru.otus.core.service.UserService;
 @Slf4j
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
+    private final HashPasswordService hashPasswordService;
 
     @Override
     @Transactional
     public UserEntity create(UserEntity userEntity) {
-        userEntity.setPassword(passwordEncoder.encode(userEntity.getPassword()));
+        userEntity.setPassword(hashPasswordService.hashPassword(userEntity.getPassword(), "MD5"));
         return userRepository.save(userEntity);
     }
 }
