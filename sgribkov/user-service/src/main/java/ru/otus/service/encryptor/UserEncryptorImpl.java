@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Mono;
 import ru.otus.model.User;
 
 import java.io.UnsupportedEncodingException;
@@ -28,6 +29,12 @@ public class UserEncryptorImpl implements UserEncryptor {
         this.charset = charset;
         this.algorithm = algorithm;
         this.isSalted = isSalted;
+    }
+
+    public UserEncryptorImpl() {
+        this.charset = "UTF-8";
+        this.algorithm = "SHA-256";
+        this.isSalted = true;
     }
 
     @Override
