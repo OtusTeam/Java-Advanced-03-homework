@@ -22,4 +22,9 @@ JDK 17, Maven, SpringBoot, JMH
 [jmh_benchmark_result](src%2Fmain%2Fresources%2Fjmh_benchmark_result)
 
 ![jmh_logs_result.png](src%2Fmain%2Fresources%2Fjmh_logs_result.png)
+По не ясным причинам в текущем проекте JMH использует только Throughput mode
+![photo_2024-07-25_20-45-59.jpg](..%2F..%2F..%2F..%2F..%2F..%2FUsers%2FAnton%2FDownloads%2FTelegram%20Desktop%2Fphoto_2024-07-25_20-45-59.jpg)
+![photo_2024-07-25_20-46-08.jpg](src%2Fmain%2Fresources%2Fphoto_2024-07-25_20-46-08.jpg)
+
+
 
