@@ -26,5 +26,9 @@ JDK 17, Maven, SpringBoot, JMH
 ![photo_2024-07-25_20-45-59.jpg](..%2F..%2F..%2F..%2F..%2F..%2FUsers%2FAnton%2FDownloads%2FTelegram%20Desktop%2Fphoto_2024-07-25_20-45-59.jpg)
 ![photo_2024-07-25_20-46-08.jpg](src%2Fmain%2Fresources%2Fphoto_2024-07-25_20-46-08.jpg)
 
-
-
+JMHSample_20_Annotations:
+![JMHSample_20_Annotations.png](src%2Fmain%2Fresources%2FJMHSample_20_Annotations.png)****
+JMHSample_26_BatchSize:
+![JMHSample_24_Inheritance.png](src%2Fmain%2Fresources%2FJMHSample_24_Inheritance.png)
+JMHSample_24_Inheritance
+![JMHSample_26_BatchSize.png](src%2Fmain%2Fresources%2FJMHSample_26_BatchSize.png)
