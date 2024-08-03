@@ -1,39 +1,44 @@
 package ru.otus.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.annotation.Nonnull;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.domain.Persistable;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.relational.core.mapping.Column;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Entity
 @Table(name = "user_data")
 public class User implements Persistable<String> {
     @Id
-    @Column(name = "login")
+    @Column(value = "login")
     private String login;
 
-    @Column(name = "password")
+    @Column(value = "password")
     @Nonnull
     private String password;
 
     @Transient
+    @JsonIgnore
     private boolean isNew;
 
     public User(String login, String password) {
         this.login = login;
         this.password = password;
-        this.isNew = false;
+        this.isNew = true;
     }
 
     @Override
+    @JsonIgnore
     public String getId() {
         return this.login;
     }
