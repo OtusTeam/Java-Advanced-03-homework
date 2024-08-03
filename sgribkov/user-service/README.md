@@ -11,42 +11,63 @@ Web приложение на spring boot с использованием реа
 включающая в себя логин и UUID, герерирующийся на базе логина в момент инициализации.
 
 ## Запуск
+
+### Локально
 *java -jar users-service-0.1.jar* 
+
+### В контейнере
+*docker build -t user_service .*
+<br>
+*docker run --name user_service -p 80:8080 user_service*
 
 ## REST API *
 
-#### Добавление нового пользователя
-*curl -H "Content-Type: application/json" -d "{\"login\":\"vasya\", \"password\":\"12345\"}" -X POST http://localhost:8080/user-service/users*
-
+#### Добавление нового пользователя **
+*curl -H "Content-Type: application/json" -d "{\"login\":\"vasya\", \"password\":\"12345\"}" -X POST http://localhost:80/user-service/users*
+<br>
 При успешном выполнении озвращает логин пользователя.
 
 
-#### Получение отчета сервиса мониторинга пользователей
+#### Получение отчета сервиса мониторинга пользователей **
 *curl -X GET http://localhost:8080/user-service/users/report*
-
+<br>
 При успешном выполнении возвращает данные по каждому пользователю -
 * id - идентификатор пользователя для мониторинга
 * login - логин пользователя
 * lastMonitoring - дата и время последнего мониторинга пользователя
 
+#### Получение списка зарегистрированных пользователей **
+*curl -X GET http://localhost:8080/user-service/users/*
+<br>
+При успешном выполнении возвращает список логинов зарегистрированных пользователей.
 
-#### Получение данных пользователя
+
+#### Получение данных пользователя **
 *curl -X GET http://localhost:8080/user-service/users/vasya*
-
+<br>
 При успешном выполнении возвращает логин пользователя.
 
 
-#### Обновление данных пользователя
+#### Обновление данных пользователя **
 *curl -H "Content-Type: application/json" -d "{\"login\":\"vasya\", \"password\":\"123456\"}" -X PUT http://localhost:8080/user-service/users*
-
+<br>
 При успешном выполнении возвращает логин пользователя.
 
 
-#### Удаление данных пользователя
+#### Удаление данных пользователя **
 *curl -X DELETE http://localhost:8080/user-service/users/vasya*
-
+<br>
 При успешном выполнении возвращает логин пользователя.
+
+#### Hello world ***
+*curl -X GET http://localhost:80/user-service/hello/*
+<br>
+При успешном выполнении возвращает "Hello world!".
 
 
 *примеры HTTP запросов приведены для утилиты curl
+<br>
+**при запуске в контейнере для HTTP запросов использовать в url порт 80 вместо 8080
+<br>
+***приведен url для HTTP запроса при запуске в контейнере
 
