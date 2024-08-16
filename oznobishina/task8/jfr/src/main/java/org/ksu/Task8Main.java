@@ -1,4 +1,5 @@
-package org.example;
+package org.ksu;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +9,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories
 @EntityScan
 @SpringBootApplication
-public class Task8Application {
-
+public class Task8Main {
     public static void main(String[] args) {
-        SpringApplication.run(Task8Application.class, args);
+        SpringApplication.run(Task8Main.class, args);
     }
-
 }

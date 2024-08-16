@@ -1,4 +1,4 @@
-package org.example.service;
+package org.ksu.service;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

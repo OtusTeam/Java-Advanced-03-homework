@@ -1,4 +1,4 @@
-package org.example.model;
+package org.ksu.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

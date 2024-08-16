@@ -1,6 +1,6 @@
-package org.example.repository;
+package org.ksu.repository;
 
-import org.example.model.Customer;
+import org.ksu.model.Customer;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

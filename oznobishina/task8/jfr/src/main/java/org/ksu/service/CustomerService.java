@@ -1,10 +1,7 @@
-package org.example.service;
+package org.ksu.service;
 
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
-import org.example.model.Customer;
-import org.example.repository.CustomerRepository;
+import org.ksu.model.Customer;
+import org.ksu.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +25,7 @@ public class CustomerService {
         DeadlockExample deadlock = new DeadlockExample();
         new Thread(deadlock::operation1, "T1").start();
         new Thread(deadlock::operation2, "T2").start();
+
     }
 
     public Customer saveCustomer(Customer customer) {

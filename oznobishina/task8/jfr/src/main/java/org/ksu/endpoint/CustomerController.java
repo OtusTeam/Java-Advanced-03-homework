@@ -1,7 +1,7 @@
-package org.example.endpoint;
+package org.ksu.endpoint;
 
-import org.example.model.Customer;
-import org.example.service.CustomerService;
+import org.ksu.model.Customer;
+import org.ksu.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
