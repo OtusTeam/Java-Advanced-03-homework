@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: reactor-app
+  r2dbc:
+    url: r2dbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=TRUE
+    username: sa
+    password: password
+  liquibase:
+    enabled: true
+    change-log: classpath:liquibase/liquibase-changeLog.xml
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        trace: false
