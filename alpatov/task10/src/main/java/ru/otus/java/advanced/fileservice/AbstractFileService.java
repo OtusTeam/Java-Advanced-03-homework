@@ -3,13 +3,16 @@ package ru.otus.java.advanced.fileservice;
 import ru.otus.java.advanced.cache.AbstractReferenceCache;
 import ru.otus.java.advanced.filereader.AbstractFileReader;
 
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+
 public abstract class AbstractFileService {
 
     public AbstractFileService(AbstractFileReader fileReader) {
         this.fileReader = fileReader;
     }
 
-    protected AbstractReferenceCache<String, String> cache;
+    protected AbstractReferenceCache<String, ByteBuffer> cache;
     protected AbstractFileReader fileReader;
     protected String dir;
 
@@ -25,7 +28,7 @@ public abstract class AbstractFileService {
             System.out.println("Файл загружен в кэш");
         }
         System.out.println("Достаю файл из кэша");
-        return cache.get(fileName);
+        return String.valueOf(StandardCharsets.UTF_8.decode(cache.get(fileName)));
     }
 
     public boolean uploadFile(String fileName) {
@@ -39,10 +42,9 @@ public abstract class AbstractFileService {
         }
     }
 
-    private String getFileContent(String fileName) {
+    private ByteBuffer getFileContent(String fileName) {
         System.out.println("Начинаю чтение файла");
         return fileReader.readFile(fileName);
-//            return Files.readString(Paths.get(dir + "/" + fileName), Charset.defaultCharset());
     }
 
 }
