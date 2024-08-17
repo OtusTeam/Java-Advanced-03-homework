@@ -1,0 +1,15 @@
+appname: helm-kubernetes-userapp
+protocol: TCP
+port: 8080
+type: ClusterIP
+tier: backend
+replicas: 1
+image:
+  repository: kseniya1/docker_myapp
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: latest
+service:
+  type: NodePort
+  port: 8080
+  nodePort: 30001
