@@ -1,5 +1,6 @@
 package ru.otus.core.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -15,17 +16,15 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @NoArgsConstructor
 public class UserEntity {
+    @Column(name = "object_id")
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String objectId;
+    @Column(name = "user_name")
     private String userName;
+    @Column(name = "user_data")
     private String userData;
+    @Column(name = "password")
     private String password;
-    private Integer version = 0;
-
-    public void incrementVersion() {
-        Integer ver = this.version + 1;
-        setVersion(ver);
-    }
 }

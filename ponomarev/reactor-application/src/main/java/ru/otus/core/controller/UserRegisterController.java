@@ -27,10 +27,11 @@ public class UserRegisterController {
 
     @PostMapping(path = "/register", consumes = "application/json", produces = "application/json")
     @ResponseBody
-    ResponseEntity<UserDto> register(@RequestBody UserDto userDto) {
+    Mono<ResponseEntity<UserDto>> register(@RequestBody UserDto userDto) {
         var userEntity = userService.create(convertToEntity(userDto));
         log.info("Register success: " + userEntity);
-        return ResponseEntity.ok(convertToDto(userEntity));
+        return convertToDto(userEntity)
+                .map(ResponseEntity::ok);
     }
 
     private UserEntity convertToEntity(UserDto userDto) {
@@ -38,8 +39,7 @@ public class UserRegisterController {
         return userEntity;
     }
 
-    private UserDto convertToDto(Mono<UserEntity> post) {
-        UserDto userDto = modelMapper.map(post, UserDto.class);
-        return userDto;
+    private Mono<UserDto> convertToDto(Mono<UserEntity> userEntityMono) {
+        return userEntityMono.map(u -> modelMapper.map(u, UserDto.class));
     }
 }

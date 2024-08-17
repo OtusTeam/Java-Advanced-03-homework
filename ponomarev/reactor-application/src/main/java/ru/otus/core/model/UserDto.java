@@ -19,9 +19,10 @@ public class UserDto {
 
 
     @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
-    public UserDto(String userName, String userData) {
+    public UserDto(String userName, String userData, String password) {
         this.userName = userName;
         this.userData = userData;
+        this.password = password;
     }
 
     @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)

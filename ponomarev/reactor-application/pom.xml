@@ -9,7 +9,7 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>task11-reactor</artifactId>
+    <artifactId>reactor-application</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -28,10 +28,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-r2dbc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-r2dbc</artifactId>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>

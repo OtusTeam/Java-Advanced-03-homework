@@ -5,14 +5,13 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <changeSet id="001-create-user-table" author="Anton Ponomarev">
-        <createTable tableName="user_entity">
-            <column name="object_id" type="varchar(255)" remarks="ID пользователя">
+        <createTable tableName="USER_ENTITY">
+            <column name="object_id" type="varchar(255)" remarks="ID пользователя" defaultValue="gen_random_uuid()">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="user_name" type="varchar(255)" remarks="Имя пользователя"/>
             <column name="user_data" type="varchar(255)" remarks="Доп данные пользователя"/>
             <column name="password" type="varchar(255)" remarks="Доп данные пользователя"/>
-            <column name="version" type="int" remarks="Версия записи"/>
         </createTable>
     </changeSet>
 
