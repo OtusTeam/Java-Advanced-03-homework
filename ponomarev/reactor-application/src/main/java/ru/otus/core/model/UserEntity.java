@@ -1,5 +1,6 @@
 package ru.otus.core.model;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,9 +19,10 @@ import org.hibernate.annotations.GenericGenerator;
 public class UserEntity {
     @Column(name = "object_id")
     @Id
+    @org.springframework.data.annotation.Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private String objectId;
+    private Long objectId;
     @Column(name = "user_name")
     private String userName;
     @Column(name = "user_data")

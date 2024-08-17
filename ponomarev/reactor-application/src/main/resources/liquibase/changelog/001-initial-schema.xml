@@ -6,7 +6,7 @@
 
     <changeSet id="001-create-user-table" author="Anton Ponomarev">
         <createTable tableName="USER_ENTITY">
-            <column name="object_id" type="varchar(255)" remarks="ID пользователя" defaultValue="gen_random_uuid()">
+            <column name="object_id" type="bigint" remarks="ID пользователя" defaultValue="gen_random_uuid()">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="user_name" type="varchar(255)" remarks="Имя пользователя"/>

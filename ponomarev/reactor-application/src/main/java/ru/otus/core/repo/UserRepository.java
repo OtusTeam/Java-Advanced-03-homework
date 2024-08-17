@@ -9,5 +9,5 @@ import ru.otus.core.model.UserEntity;
  * @project Java-Advanced-homework
  */
 @Repository
-public interface UserRepository extends ReactiveCrudRepository<UserEntity, Long> {
+public interface UserRepository extends ReactiveCrudRepository<UserEntity, String> {
 }

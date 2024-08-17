@@ -1,5 +1,6 @@
 package ru.otus.core.service;
 
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import ru.otus.core.model.UserEntity;
 
@@ -10,4 +11,8 @@ import ru.otus.core.model.UserEntity;
 public interface UserService {
 
     Mono<UserEntity> create(UserEntity userEntity);
+
+    Mono<UserEntity> findUserById(String id);
+
+    Flux<UserEntity> findAllUsers();
 }

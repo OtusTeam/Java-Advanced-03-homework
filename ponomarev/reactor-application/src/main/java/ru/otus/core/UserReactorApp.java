@@ -1,7 +1,6 @@
 package ru.otus.core;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories;
 import org.springframework.web.reactive.config.EnableWebFlux;
 import reactor.core.publisher.Hooks;
 
@@ -11,9 +10,9 @@ import reactor.core.publisher.Hooks;
  */
 @SpringBootApplication
 @EnableWebFlux
-public class UserApp {
+public class UserReactorApp {
     public static void main(String[] args) {
         Hooks.onOperatorDebug();
-        SpringApplication.run(UserApp.class, args);
+        SpringApplication.run(UserReactorApp.class, args);
     }
 }

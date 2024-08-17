@@ -13,13 +13,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserDto {
+    private Long objectId;
     private String userName;
     private String userData;
     private String password;
 
 
     @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
-    public UserDto(String userName, String userData, String password) {
+    public UserDto(Long objectId, String userName, String userData, String password) {
+        this.objectId = objectId;
         this.userName = userName;
         this.userData = userData;
         this.password = password;

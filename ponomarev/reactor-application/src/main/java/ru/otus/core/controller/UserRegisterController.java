@@ -4,11 +4,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Mono;
+import reactor.core.publisher.*;
 import ru.otus.core.model.UserDto;
 import ru.otus.core.model.UserEntity;
 import ru.otus.core.service.UserService;
@@ -27,11 +27,26 @@ public class UserRegisterController {
 
     @PostMapping(path = "/register", consumes = "application/json", produces = "application/json")
     @ResponseBody
-    Mono<ResponseEntity<UserDto>> register(@RequestBody UserDto userDto) {
+    public ResponseEntity<Mono<UserDto>> register(@RequestBody UserDto userDto) {
         var userEntity = userService.create(convertToEntity(userDto));
         log.info("Register success: " + userEntity);
-        return convertToDto(userEntity)
-                .map(ResponseEntity::ok);
+        return ResponseEntity.ok(convertToDto(userEntity));
+    }
+
+    @GetMapping(path = "/getById/{id}", consumes = "application/json", produces = "application/json")
+    @ResponseBody
+    public ResponseEntity<Mono<UserDto>> getById(@PathVariable String id) {
+        var userEntity = userService.findUserById(id);
+        log.info("getById: " + userEntity);
+        return ResponseEntity.ok(convertToDto(userEntity));
+    }
+
+    @GetMapping(path = "/getAllUsers")
+    @ResponseBody
+    public ResponseEntity<Flux<UserDto>> getAllUsers() {
+        var userEntities = userService.findAllUsers();
+        log.info("getAllUsers: " + userEntities);
+        return ResponseEntity.ok(userEntities.map(u->convertToDto(u)));
     }
 
     private UserEntity convertToEntity(UserDto userDto) {
@@ -41,5 +56,9 @@ public class UserRegisterController {
 
     private Mono<UserDto> convertToDto(Mono<UserEntity> userEntityMono) {
         return userEntityMono.map(u -> modelMapper.map(u, UserDto.class));
+    }
+
+    private UserDto convertToDto(UserEntity userEntity) {
+        return modelMapper.map(userEntity, UserDto.class);
     }
 }
