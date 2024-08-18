@@ -1,27 +1,6 @@
-version: '3.1'
 services:
-
-#  reactor-application-db:
-#    container_name: reactor-application-db
-#    image: "postgres:latest"
-#    restart: on-failure
-#    # <Port exposed> : <Port running inside container>
-#    ports:
-#      - "5632:5432"
-#    environment:
-#      POSTGRES_DB: double-dice-data
-#      POSTGRES_USER: postgres
-#      POSTGRES_PASSWORD: pg123
-#    # Opens port 5632 on the container
-#    expose:
-#      - 5632
-#  #    networks:
-#  #      - defaultdata
-
   reactor-application:
     container_name: reactor-application
-#    depends_on:
-#      - reactor-application-db
     build:
       context: .
     deploy:
@@ -34,6 +13,6 @@ services:
           memory: 200M
     restart: on-failure
     ports:
-      - "80:8780"
+      - "80:80"
     expose:
-      - 80
+      - 8110

@@ -19,3 +19,13 @@ JDK 17, Maven, SpringBoot, Spring Web Flux, JMH
 * В приложение добавлены эндпоинты и оно запускается в Docker (задание 12)
 ![img.png](img.png)
 
+* Энпойнты доступны по порту 80
+![img_1.png](img_1.png)
+
+### Build
+* mvn clean package*
+* запустить файл docker-compose.yml или start.sh
+
+### Run
+*java -jar api/target/task11-reactor-1.0.jar*
+
