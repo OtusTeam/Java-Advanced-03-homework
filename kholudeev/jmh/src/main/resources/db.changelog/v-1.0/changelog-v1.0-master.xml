@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+    <changeSet author="otus" id="otus-1">
+        <tagDatabase tag="otus-1"/>
+    </changeSet>
+    <include file="db.changelog/v-1.0/changelog-202407141100.xml"/>
+    <changeSet author="otus" id="otus-2">
+        <tagDatabase tag="otus-2"/>
+    </changeSet>
+</databaseChangeLog>
