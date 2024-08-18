@@ -24,8 +24,7 @@ JDK 17, Maven, SpringBoot, Spring Web Flux, JMH
 
 ### Build
 * mvn clean package*
-* запустить файл docker-compose.yml или start.sh
 
 ### Run
-*java -jar api/target/task11-reactor-1.0.jar*
+* запустить файл docker-compose.yml или start.sh
 
