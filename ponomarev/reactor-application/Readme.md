@@ -16,5 +16,6 @@ JDK 17, Maven, SpringBoot, Spring Web Flux, JMH
 ### Отчет
 
 * Реализовано приложение с использованием Spring Web Flux
-* Реализовано приложение с использованием Spring Web Flux
+* В приложение добавлены эндпоинты и оно запускается в Docker (задание 12)
+![img.png](img.png)
 

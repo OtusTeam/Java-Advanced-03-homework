@@ -21,3 +21,5 @@ spring:
       path: /h2-console
       settings:
         trace: false
+server:
+    port: 80
