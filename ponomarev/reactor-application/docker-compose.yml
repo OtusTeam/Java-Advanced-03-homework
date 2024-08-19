@@ -1,0 +1,18 @@
+services:
+  reactor-application:
+    container_name: reactor-application
+    build:
+      context: .
+    deploy:
+      resources:
+        limits:
+          cpus: '0.70'
+          memory: 1700M
+        reservations:
+          cpus: '0.15'
+          memory: 200M
+    restart: on-failure
+    ports:
+      - "80:80"
+    expose:
+      - 8110
