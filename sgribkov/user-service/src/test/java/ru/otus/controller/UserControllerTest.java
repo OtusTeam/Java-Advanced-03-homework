@@ -12,6 +12,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import ru.otus.metrics.UsersCounter;
 import ru.otus.model.User;
 import ru.otus.model.UserData;
 import ru.otus.repository.UserRepository;
@@ -32,6 +33,9 @@ public class UserControllerTest {
 
     @MockBean
     private UserEncryptor userEncryptor;
+
+    @MockBean
+    private UsersCounter usersCounter;
 
     @Autowired
     private WebTestClient webClient;

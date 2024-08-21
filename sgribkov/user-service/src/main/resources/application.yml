@@ -20,6 +20,14 @@ server:
   servlet:
     contextPath: /user-service
 
+management:
+  server:
+    port: 7000
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
 passwordEncryptor:
   charset: "UTF-8"
   algorithm: "SHA-512"
