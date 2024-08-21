@@ -1,0 +1,16 @@
+server:
+  extraScrapeConfigs:
+    - job_name: actuator
+      scrape_interval: 30s
+      scrape_timeout: 10s
+      metrics_path: /actuator/prometheus
+      params:
+      scheme: http
+      static_configs:
+        - targets:
+            - helm-demo.default.svc.cluster.local:8080
+  service:
+    ports:
+      http:
+        9090
+    sessionAffinity: None

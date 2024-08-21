@@ -21,5 +21,6 @@
         <module>out-of-memory-task</module>
         <module>jmeter-task</module>
         <module>task6-jmh</module>
+        <module>reactor-application</module>
     </modules>
 </project>

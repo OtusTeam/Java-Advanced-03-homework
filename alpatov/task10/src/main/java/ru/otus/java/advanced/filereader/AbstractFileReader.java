@@ -1,5 +1,6 @@
 package ru.otus.java.advanced.filereader;
 
+import java.nio.ByteBuffer;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -15,6 +16,6 @@ public abstract class AbstractFileReader {
         return Paths.get(dir + "/" + fileName);
     }
 
-    public abstract String readFile(String fileName);
+    public abstract ByteBuffer readFile(String fileName);
 
 }

@@ -1,0 +1,29 @@
+image:
+  repository: localhost:5000/user-service
+  tag: 0.1
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+resources:
+  limits:
+    cpu: 500m
+    memory: 512M
+
+service:
+  type: LoadBalancer
+  port: 8080
+
+ports:
+  name: http
+  protocol: TCP
+  containerPort: 8080
+  targetPort: 8080
+  appProtocol: http
+
+probes:
+  readinessProbe:
+    enabled: true
+    httpGet:
+      path: /user-service/hello/
+      port: 8080
+    initialDelaySeconds: 30

@@ -13,5 +13,6 @@
         <module>memory-management</module>
         <module>memory-dump</module>
         <module>docker-container</module>
+        <module>metrics</module>
     </modules>
 </project>
