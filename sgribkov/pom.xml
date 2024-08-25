@@ -45,6 +45,8 @@
         <junit.jupiter.version>5.7.1</junit.jupiter.version>
 
         <projectreactor.version>3.6.5</projectreactor.version>
+
+        <openapi.version>2.6.0</openapi.version>
     </properties>
 
     <dependencyManagement>
@@ -73,6 +75,16 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-actuator</artifactId>
                 <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${openapi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
+                <version>${openapi.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.micrometer</groupId>
