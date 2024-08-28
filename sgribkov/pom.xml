@@ -38,6 +38,7 @@
         <r2dbc-h2.version>1.0.0.RELEASE</r2dbc-h2.version>
 
         <jmh.version>1.37</jmh.version>
+        <micrometer.version>1.12.5</micrometer.version>
 
         <logback.version>1.4.6</logback.version>
         <projectlombok.version>1.18.26</projectlombok.version>
@@ -67,6 +68,16 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-webflux</artifactId>
                 <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-registry-prometheus</artifactId>
+                <version>${micrometer.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.flywaydb</groupId>

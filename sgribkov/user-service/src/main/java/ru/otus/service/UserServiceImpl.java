@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import ru.otus.metrics.UsersCounter;
+import ru.otus.model.UserIdentity;
 import ru.otus.repository.UserRepository;
 import ru.otus.model.User;
 import ru.otus.model.UserData;
@@ -24,6 +26,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private final UserEncryptor userEncryptor;
+
+    @Autowired
+    private final UsersCounter usersCounter;
 
     @Override
     public Flux<String> getAll() {
@@ -48,13 +53,15 @@ public class UserServiceImpl implements UserService {
                 .flatMap(u -> {
                     u.setNew(true);
                     Mono<User> savedUser = userRepository.save(u);
-                    userMonitoringService.run(u);
-
-                    log.info("Saved user: {} with encrypted password: {}",
-                            u.getId(),
-                            u.getPassword());
-
-                    return savedUser.map(User::getId);
+                    return savedUser
+                            .doOnNext(us -> {
+                                UserIdentity userIdentity = userMonitoringService.run(us);
+                                usersCounter.addUser(userIdentity);
+                                log.info("Saved user: {} with encrypted password: {}",
+                                        us.getId(),
+                                        us.getPassword());
+                            })
+                            .map(User::getId);
                 });
     }
 
@@ -79,8 +86,11 @@ public class UserServiceImpl implements UserService {
     public Mono<String> delete(String login) {
         return userRepository.deleteById(login)
                 .thenReturn(login)
-                .doOnNext(userMonitoringService::stop)
-                .doOnNext(l -> log.info("Deleted user: {}", login));
+                .doOnNext(u -> {
+                    boolean isDeleted = userMonitoringService.stop(login);
+                    usersCounter.subtractUser(isDeleted);
+                    log.info("Deleted user: {}", login);
+                });
     }
 
     @Override

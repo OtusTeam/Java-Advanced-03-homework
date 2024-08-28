@@ -8,8 +8,6 @@ import ru.otus.service.UserService;
 import ru.otus.model.User;
 import ru.otus.model.UserData;
 
-import java.util.UUID;
-
 
 @RestController
 @RequestMapping("/users")
