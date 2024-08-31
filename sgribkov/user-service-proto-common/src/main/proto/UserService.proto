@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package ru.otus;
+
+option java_multiple_files = true;
+
+service UserService {
+  rpc createUser(UserDto) returns (UserId);
+  rpc changeUserEmail(UserEmailDto) returns (User);
+  rpc changeUserName(UserNameDto) returns (User);
+  rpc createProduct(ProductDto) returns (ProductId);
+  rpc addProductToCard(CardItemDto) returns (CardId);
+}
+
+message User {
+  int64 id = 1;
+  string username = 2;
+  string email = 3;
+}
+
+message UserId {
+  int64 value = 1;
+}
+
+message UserDto {
+  string username = 1;
+  string email = 2;
+}
+
+message UserEmailDto {
+  int64 id = 1;
+  string email = 2;
+}
+
+message UserNameDto {
+  int64 id = 1;
+  string username = 2;
+}
+
+message Product {
+  int64 id = 1;
+  string name = 2;
+}
+
+message ProductId {
+  int64 value = 1;
+}
+
+message ProductDto {
+  string name = 1;
+}
+
+message CardItemDto {
+  int64 userId = 1;
+  int64 productId = 2;
+}
+
+message CardId {
+  int64 value = 1;
+}
