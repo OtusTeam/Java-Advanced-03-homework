@@ -23,11 +23,10 @@
     <dependencies>
         <dependency>
             <groupId>ru.otus.kholudeev</groupId>
-            <artifactId>core</artifactId>
+            <artifactId>service</artifactId>
             <version>1.0-0</version>
             <scope>compile</scope>
         </dependency>
-
     </dependencies>
 
     <build>

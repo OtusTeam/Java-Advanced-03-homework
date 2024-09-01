@@ -2,6 +2,7 @@ package ru.otus.kholudeev.dao.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -9,14 +10,15 @@ import java.time.LocalDateTime;
 /**
  * Сущность пользователь
  */
-@Entity
+@MappedSuperclass
 @Table(name = "USER")
-@Builder
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@SuperBuilder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public abstract class User {
     /**
      * Идентификатор сущности
      */
@@ -46,4 +48,5 @@ public class User {
     @CreationTimestamp
     @Column(name = "CREATION_DATE")
     private LocalDateTime creationDate;
+
 }

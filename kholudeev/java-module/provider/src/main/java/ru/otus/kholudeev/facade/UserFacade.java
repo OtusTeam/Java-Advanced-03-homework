@@ -5,12 +5,12 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.otus.kholudeev.dao.exception.UserExistsException;
-import ru.otus.kholudeev.dao.model.User;
+import ru.otus.kholudeev.dao.service.UserExtend;
 import ru.otus.kholudeev.dao.service.UserRepoService;
 import ru.otus.kholudeev.dto.request.UserRequest;
 import ru.otus.kholudeev.dto.response.UserResponse;
 import ru.otus.kholudeev.exception.ParamValue;
-import ru.otus.kholudeev.mapper.UserMapper;
+import ru.otus.kholudeev.mapper.UserExtendMapper;
 
 import java.util.*;
 
@@ -23,7 +23,7 @@ import static ru.otus.kholudeev.constant.ApiErrorResponseCodeConstant.USER_EXIST
 @Slf4j
 public class UserFacade {
     private final UserRepoService userRepoService;
-    private final UserMapper userMapper;
+    private final UserExtendMapper userMapper;
 
     @SneakyThrows
     private UserResponse handleException(UserRequest userRequest, Exception e) {
@@ -38,9 +38,9 @@ public class UserFacade {
     public UserResponse getById(Long id) {
         log.info("Поиск пользователя по id - {}", id);
         try {
-            User user = userRepoService.getById(id);
+            UserExtend user = (UserExtend) userRepoService.getById(id);
             log.info("Пользователь получен по id - {}", id);
-            return userMapper.toUserResponse(user);
+            return userMapper.toUserExtendResponse(user);
         } catch (Exception e) {
             log.error("Ошибка получения пользователя по внутреннему идентификатору, id - {}", id, e);
             throw e;
@@ -58,10 +58,10 @@ public class UserFacade {
                                 "userValue", ParamValue.valueOf(userRequest.getLogin())));
             }
 
-            User user = userMapper.toUser(userRequest);
+            UserExtend user = userMapper.toExtendUser(userRequest);
             userRepoService.save(user);
 
-            userResponse = userMapper.toUserResponse(user);
+            userResponse = userMapper.toUserExtendResponse(user);
             log.info("Пользователь успешно создан, id - {}, login - {}", user.getId(), user.getLogin());
         } catch (Exception e) {
             log.error("Ошибка создания пользователя, логин - {}", userRequest.getLogin(), e);

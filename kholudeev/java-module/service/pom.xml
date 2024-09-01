@@ -23,13 +23,6 @@
     <dependencies>
         <dependency>
             <groupId>ru.otus.kholudeev</groupId>
-            <artifactId>provider</artifactId>
-            <version>1.0-0</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>ru.otus.kholudeev</groupId>
             <artifactId>core</artifactId>
             <version>1.0-0</version>
             <scope>compile</scope>
