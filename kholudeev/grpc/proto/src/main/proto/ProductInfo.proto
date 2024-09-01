@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package ru.otus.kholudeev.grpc;
+
+option java_multiple_files = true;
+
+service ProductInfo {
+  rpc createProduct(ProductRequest) returns (Product);
+}
+
+message Product {
+  int64 id = 1;
+  string name = 2;
+}
+
+message ProductRequest {
+  string name = 1;
+}
