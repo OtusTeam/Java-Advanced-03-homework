@@ -11,8 +11,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.IntStream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -30,13 +32,14 @@ public class CircuitBreakerTest {
     public void circuitBreakerOpenTest() {
         var success = 5;
         var failure = 10;
+        Random random = new Random();
         final List<ResponseEntity<String>> responses = new ArrayList<>();
-        Mockito.when(clientRest.callApi())
+        Mockito.when(clientRest.callApi(anyInt()))
                 .thenReturn("", returnMockSuccess(success - 1))
                 .thenThrow(returnMockNotSuccess(failure));
         IntStream.rangeClosed(1, success + failure)
-                .forEach(it -> responses.add(testRestTemplate.getForEntity("/circuit-breaker", String.class)));
-        verify(clientRest, times(10)).callApi();
+                .forEach(it -> responses.add(testRestTemplate.getForEntity(String.format("/getAge/%s", random.nextInt(50)), String.class)));
+        verify(clientRest, times(10)).callApi(anyInt());
         assertEquals(success + failure, responses.size());
         assertEquals(5,
                 responses.stream().filter(it -> it.getStatusCode() == HttpStatus.OK).count());

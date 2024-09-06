@@ -17,16 +17,10 @@ public class ApiExceptionHandler {
     @ExceptionHandler({RequestNotPermitted.class})
     @ResponseStatus(HttpStatus.TOO_MANY_REQUESTS)
     public void handleRequestNotPermitted() { log.warn("Too Many Requests"); }
-    @ExceptionHandler({TimeoutException.class})
-    @ResponseStatus(HttpStatus.REQUEST_TIMEOUT)
-    public void handleTimeoutException() { log.warn("Request Timeout Exception"); }
     @ExceptionHandler({CallNotPermittedException.class})
     @ResponseStatus (HttpStatus.SERVICE_UNAVAILABLE)
     public void handleCallNotPermittedException() { log.warn("Service Unavailable"); }
     @ExceptionHandler({IllegalStateException.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public void handleIllegalStateException() { log.warn("Internal Server Error"); }
-    @ExceptionHandler({BulkheadFullException.class})
-    @ResponseStatus(HttpStatus.TOO_MANY_REQUESTS)
-    public void handleBulkheadFullException() { log.warn("Too Many Requests"); }
 }

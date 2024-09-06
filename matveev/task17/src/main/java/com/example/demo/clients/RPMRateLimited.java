@@ -6,14 +6,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class RPMRateLimitedSearch {
+public class RPMRateLimited {
     private final ClientRest clientRest;
 
-    public RPMRateLimitedSearch(ClientRest clientRest) { this.clientRest = clientRest; }
+    public RPMRateLimited(ClientRest clientRest) { this.clientRest = clientRest; }
 
     @RateLimiter(name = "rpm_limiter")
-    public String callRateLimiterApi() {
-        log.info("Call rpm-limiter api");
-        return clientRest.callApi();
+    public String getAge(Integer id) {
+        return clientRest.callApi(id);
     }
 }
