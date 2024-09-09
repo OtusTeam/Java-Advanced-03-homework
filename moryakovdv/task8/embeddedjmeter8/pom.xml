@@ -1,0 +1,84 @@
+<!-- Дочерний POM от task4-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>otus.moryakovdv.task8</groupId>
+	<artifactId>embeddedjmeter8</artifactId>
+
+	<parent>
+		<groupId>otus.moryakovdv</groupId>
+		<artifactId>task8</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<dependencies>
+
+		<!--
+		https://mvnrepository.com/artifact/org.apache.jmeter/ApacheJMeter_core -->
+		<dependency>
+			<groupId>org.apache.jmeter</groupId>
+			<artifactId>ApacheJMeter_core</artifactId>
+			<version>5.5</version>
+		</dependency>
+
+		<!--
+		https://mvnrepository.com/artifact/org.apache.jmeter/ApacheJMeter_http -->
+		<dependency>
+			<groupId>org.apache.jmeter</groupId>
+			<artifactId>ApacheJMeter_http</artifactId>
+			<version>5.5</version>
+		</dependency>
+
+		<!--
+		https://mvnrepository.com/artifact/org.apache.jmeter/ApacheJMeter_components -->
+		<dependency>
+			<groupId>org.apache.jmeter</groupId>
+			<artifactId>ApacheJMeter_components</artifactId>
+			<version>5.5</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.jmeter/jorphan -->
+		<dependency>
+			<groupId>org.apache.jmeter</groupId>
+			<artifactId>jorphan</artifactId>
+			<version>5.5</version>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<finalName>embeddedjmeter</finalName>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-resource-one</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources</directory>
+									<includes>
+										<include>jmeter.properties</include>
+									 	<include>task8.jmx</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+
+		</plugins>
+
+
+	</build>
+</project>

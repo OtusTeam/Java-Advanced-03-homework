@@ -18,8 +18,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<modules>
-		<module>api</module>
-		<module>embeddedjmeter</module>
+		<module>api8</module>
+		<module>embeddedjmeter8</module>
 
 
 	</modules>
