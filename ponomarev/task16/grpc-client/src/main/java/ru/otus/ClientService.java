@@ -20,20 +20,13 @@ public class ClientService {
 
     @GrpcClient("grpc-server")
     private ProductServiceGrpc.ProductServiceBlockingStub productServiceBlockingStub;
-
-    //  ManagedChannel channel = ManagedChannelBuilder
-//          .forAddress("localhost", 50051)
-//          .usePlaintext()
-//          .build();
     public ProductID createProduct(String productName) {
-//    var stub = ProductServiceGrpc.newBlockingStub(channel);
 
         var productID = productServiceBlockingStub
                 .createProduct(
                         Product
                                 .newBuilder()
                                 .setName(productName)
-                                .setId(String.valueOf(UUID.randomUUID()))
                                 .build()
                 );
         logger.info("Product ID: " + productID.getValue() + " added successfully.");
@@ -48,8 +41,6 @@ public class ClientService {
         User user = User.newBuilder()
                 .setEmail(email)
                 .setUsername(userName)
-                .setId(String.valueOf(UUID.randomUUID()))
-
                 .build();
         logger.info("Creating user: {}", user);
 
