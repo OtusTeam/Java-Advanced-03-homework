@@ -1,5 +1,6 @@
 package ru.otus;
 
+import lombok.RequiredArgsConstructor;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ import java.util.UUID;
  * @project Java-Advanced-homework
  */
 @Service
+@RequiredArgsConstructor
 public class ClientService {
     private static final Logger logger = LoggerFactory.getLogger(ClientService.class);
 

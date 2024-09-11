@@ -17,6 +17,10 @@ JDK 17, Maven, SpringBoot, gRPC, protobuf
 
 * Реализовано описаие gRPC сервиса
 Для запуска требуется произвести команду "mvn clean install" для генерации protobuf сущностей и интерфейсов
-* Скриншот ниже
+* Скриншот ниже:
+Логи GRPC Server:
+![server_logs.png](server_logs.png)
+Логи GRPC Client:
+![client-logs.png](client-logs.png)
 
 

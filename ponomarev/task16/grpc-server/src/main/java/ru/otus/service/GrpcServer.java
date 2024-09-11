@@ -15,7 +15,6 @@ import java.util.UUID;
  * @author Anton Ponomarev on 08.09.2024
  * @project Java-Advanced-homework
  */
-@Service
 @GrpcService
 public class GrpcServer extends ProductServiceGrpc.ProductServiceImplBase {
     private static Map<String, User> userMap = new HashMap<>();
