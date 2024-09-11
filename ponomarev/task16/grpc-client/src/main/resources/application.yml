@@ -1,0 +1,8 @@
+grpc:
+  client:
+    grpc-server:
+      address: static://localhost:8000
+    GLOBAL:
+      negotiation-type: plaintext
+  server:
+    port: 8001

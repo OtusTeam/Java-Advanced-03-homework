@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package ru.vyrostkov.grpc.server.grpc_server.pet;
+
+message CreatePetRequest {
+  Pet pet = 1;
+
+  message Pet {
+    string pet_name = 2;
+    string pet_type = 3;
+    string pet_birth_date = 4;
+  }
+}
+
+message CreatePetResponse{
+  int32 pet_id = 1;
+}
+
+message FindByIdPetRequest {
+  int32 pet_id = 1;
+}
+
+message FindByIdPetResponse {
+  Pet pet = 1;
+
+  message Pet {
+    string pet_name = 2;
+    string pet_type = 3;
+  }
+}
+
+message ErrorResponse {
+  string error_name = 1;
+}
+
+
+service PetService {
+  rpc CreatePet (CreatePetRequest) returns (CreatePetResponse);
+  rpc FindByIDPet (FindByIdPetRequest) returns (FindByIdPetResponse);
+}
