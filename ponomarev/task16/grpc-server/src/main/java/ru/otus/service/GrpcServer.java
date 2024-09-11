@@ -4,6 +4,7 @@ import io.grpc.Status;
 import io.grpc.StatusException;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
+import org.springframework.stereotype.Service;
 import ru.otus.grpc.*;
 
 import java.util.HashMap;
@@ -14,6 +15,7 @@ import java.util.UUID;
  * @author Anton Ponomarev on 08.09.2024
  * @project Java-Advanced-homework
  */
+@Service
 @GrpcService
 public class GrpcServer extends ProductServiceGrpc.ProductServiceImplBase {
     private static Map<String, User> userMap = new HashMap<>();
