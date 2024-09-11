@@ -58,7 +58,7 @@ public class GrpcServer extends ProductServiceGrpc.ProductServiceImplBase {
 
         String id = request.getId();
 
-        if (productMap.containsKey(id)) {
+        if (userMap.containsKey(id)) {
             User user = userMap.get(id).toBuilder()
                     .setEmail(request.getEmail())
                     .build();
@@ -75,7 +75,7 @@ public class GrpcServer extends ProductServiceGrpc.ProductServiceImplBase {
     public void changeUserName(User request, StreamObserver<User> responseObserver) {
         String id = request.getId();
 
-        if (productMap.containsKey(id)) {
+        if (userMap.containsKey(id)) {
             User user = userMap.get(id).toBuilder()
                     .setUsername(request.getUsername())
                     .build();
