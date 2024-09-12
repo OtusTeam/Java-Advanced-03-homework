@@ -67,6 +67,19 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                    <executable>true</executable>
+                    <jvmArguments>
+                        -Xms106m
+                        -Xmx256m
+                    </jvmArguments>
+                </configuration>
             </plugin>
         </plugins>
     </build>
