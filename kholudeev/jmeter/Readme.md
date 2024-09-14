@@ -12,3 +12,4 @@
 2. Запустить приложенный тест через UI - test_with_2_requests_and_rps.jmx
 3. Запустить модуль integrated-jmeter - в результате будет запущен нагрузочный тест и лог будет
 выгружен в файл output-logs.jtl (содержится в коммите)
+![jmeter_test.PNG](jmeter_test.PNG)
