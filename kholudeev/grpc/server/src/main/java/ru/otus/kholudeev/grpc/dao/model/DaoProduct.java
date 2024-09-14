@@ -16,8 +16,6 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DaoProduct {
-    @ManyToMany(mappedBy = "products")
-    Set<DaoUser> users;
     /**
      * Идентификатор сущности
      */
