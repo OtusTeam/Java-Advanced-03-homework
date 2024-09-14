@@ -18,6 +18,7 @@
     <modules>
         <module>memory-management</module>
         <module>keytool-jlink-task</module>
+        <module>module-system</module>
         <module>out-of-memory-task</module>
         <module>jmeter-task</module>
         <module>task6-jmh</module>
