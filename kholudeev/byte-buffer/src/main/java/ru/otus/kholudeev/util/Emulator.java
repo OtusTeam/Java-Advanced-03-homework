@@ -9,6 +9,8 @@ import ru.otus.kholudeev.cache.WeakReferenceCache;
 import ru.otus.kholudeev.exception.CacheKeyDoesntExistsException;
 
 import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class Emulator {
@@ -117,7 +119,11 @@ public class Emulator {
     private void getFile() throws IOException {
         System.out.println("Write file name:");
         try{
-            String fileContent = cache.getValue(scanner.nextLine());
+            ByteBuffer byteBuffer = cache.getValue(scanner.nextLine());
+            byteBuffer.position(0);
+            byte[] bytes = new byte[byteBuffer.remaining()];
+            byteBuffer.get(bytes);
+            String fileContent = new String(bytes, StandardCharsets.UTF_8);
             System.out.println("File content is :\n" + fileContent);
         }
         catch (CacheKeyDoesntExistsException e) {

@@ -4,15 +4,17 @@ import ru.otus.kholudeev.exception.CacheKeyDoesntExistsException;
 
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
+import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import static java.lang.String.format;
 
-public abstract class BaseCache implements Cacheable<String, Reference<String>> {
-    protected Map<String, Reference<String>> cache;
-    protected ReferenceQueue<String> referenceQueue;
+public abstract class BaseCache implements Cacheable<String, Reference<ByteBuffer>> {
+    protected Map<String, Reference<ByteBuffer>> cache;
+    protected ReferenceQueue<ByteBuffer> referenceQueue;
 
     protected BaseCache() {
         cache = new HashMap<>();
@@ -20,18 +22,20 @@ public abstract class BaseCache implements Cacheable<String, Reference<String>> 
     }
 
     @Override
-    public Reference<String> get(String key) throws CacheKeyDoesntExistsException {
-        if (cache.containsKey(key))
-            return cache.get(key);
-        else throw new CacheKeyDoesntExistsException(format("Key %s dosn't exists", key));
+    public Reference<ByteBuffer> get(String key) throws CacheKeyDoesntExistsException {
+        Reference<ByteBuffer> bufferReference = cache.get(key);
+        if (Objects.isNull(bufferReference)){
+            throw new CacheKeyDoesntExistsException(format("Key %s dosn't exists", key));
+        }
+        return bufferReference;
     }
 
-    public String getValue(String key) throws CacheKeyDoesntExistsException {
+    public ByteBuffer getValue(String key) throws CacheKeyDoesntExistsException {
         return get(key).get();
     }
 
     @Override
-    public void add(String key, Reference<String> value) {
+    public void add(String key, Reference<ByteBuffer> value) {
         cache.put(key, value);
     }
 
@@ -57,5 +61,5 @@ public abstract class BaseCache implements Cacheable<String, Reference<String>> 
         }
     }
 
-    public abstract void put(String fileName, String read);
+    public abstract void put(String fileName, ByteBuffer read);
 }
