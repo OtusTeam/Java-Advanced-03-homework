@@ -12,7 +12,15 @@
     <modules>
         <module>memory-management</module>
         <module>memory-dump</module>
+        <module>cds</module>
+        <module>java-module</module>
+        <module>jdk-tools</module>
+        <module>jmh</module>
+
         <module>docker-container</module>
+        <module>helm-charts</module>
         <module>metrics</module>
+        <module>open-api</module>
+        <module>grpc</module>
     </modules>
 </project>

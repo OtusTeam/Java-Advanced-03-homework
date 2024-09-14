@@ -1,6 +1,7 @@
 package ru.otus.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Nonnull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,13 +19,16 @@ import org.springframework.data.relational.core.mapping.Column;
 @NoArgsConstructor
 
 @Table(name = "user_data")
+@Schema
 public class User implements Persistable<String> {
     @Id
     @Column(value = "login")
+    @Schema(description = "User login")
     private String login;
 
     @Column(value = "password")
     @Nonnull
+    @Schema(description = "User password")
     private String password;
 
     @Transient

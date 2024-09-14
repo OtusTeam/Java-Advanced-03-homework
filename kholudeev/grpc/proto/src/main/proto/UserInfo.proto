@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package ru.otus.kholudeev.grpc;
+
+option java_multiple_files = true;
+
+service UserInfo {
+  rpc createUser(UserCreateRequest) returns (User);
+  rpc changeUserEmail(UserPutEmailRequest) returns (User);
+  rpc changeUserName(UserPutNameRequest) returns (User);
+  rpc addProductToUser(UserProduct) returns (UserProduct);
+}
+
+message User {
+  int64 id = 1;
+  string username = 2;
+  string email = 3;
+}
+message UserCreateRequest {
+  string username = 1;
+  string email = 2;
+}
+message UserPutEmailRequest {
+  int64 id = 1;
+  string email = 2;
+}
+message UserPutNameRequest {
+  int64 id = 1;
+  string username = 2;
+}
+message UserProduct {
+  int64 userId = 1;
+  int64 productId = 2;
+}

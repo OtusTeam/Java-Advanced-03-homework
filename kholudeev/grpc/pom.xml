@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ru.otus.kholudeev.grpc</groupId>
+    <artifactId>grpc</artifactId>
+    <version>1.0-0</version>
+    <packaging>pom</packaging>
+
+    <name>grpc</name>
+    <modules>
+        <module>proto</module>
+        <module>server</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.5</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <grpc-starter.version>3.1.0.RELEASE</grpc-starter.version>
+    </properties>
+
+</project>
