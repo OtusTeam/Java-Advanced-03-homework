@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+    <changeSet author="otus" id="202407141100-1">
+        <createSequence dataType="BIGINT" maxValue="999999999999999999" sequenceName="USER_SEQ" startValue="1"/>
+    </changeSet>
+    <changeSet author="otus" id="202407141100-2">
+        <createSequence dataType="BIGINT" maxValue="999999999999999999" sequenceName="PRODUCT_SEQ" startValue="1"/>
+    </changeSet>
+    <changeSet author="otus" id="202407141100-3">
+        <createTable tableName="USER" remarks="Пользователь">
+            <column name="ID" type="BIGINT" defaultValueSequenceNext="USER_SEQ" remarks="ИД">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="USER_PK" />
+            </column>
+            <column name="EMAIL" type="VARCHAR(100)" remarks="Логин">
+                <constraints nullable="false" />
+            </column>
+            <column name="NAME" type="VARCHAR(1000)" remarks="Имя">
+                <constraints nullable="false" />
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="CREATION_DATE" type="TIMESTAMP(6)" remarks="Дата создания">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="otus" id="202407141100-4">
+        <createTable tableName="PRODUCT" remarks="Продукт">
+            <column name="ID" type="BIGINT" defaultValueSequenceNext="PRODUCT_SEQ" remarks="ИД">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PRODUCT_PK" />
+            </column>
+            <column name="NAME" type="VARCHAR(1000)" remarks="Имя">
+                <constraints nullable="false" />
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="CREATION_DATE" type="TIMESTAMP(6)" remarks="Дата создания">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="otus" id="202407141100-5">
+        <createTable tableName="USER_PRODUCT" remarks="Продуктовая корзина">
+            <column name="USER_ID" type="BIGINT" remarks="ИД пользователя">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="USER_PRODUCT_PK" />
+            </column>
+            <column name="PRODUCT_ID" type="BIGINT" remarks="ИД продукта">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="USER_PRODUCT_PK" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="otus" id="202407141100-6">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="USER_PRODUCT"
+                                 constraintName="USER_PRODUCT_1FK" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="ID" referencedTableName="USER" validate="true"/>
+    </changeSet>
+    <changeSet author="otus" id="202407141100-7">
+        <addForeignKeyConstraint baseColumnNames="PRODUCT_ID" baseTableName="USER_PRODUCT"
+                                 constraintName="USER_PRODUCT_2FK" onDelete="CASCADE" onUpdate="CASCADE"
+                                 referencedColumnNames="ID" referencedTableName="PRODUCT" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
