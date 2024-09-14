@@ -3,9 +3,8 @@ package ru.otus.kholudeev.grpc.dao.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import ru.otus.kholudeev.grpc.dao.exception.DaoException;
-import ru.otus.kholudeev.grpc.dao.exception.UserNotFoundException;
+import ru.otus.kholudeev.grpc.dao.exception.EntityNotFoundException;
 import ru.otus.kholudeev.grpc.dao.model.DaoUser;
 import ru.otus.kholudeev.grpc.dao.repository.UserRepository;
 import java.util.Optional;
@@ -29,7 +28,7 @@ public class UserRepoService {
 
     public DaoUser getById(Long id) {
         return findById(id).orElseThrow(() ->
-                new UserNotFoundException(String.format("Не найден пользователь, id - %s", id)));
+                new EntityNotFoundException(String.format("Не найден пользователь, id - %s", id)));
     }
 
     public Optional<DaoUser> findByName(String name) {
@@ -43,7 +42,7 @@ public class UserRepoService {
 
     public DaoUser getByName(String name) {
         return repo.findByName(name)
-                .orElseThrow(() -> new UserNotFoundException(
+                .orElseThrow(() -> new EntityNotFoundException(
                         String.format("Пользователь с именем %s не найден", name)));
     }
 

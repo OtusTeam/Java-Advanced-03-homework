@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.otus.kholudeev.grpc.dao.exception.DaoException;
-import ru.otus.kholudeev.grpc.dao.exception.ProductNotFoundException;
+import ru.otus.kholudeev.grpc.dao.exception.EntityNotFoundException;
 import ru.otus.kholudeev.grpc.dao.model.DaoProduct;
 import ru.otus.kholudeev.grpc.dao.repository.ProductRepository;
 
@@ -28,7 +28,7 @@ public class ProductRepoService {
 
     public DaoProduct getById(Long id) {
         return findById(id).orElseThrow(() ->
-                new ProductNotFoundException(String.format("Не найден продукт, id - %s", id)));
+                new EntityNotFoundException(String.format("Не найден продукт, id - %s", id)));
     }
 
     public DaoProduct save(DaoProduct daoProduct) {
