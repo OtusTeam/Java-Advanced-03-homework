@@ -54,6 +54,8 @@ http://localhost:8082/login?userName=test&passwd=test&createIfAbsent=true
 *java -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -XX:+UnlockExperimentalVMOptions -XX:+PrintFlagsFinal-jar api9/target/api9.jar*
 
 2. Далее acync-profiler запускался на pid процесс с ключами профилирования CPU на 30 секунд с выводом flame-chart
+   ![image](https://github.com/user-attachments/assets/4db7d4f6-835e-4231-96f3-e87798873ee6)
+
 
 3. Профиль нагрузочного тестирования сервиса запускался через 
 *java -jar embeddedjmeter9/target/embeddedjmeter9.jar*
