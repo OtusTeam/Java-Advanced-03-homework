@@ -39,9 +39,10 @@ public class WebController {
 		return this.webService.getTestMessage();
 	}
 
-	/** веб-метод создания контента в кеше для переданного SessionID */
+	/** веб-метод создания контента в кеше для переданного SessionID 
+	 * @throws InterruptedException */
 	@RequestMapping(value = "/process", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> processRequest(@RequestParam String sessionId) throws IOException {
+	public ResponseEntity<String> processRequest(@RequestParam String sessionId) throws IOException, InterruptedException {
 		long requests = requestsCount.incrementAndGet();
 		long hits = webService.processContent(sessionId);
 

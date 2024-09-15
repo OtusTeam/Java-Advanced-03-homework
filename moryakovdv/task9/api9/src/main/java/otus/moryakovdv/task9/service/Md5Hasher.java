@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 public class Md5Hasher implements PasswordHasher {
 
 	@Override
-	public String hash(String input) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+	public synchronized String hash(String input) throws UnsupportedEncodingException, NoSuchAlgorithmException {
 
 		
 			java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");

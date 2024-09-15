@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 public class SHA512Hasher implements PasswordHasher {
 
 	@Override
-	public String hash(String input) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+	public synchronized String hash(String input) throws UnsupportedEncodingException, NoSuchAlgorithmException {
 		java.security.MessageDigest md = java.security.MessageDigest.getInstance("SHA-512");
 		byte[] array = md.digest(input.getBytes("UTF-8"));
 		StringBuffer sb = new StringBuffer();

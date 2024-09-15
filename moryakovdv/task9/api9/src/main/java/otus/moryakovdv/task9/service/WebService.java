@@ -42,10 +42,14 @@ public class WebService {
 	}
 
 	/**Создание контента для запроса, заполнение кеша**/
-	public long processContent(String callerSessionId) throws IOException {
+	public synchronized long processContent(String callerSessionId) throws IOException, InterruptedException  {
 		Random rnd = new Random();
-		Integer key = rnd.nextInt(1, 30000);
+		Integer key = rnd.nextInt(1, 3000);
 
+		
+			Thread.currentThread().sleep(key);
+		
+		
 		byte[] content = generateContent();
 		byte[] sessionIdTail = new byte[] {};
 

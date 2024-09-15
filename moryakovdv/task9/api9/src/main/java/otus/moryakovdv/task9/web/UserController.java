@@ -74,7 +74,7 @@ public class UserController {
 	});
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public User login(@RequestParam String userName, @RequestParam String passwd,
+	public synchronized User login(@RequestParam String userName, @RequestParam String passwd,
 			@RequestParam(defaultValue = "false") boolean createIfAbsent)
 			throws NoSuchAlgorithmException, InterruptedException, ExecutionException, IOException {
 
@@ -94,7 +94,7 @@ public class UserController {
 	}
 	/** Количество пользователей в репозитории */
 	@RequestMapping(value = "/userCount", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public int countAllUsers() {
+	public synchronized int countAllUsers() {
 
 		AtomicInteger c = new AtomicInteger();
 
@@ -109,7 +109,7 @@ public class UserController {
 	 * @throws NoSuchAlgorithmException
 	 * @throws UnsupportedEncodingException
 	 */
-	private User createUser(String userName, String password, boolean createIfAbsent) throws ResponseStatusException {
+	private synchronized User createUser(String userName, String password, boolean createIfAbsent) throws ResponseStatusException {
 		if (createIfAbsent) {
 
 			try {
