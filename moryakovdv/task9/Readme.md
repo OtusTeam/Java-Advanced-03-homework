@@ -59,8 +59,11 @@ http://localhost:8082/login?userName=test&passwd=test&createIfAbsent=true
 *java -jar embeddedjmeter9/target/embeddedjmeter9.jar*
 
 На скриншотах приведены результаты из flame-chart для метода processContent.
-В первом случае метод синхронизирован через *synchronized* и добавлена инструкция Thread.sleep для эмуляции задержки при выполнении
-Во втором случае синхронизация и задержки убраны, на flame-chart видно, что JVM_sleep больше не в топе процессорного времени.
+В первом случае(см. sync.png) метод синхронизирован через *synchronized* и добавлена инструкция Thread.sleep для эмуляции задержки при выполнении
+Во втором случае(см. no-sync.png) синхронизация и задержки убраны, на flame-chart видно, что JVM_sleep больше не в топе процессорного времени.
+![image](https://github.com/user-attachments/assets/66b721c4-e8c0-4e28-ac31-757ce2874ff8)
+![image](https://github.com/user-attachments/assets/5098ca63-8800-4435-ad37-1ec7d1c30606)
+
 
 
 
