@@ -23,11 +23,12 @@ Maven
 ## Оcновные классы:
 - Application - запускающий класс.
 - OffHeapContent - общий абстрактный класс 
-- ByteBufferContent - реализация чтения чанкаами по *bufferSize* с помощью  java.nio.ByteBuffer
-- MappedByteBufferContent - реализация чтения чанкаами по *bufferSize* с помощью  java.nio.MappedByteBuffer
+- ByteBufferContent - реализация чтения чанками по *bufferSize* с помощью  java.nio.ByteBuffer
+- MappedByteBufferContent - реализация чтения чанками по *bufferSize* с помощью  java.nio.MappedByteBuffer
 
 
 
 ## Результаты
 
 На одном и том же файле Readme.md с буфером 512 байт чтение с помощью MappedByteBuffer показывает результаты примерно на 15% лучше чем через ByteBuffer (см. CommonTests.java).
+![image](https://github.com/user-attachments/assets/ba0e5359-4dc9-4d33-b39f-f8584b7ae1df)
