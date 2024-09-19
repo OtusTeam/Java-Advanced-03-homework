@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package ru.otus.grpc;
+
+option java_multiple_files = true;
+
+service ProductService {
+  rpc createUser (User) returns (UserID);
+  rpc findByID (UserID) returns (User);
+  rpc changeUserEmail (User) returns (User);
+  rpc changeUserName (User) returns (User);
+  rpc createProduct(Product) returns (ProductID);
+  rpc getProduct(ProductID) returns (Product);
+  rpc addProductToCart(Cart) returns (Cart);
+}
+
+message User {
+  string email = 1;
+  string username = 2;
+  string id = 3;
+}
+message UserID {
+  string value = 1;
+}
+
+message Product {
+  string name = 1;
+  string id = 2;
+}
+
+message ProductID {
+  string value = 1;
+}
+
+message Cart {
+  string userId = 1;
+  string productId = 2;
+}
