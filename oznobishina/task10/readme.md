@@ -24,5 +24,12 @@
 ![img_2.png](img_2.png)
 
 
+Update:
+Читаем из ByteBuffer
+![img_3.png](img_3.png)
+Читаем из MappedByteBuffer
+![img_4.png](img_4.png)
+
+
 
 

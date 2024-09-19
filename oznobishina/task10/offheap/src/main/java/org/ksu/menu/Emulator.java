@@ -1,43 +1,50 @@
 package org.ksu.menu;
 
-import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import org.ksu.storage.ByteBufferStorage;
 import org.ksu.storage.MappedByteBufferStorage;
+import org.ksu.storage.Storage;
 
 public class Emulator {
 
-    private static Path filepath;
     private static int storageSize = 1024;
+
+    private static Map<String, Storage> bufferMap = new HashMap<>();
+
 
     public static void showMenu() {
         System.out.println("""
-                1 - Enter file name to load
-                2 - Set off-heap size in B
-                3 - Get file content from ByteBuffer off-heap storage
-                4 - Get file content from MappedByteBuffer off-heap storage
+                1 - Enter file name to load in ByteBuffer
+                2 - Enter file name to load in MappedByteBuffer
+                3 - Set off-heap size in B
+                4 - Get file content from off-heap storage
                 5 - Exit
                 """);
 
         Scanner input = new Scanner(System.in);
         String commandNumber = input.nextLine();
+        String filename;
 
         switch (commandNumber) {
             case "1":
-                enterFileName();
+                filename = enterFileName();
+                createByteBuffer(filename);
                 break;
             case "2":
-                setStorageSize();
+                filename = enterFileName();
+                createMappedByteBuffer(filename);
                 break;
             case "3":
-                getContentFromByteBuffer();
+                setStorageSize();
                 break;
             case "4":
-                getContentFromMappedByteBuffer();
+                getContentFromByteBuffer();
                 break;
             case "5":
                 System.exit(0);
@@ -47,29 +54,31 @@ public class Emulator {
         }
     }
 
-    private static void getContentFromMappedByteBuffer() {
-        MappedByteBufferStorage storage2 = null;
-        try {
-            storage2 = new MappedByteBufferStorage(Emulator.filepath, storageSize);
-            System.out.println(storage2.getFromMappedByteBuffer());
+    private static void createMappedByteBuffer(String filename) {
+        Path path = getPath(filename);
 
-            storage2.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
+        MappedByteBufferStorage mapppedByteBufferStorage = new MappedByteBufferStorage(path, storageSize);
+
+        bufferMap.put(filename, mapppedByteBufferStorage);
+
+        System.out.println("MappedByteBufferStorage created for " + filename);
+    }
+
+    private static void createByteBuffer(String filename) {
+        Path path = getPath(filename);
+
+        ByteBufferStorage byteBufferStorage = new ByteBufferStorage(path, storageSize);
+
+        bufferMap.put(filename, byteBufferStorage);
+
+        System.out.println("ByteBufferStorage created for" + filename);
     }
 
     private static void getContentFromByteBuffer() {
-        try {
-            ByteBufferStorage storage = new ByteBufferStorage(Emulator.filepath, storageSize);
-            System.out.println(storage.getFromByteBuffer());
-
-            storage.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Storage storage = null;
+        String filename = enterFileName();
+        storage = bufferMap.get(filename);
+        System.out.println(storage.getFromByteBuffer());
     }
 
     private static void setStorageSize() {
@@ -82,17 +91,20 @@ public class Emulator {
         }
     }
 
-    private static void enterFileName() {
-        try {
-            Scanner input = new Scanner(System.in);
-            System.out.print("Enter file name: ");
-            String filename = input.nextLine();
+    private static String enterFileName() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter file name: ");
+        return input.nextLine();
+    }
 
+    private static Path getPath(String filename) {
+        try {
             var url = Emulator.class.getClassLoader()
                     .getResource(filename);
-            filepath = Paths.get(url.toURI());
+            return Paths.get(url.toURI());
         } catch (URISyntaxException e) {
             System.out.println(e.getMessage());
         }
+        return null;
     }
 }

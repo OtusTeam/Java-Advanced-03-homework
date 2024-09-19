@@ -1,7 +1,5 @@
 package org.ksu.storage;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.nio.CharBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
@@ -12,15 +10,13 @@ import java.nio.file.StandardOpenOption;
 import java.util.EnumSet;
 
 
-public class MappedByteBufferStorage {
+public class MappedByteBufferStorage implements Storage {
     private MappedByteBuffer mappedByteBuffer;
-    private FileChannel fileChannel;
     private CharBuffer charBuffer;
 
-    public MappedByteBufferStorage(Path pathToRead, int size) throws IOException, URISyntaxException {
-        try {
-            fileChannel = (FileChannel) Files.newByteChannel(
-                    pathToRead, EnumSet.of(StandardOpenOption.READ, StandardOpenOption.WRITE));
+    public MappedByteBufferStorage(Path pathToRead, int size) {
+        try (FileChannel fileChannel = (FileChannel) Files.newByteChannel(
+                pathToRead, EnumSet.of(StandardOpenOption.READ, StandardOpenOption.WRITE))) {
             mappedByteBuffer = fileChannel.map(FileChannel.MapMode.READ_WRITE, 0, size);
             if (mappedByteBuffer != null) {
                 charBuffer = StandardCharsets.UTF_8.decode(mappedByteBuffer);
@@ -38,14 +34,10 @@ public class MappedByteBufferStorage {
         return mappedByteBuffer.get(index);
     }
 
-    public String getFromMappedByteBuffer() {
-        return charBuffer.toString().trim();
-    }
+    @Override
 
-    public void close() throws IOException {
-        if (fileChannel != null) {
-            fileChannel.close();
-        }
+    public String getFromByteBuffer() {
+        return charBuffer.toString().trim();
     }
 }
 

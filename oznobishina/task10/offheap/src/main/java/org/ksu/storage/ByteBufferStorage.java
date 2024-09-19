@@ -10,22 +10,19 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.EnumSet;
 
-public class ByteBufferStorage {
+public class ByteBufferStorage implements Storage {
 
     private ByteBuffer byteBuffer;
-    private FileChannel fileChannel;
     private CharBuffer charBuffer;
 
     public ByteBufferStorage(Path pathToRead, int size) {
-        try {
+        try (FileChannel fileChannel = (FileChannel) Files.newByteChannel(
+                pathToRead, EnumSet.of(StandardOpenOption.READ, StandardOpenOption.WRITE))) {
             byteBuffer = ByteBuffer.allocateDirect(size);  // Выделение памяти вне кучи
-            fileChannel = (FileChannel) Files.newByteChannel(
-                    pathToRead, EnumSet.of(StandardOpenOption.READ, StandardOpenOption.WRITE));
             fileChannel.read(byteBuffer); // Read the file data into the ByteBuffer
             byteBuffer.flip();
             charBuffer = StandardCharsets.UTF_8.decode(byteBuffer);
             System.out.println("File successfully read into ByteBuffer.");
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -39,14 +36,9 @@ public class ByteBufferStorage {
         return byteBuffer.get(index);
     }
 
+    @Override
     public String getFromByteBuffer() {
         return charBuffer.toString().trim();
-    }
-
-    public void close() throws IOException {
-        if (fileChannel != null) {
-            fileChannel.close();
-        }
     }
 }
 
