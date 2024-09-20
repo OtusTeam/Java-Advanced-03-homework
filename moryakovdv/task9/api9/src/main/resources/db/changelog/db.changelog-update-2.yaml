@@ -1,0 +1,31 @@
+#Changeset со вставкой тестовых записей
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog-insert-users.yaml
+  - changeSet:
+      id: B
+      author: moryakovdv
+      comment: "Initial user creation"
+      changes:
+        - insert:
+            tableName: USERS
+            columns:
+              - column:
+                  name: username
+                  value: "11"
+              - column:
+                  name: password
+                  value: "22"          
+        - insert:
+            tableName: USERS
+            columns:
+              - column:
+                  name: username
+                  value: "33"
+              - column:
+                  name: password
+                  value: "44"
+      rollback:
+        - delete:
+            tableName: users
+            where: username in ('33', '44')
+             
