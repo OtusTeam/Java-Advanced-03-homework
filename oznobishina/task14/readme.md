@@ -22,3 +22,23 @@ Grafana - дашборд добавленный в конфигурации infr
 ![img_4.png](img_4.png)
 ![img_5.png](img_5.png)
 
+
+
+## Update
+Latency
+![img.png](img.png)
+
+Errors
+![img_1.png](img_1.png)
+
+
+
+## Update
+Latency
+![img.png](img.png)
+
+Errors
+![img_1.png](img_1.png)
+
+RPS,RPM
+![img_6.png](img_6.png)
