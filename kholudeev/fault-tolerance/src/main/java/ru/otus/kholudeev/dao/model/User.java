@@ -41,6 +41,11 @@ public class User {
     @Column(name = "PASSWORD")
     private String password;
     /**
+     * Возраст
+     */
+    @Column(name = "AGE")
+    private Integer age;
+    /**
      * Дата создания
      */
     @CreationTimestamp

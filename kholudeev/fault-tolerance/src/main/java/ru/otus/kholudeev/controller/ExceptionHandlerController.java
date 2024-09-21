@@ -1,5 +1,7 @@
 package ru.otus.kholudeev.controller;
 
+import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
+import io.github.resilience4j.ratelimiter.RequestNotPermitted;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
@@ -81,7 +83,7 @@ public class ExceptionHandlerController {
     }
 
     @ExceptionHandler(UserExistsException.class)
-    public ResponseEntity<ApiErrorResponse> UserExistsExceptionHandler(HttpServletRequest request, UserExistsException e) {
+    public ResponseEntity<ApiErrorResponse> userExistsExceptionHandler(HttpServletRequest request, UserExistsException e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(new ApiErrorResponse(USER_EXISTS.getCode(),
                         format(USER_EXISTS.getDescription(), e.getParams().get("userField").value(), e.getParams().get("userValue").value()),
@@ -89,10 +91,28 @@ public class ExceptionHandlerController {
     }
 
     @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<ApiErrorResponse> UserNotFoundExceptionExceptionHandler(HttpServletRequest request, UserNotFoundException e) {
+    public ResponseEntity<ApiErrorResponse> userNotFoundExceptionExceptionHandler(HttpServletRequest request, UserNotFoundException e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(new ApiErrorResponse(USER_NOT_FOUND.getCode(),
                         format(USER_NOT_FOUND.getDescription(), e.getParams().get("userField").value(), e.getParams().get("userValue").value()),
+                        request.getRequestURI()));
+    }
+
+    @ExceptionHandler(RequestNotPermitted.class)
+    public ResponseEntity<ApiErrorResponse> requestNotPermittedExceptionHandler(HttpServletRequest request, RequestNotPermitted e) {
+        log.warn("Too many requests");
+        return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS)
+                .body(new ApiErrorResponse(-1,
+                        format("Too many requests %s", e.getMessage()),
+                        request.getRequestURI()));
+    }
+
+    @ExceptionHandler(CallNotPermittedException.class)
+    public ResponseEntity<ApiErrorResponse> callNotPermittedExceptionHandler(HttpServletRequest request, CallNotPermittedException e) {
+        log.warn("Call not permitted");
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
+                .body(new ApiErrorResponse(-1,
+                        format("Call not permited %s", e.getMessage()),
                         request.getRequestURI()));
     }
 }

@@ -21,6 +21,9 @@
             <column name="PASSWORD" type="VARCHAR(1000)" remarks="Пароль">
                 <constraints nullable="false" />
             </column>
+            <column name="AGE" type="INT" remarks="Возраст">
+                <constraints nullable="false" />
+            </column>
             <column defaultValueComputed="CURRENT_TIMESTAMP" name="CREATION_DATE" type="TIMESTAMP(6)" remarks="Дата создания">
                 <constraints nullable="false" />
             </column>

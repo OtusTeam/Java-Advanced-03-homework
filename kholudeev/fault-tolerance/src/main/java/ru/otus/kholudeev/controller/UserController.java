@@ -18,6 +18,7 @@ import ru.otus.kholudeev.dto.request.UsersRequest;
 import ru.otus.kholudeev.dto.response.ApiErrorResponse;
 import ru.otus.kholudeev.dto.response.UserResponse;
 import ru.otus.kholudeev.dto.response.UsersResponse;
+import ru.otus.kholudeev.facade.ProxyRpmFacade;
 import ru.otus.kholudeev.facade.UserFacade;
 
 @RestController
@@ -26,6 +27,7 @@ import ru.otus.kholudeev.facade.UserFacade;
 @RequestMapping("/authorization")
 public class UserController {
     private final UserFacade facade;
+    private final ProxyRpmFacade rpmFacade;
 
     @Operation(summary = "Массовое создание пользователей")
     @ApiResponse(responseCode = "200", description = "Пользователи созданы")
@@ -58,7 +60,12 @@ public class UserController {
             content = @Content(schema = @Schema(implementation = ApiErrorResponse.class)))
     @GetMapping("/user/{id}")
     public UserResponse getById(@PathVariable @NotNull Long id) {
-        return facade.getById(id);
+        return rpmFacade.getByIdWithRpm(id);
+    }
+
+    @GetMapping("/user/cb/{id}")
+    public UserResponse getByIdWithCircuitBreaker(@PathVariable @NotNull Long id) {
+        return facade.getByIdWithCircuitBreaker(id);
     }
 
     @Operation(summary = "Изменение пользователя")

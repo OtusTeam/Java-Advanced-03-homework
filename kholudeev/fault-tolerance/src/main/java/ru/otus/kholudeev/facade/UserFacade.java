@@ -1,5 +1,7 @@
 package ru.otus.kholudeev.facade;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +30,16 @@ import static ru.otus.kholudeev.constant.ApiErrorResponseCodeConstant.USER_EXIST
 public class UserFacade {
     private final UserRepoService userRepoService;
     private final UserMapper userMapper;
+
+    @RateLimiter(name = "rpsRateLimiter")
+    public UserResponse getByIdWithRps(Long id) {
+        return getById(id);
+    }
+
+    @CircuitBreaker(name = "test")
+    public UserResponse getByIdWithCircuitBreaker(Long id) {
+        return getById(id);
+    }
 
     public UsersResponse createAll(UsersRequest request) {
         try {
@@ -88,6 +100,7 @@ public class UserFacade {
             User user = userRepoService.getById(id);
             user.setName(userPutRequest.getName());
             user.setLogin(userPutRequest.getLogin());
+            user.setAge(userPutRequest.getAge());
             userRepoService.save(user);
             log.info("Пользователь изменен, id - {}", id);
             return userMapper.toUserResponse(user);

@@ -24,6 +24,9 @@ public class UserResponse {
     @Schema(description = "Имя пользователя", example = "Иван Иванов")
     private String name;
 
+    @Schema(description = "Возраст пользователя", example = "31")
+    private Integer age;
+
     @Schema(description = "Дата создания", example = "2020-01-01 00:00:00.000")
     private LocalDateTime creationDate;
 
