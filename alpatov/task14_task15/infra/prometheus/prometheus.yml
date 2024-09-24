@@ -1,0 +1,9 @@
+global:
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  evaluation_interval: 15s
+scrape_configs:
+  -   job_name: "task14task15"
+      metrics_path: /actuator/prometheus
+      static_configs:
+        - targets: [task14task15:8080]
