@@ -1,9 +1,9 @@
-# ДЗ-1
+# ДЗ-10
 ## moryakovdv
 
 # byte-buffer
 
-Консольное приложение, реализующее кеширование содержимого файла ФС в раздел off-heap.  
+Консольное приложение, реализующее кеширование содержимого файла ФС в HashMap c off-heap значением.  
 Применяются две релизации: ByteBuffer и MappedByteBuffer.  
 
 ## Стек:
@@ -15,19 +15,18 @@ Maven
 
 # Запуск
 *$ java -jar byte-buffer.java*  
-Использование файлов из ресурсов и ByteBuffer, по умолчанию буффер 256 bytes, смещение 0 bytes
+Использование файлов из ресурсов и ByteBuffer  
 
-*$ java -jar byte-buffer.java /home/moryakov/testfiles mapped N M*
-Использование файлов из указанного каталога и MappedByteBuffer, заданный буффер N bytes, смещение M bytes
+*$ java -jar byte-buffer.java /home/moryakov/testfiles mapped  
+Использование файлов из указанного каталога и MappedByteBuffer  
 
 ## Оcновные классы:
 - Application - запускающий класс.
-- OffHeapContent - общий абстрактный класс 
-- ByteBufferContent - реализация чтения чанкаами по *bufferSize* с помощью  java.nio.ByteBuffer
-- MappedByteBufferContent - реализация чтения чанкаами по *bufferSize* с помощью  java.nio.MappedByteBuffer
+- Emulator - класс консольного UI
+- ByteBufferFileContent - кеш на  java.nio.ByteBuffer
+- MappedByteBufferFileContent -кеш на java.nio.MappedByteBuffer
 
 
 
 ## Результаты
 
-На одном и том же файле Readme.md с буфером 512 байт чтение с помощью MappedByteBuffer показывает результаты примерно на 15% лучше чем через ByteBuffer (см. CommonTests.java).

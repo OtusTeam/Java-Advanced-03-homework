@@ -1,7 +1,5 @@
 package otus.moryakovdv.task10;
 
-import java.nio.file.Path;
-
 /***Запускающий класс*/
 public class Application {
 	
@@ -9,46 +7,31 @@ public class Application {
 		
 		System.out.println("Started");
 		
-		String path = "./Readme.md";
-		
-		int bufferSize = 256;
-		int offset = 0;
-		
-		OffHeapContent content = new ByteBufferContent();
+		String path = "./testfiles";
+		Cache cache = new ByteBufferFileContent();
 		
 		switch(args.length) {
 			
 		case 0: default:
 			System.out.println("Using default filePath and ByteBuffer");
 			
-			
-			
 			break;
-		case 4:
-			System.out.println("Using ");
+		case 1:
+			System.out.println("One parameter passed. Treat it as filePath");
 			path = args[0];
-			System.out.println("Path "+path);
-			if (args[1].equalsIgnoreCase("mapped")) {
-				System.out.println("MappedByteBuffer "+path);
-			}
+			break;
+		case 2:
+			System.out.println("Two parameter passed. Treat them as filePath and Buffer type");
+			path = args[0];
+			if (args[1].equalsIgnoreCase("mapped"))
+				cache = new MappedByteBufferFileContent();
 			
-			bufferSize = Integer.parseInt(args[2]);
-			offset =  Integer.parseInt(args[3]);
-			
-			
-			System.out.println("with size "+bufferSize);
-			System.out.println("with offset "+offset);
-			
-			content = new MappedByteBufferContent();
-			
-
 			break;
 		
 		}
+		Emulator emu = new Emulator(path, cache);
 		
-		
-		Path p = content.getFilePath(path);
-		content.readFile(p, bufferSize, offset);
+		emu.start();
 		
 		System.out.println("Stopped");
 

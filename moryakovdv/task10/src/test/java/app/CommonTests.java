@@ -1,16 +1,14 @@
 package app;
 
+import java.nio.ByteBuffer;
+import java.nio.MappedByteBuffer;
+
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
-
-import otus.moryakovdv.task10.ByteBufferContent;
-import otus.moryakovdv.task10.MappedByteBufferContent;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.nio.file.Path;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+
+import otus.moryakovdv.task10.ByteBufferFileContent;
+import otus.moryakovdv.task10.MappedByteBufferFileContent;
 
 @TestMethodOrder(OrderAnnotation.class)
 class CommonTests {
@@ -21,21 +19,23 @@ class CommonTests {
 	/**тест релизации на ByteBufer. Файл из ресурсов*/
 	void testByteBuffer() throws Exception {
 		
+		ByteBufferFileContent bbc = new ByteBufferFileContent();
+		ByteBuffer content = bbc.readFile(path);
+		bbc.put(path, content);
 		
-		ByteBufferContent	content = new ByteBufferContent();
-		Path p = content.getFilePath(path);
-		short result = content.readFile(p, 512, 0);
-		assertEquals(0, result);
+		bbc.printContent(bbc.get(path));
+	
+		
 	}
 	
 	@Test
 	/**тест релизации на MappedByteBufer. Файл из ресурсов*/
 	void testMappedByteBuffer() throws Exception {
 		
-		MappedByteBufferContent	content = new MappedByteBufferContent();
-		Path p = content.getFilePath(path);
-		short result = content.readFile(p, 512, 0);
-		assertEquals(0, result);
+		MappedByteBufferFileContent mbbc = new MappedByteBufferFileContent();
+		MappedByteBuffer content = mbbc.readFile(path);
+		mbbc.put(path, content);
 		
+		mbbc.printContent(mbbc.get(path));
 	}
 }
