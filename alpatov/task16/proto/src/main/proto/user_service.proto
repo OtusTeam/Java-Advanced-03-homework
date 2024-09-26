@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package ru.otus.advanced.proto;
+
+option java_multiple_files = true;
+
+service UserService {
+  rpc createUser(CreateUserRequest) returns (UserID);
+  rpc changeUserEmail(ChangeUserEmailRequest) returns (User);
+  rpc changeUserName(ChangeUserNameRequest) returns (User);
+}
+
+message CreateUserRequest {
+  string username = 1;
+  string email = 2;
+}
+
+message ChangeUserEmailRequest {
+  string id = 1;
+  string email = 2;
+}
+
+message ChangeUserNameRequest {
+  string id = 1;
+  string username = 2;
+}
+
+message User {
+  string id = 1;
+  string username = 2;
+  string email = 3;
+}
+
+message UserID {
+  string value = 1;
+}
