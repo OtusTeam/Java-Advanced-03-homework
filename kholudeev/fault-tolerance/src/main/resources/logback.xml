@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="console-json" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <includeContext>false</includeContext>
+            <fieldNames>
+                <timestamp>logDate</timestamp>
+                <level>logLevel</level>
+                <thread>thread</thread>
+                <logger>logger</logger>
+                <stackTrace>exception</stackTrace>
+                <version>[ignore]</version>
+                <levelValue>[ignore]</levelValue>
+            </fieldNames>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="console-json"/>
+    </root>
+</configuration>

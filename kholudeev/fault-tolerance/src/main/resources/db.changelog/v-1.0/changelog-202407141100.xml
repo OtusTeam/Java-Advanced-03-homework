@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+    <changeSet author="otus" id="202407141100-1">
+        <createSequence dataType="BIGINT" maxValue="999999999999999999" sequenceName="USER_SEQ" startValue="1"/>
+    </changeSet>
+    <changeSet author="otus" id="202407141100-2">
+        <createTable tableName="USER" remarks="Пользователь">
+            <column name="ID" type="BIGINT" defaultValueSequenceNext="USER_SEQ" remarks="ИД">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="USER_PK" />
+            </column>
+            <column name="LOGIN" type="VARCHAR(100)" remarks="Логин">
+                <constraints nullable="false" />
+            </column>
+            <column name="NAME" type="VARCHAR(1000)" remarks="Имя">
+                <constraints nullable="false" />
+            </column>
+            <column name="PASSWORD" type="VARCHAR(1000)" remarks="Пароль">
+                <constraints nullable="false" />
+            </column>
+            <column name="AGE" type="INT" remarks="Возраст">
+                <constraints nullable="false" />
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="CREATION_DATE" type="TIMESTAMP(6)" remarks="Дата создания">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
