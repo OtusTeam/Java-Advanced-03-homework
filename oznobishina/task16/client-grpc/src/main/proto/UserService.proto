@@ -1,0 +1,18 @@
+syntax = "proto3";
+package com.example.grpc;
+
+message User {
+  string id = 1; //тэг - в качестве ключа, число меньше чем строка занимает места
+  string userName = 2;
+  string email = 3;
+}
+
+message UserResponse {
+  string id = 1; //тэг - в качестве ключа, число меньше чем строка занимает места
+}
+
+service UserService {
+  rpc createUser(User) returns (UserResponse);
+  rpc  changeUserEmail(User)  returns (User);
+  rpc  changeUserName(User)  returns (User);
+}
