@@ -1,0 +1,16 @@
+syntax = "proto3";
+package com.example.grpc;
+
+message Product {
+  string id = 1; //тэг - в качестве ключа, число меньше чем строка занимает места
+  string name = 2;
+}
+
+message ProductResponse {
+  string id = 1;
+}
+
+service ProductService {
+  rpc  createProduct(Product)  returns (ProductResponse);
+  rpc  addProductToCart(Product)  returns (Product);
+}
