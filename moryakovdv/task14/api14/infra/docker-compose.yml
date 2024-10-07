@@ -1,0 +1,49 @@
+version: '3.1'
+services:
+  task14:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    hostname: task14
+    container_name: task14
+    restart: always
+    ports:
+      - 8082:8082
+    networks:
+      - otus
+    environment:
+      AUTH: null
+
+  prometheus:
+    image: prom/prometheus
+    depends_on:
+      - task14
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    networks:
+      - otus
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    restart: always
+    hostname: prometheus
+
+  grafana:
+    image: grafana/grafana
+    depends_on:
+      - prometheus
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana/:/etc/grafana/provisioning/
+    env_file:
+      - ./grafana/config.monitoring
+    networks:
+      - otus
+    restart: always
+
+networks:
+  otus:
+    driver: bridge
