@@ -20,13 +20,15 @@
          <module>task1</module>
          <module>task2</module>
 
-  	     <module>task4</module>
-  	     <module>task6</module>
-  	     <module>task7</module>
-  	     <module>task8</module>
+  	    <module>task4</module>
+  	    <module>task6</module>
+  	    <module>task7</module>
+  	    <module>task8</module>
 	    <module>task9</module>
-		<module>task11</module>
+	    <module>task11</module>
 	    <module>task12</module>
 	    <module>task13</module>
+	    <module>task14</module>
+	    <module>task15</module>
     </modules>
 </project>
