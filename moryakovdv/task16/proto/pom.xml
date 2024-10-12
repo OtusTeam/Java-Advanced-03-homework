@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>otus.moryakovdv.task16.grpc</groupId>
+    <artifactId>proto</artifactId>
+    <packaging>jar</packaging>
+    <version>0.0.1</version>
+
+    <parent>
+    <groupId>otus.moryakovdv</groupId>
+    <artifactId>task16</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+
+
+    <dependencies>
+    </dependencies>
+
+    <build>
+	<finalName>proto</finalName>
+    </build>
+</project>

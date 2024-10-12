@@ -1,0 +1,24 @@
+21:51:43.956 [main] INFO  o.m.t.grpcServer.ServerApplication - Server started on 8888
+21:53:00.325 [main] INFO  o.m.t.grpcServer.ServerApplication - Server started on 8888
+21:53:05.513 [grpc-default-executor-0] INFO  o.m.t.grpcServer.UserServiceImpl - User created MoryakovDmitriy
+21:53:05.542 [main] INFO  o.m.grpcClient.ClientApplication - User created with gRPC call
+21:53:05.549 [grpc-default-executor-0] INFO  o.m.t.grpcServer.UserServiceImpl - User name changed to Dima
+21:53:05.557 [main] INFO  o.m.grpcClient.ClientApplication - User name was changed Dima
+21:53:05.562 [grpc-default-executor-0] INFO  o.m.t.grpcServer.UserServiceImpl - User email changed to moryakovdv@gmail.ru
+21:53:05.565 [main] INFO  o.m.grpcClient.ClientApplication - User mail was changed moryakovdv@gmail.ru
+21:53:05.571 [grpc-default-executor-0] INFO  o.m.t.grpcServer.ProductServiceImpl - Product created Indian pale ale
+21:53:05.574 [main] INFO  o.m.grpcClient.ClientApplication - New product created id: 2
+
+21:53:05.609 [grpc-default-executor-0] INFO  o.m.t.grpcServer.ProductServiceImpl - User with id 2 wants to buy Indian pale ale
+21:53:05.612 [main] INFO  o.m.grpcClient.ClientApplication - User  wants to buy 
+21:54:30.021 [grpc-default-executor-1] INFO  o.m.t.grpcServer.UserServiceImpl - User created MoryakovDmitriy
+21:54:30.041 [main] INFO  o.m.grpcClient.ClientApplication - User created with gRPC call
+21:54:30.045 [grpc-default-executor-1] INFO  o.m.t.grpcServer.UserServiceImpl - User name changed to Dima
+21:54:30.049 [main] INFO  o.m.grpcClient.ClientApplication - User name was changed Dima
+21:54:30.053 [grpc-default-executor-1] INFO  o.m.t.grpcServer.UserServiceImpl - User email changed to moryakovdv@gmail.ru
+21:54:30.056 [main] INFO  o.m.grpcClient.ClientApplication - User mail was changed moryakovdv@gmail.ru
+21:54:30.062 [grpc-default-executor-1] INFO  o.m.t.grpcServer.ProductServiceImpl - Product created Indian pale ale
+21:54:30.065 [main] INFO  o.m.grpcClient.ClientApplication - New product created id: 4
+
+21:54:30.101 [grpc-default-executor-1] INFO  o.m.t.grpcServer.ProductServiceImpl - User with id 3 wants to buy Indian pale ale
+21:54:30.104 [main] INFO  o.m.grpcClient.ClientApplication - Product 4 added to users 3 cart
