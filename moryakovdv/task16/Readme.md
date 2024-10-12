@@ -11,15 +11,15 @@ Protobuf compiler для Ubuntu из пакетов:  ```sudo apt-get install pr
 
 ## Основные классы
 Пакет *proto*	- Описание структуры пакетов и прототипов вызовов функций. При сборке с помощью protobuf-compiler генерируются классы моделей передаваемых данных, а также заглушки с методами (stubs) для дальнейшей фактической реализации.  
- 	- UserService.proto - модель данных "клиент" и методы работы  ней  
- 	- ProductService.proto - модель данных "товар" и методы работы с ней  
- 	- UserProductService.proto - модель данных "корзина"  
+ 	- *UserService.proto* - модель данных "клиент" и методы работы  ней  
+ 	- *ProductService.proto* - модель данных "товар" и методы работы с ней  
+ 	- *UserProductService.proto* - модель данных "корзина"  
 Пакет *grpcServer* - имплементация серверной части "обслуживания" клиентских вызовов.  
- 	- UserServiceImpl.java - Работа с клиентами( пользователями)  
- 	- ProductServiceImpl.java - Работа с товарами и "корзиной"  
- 	- ServerApplication.java - Запуск сервера на *localhost:8888* и ожидание запросов  
+ 	- *UserServiceImpl.java* - Работа с клиентами( пользователями)  
+ 	- *ProductServiceImpl.java* - Работа с товарами и "корзиной"  
+ 	- *ServerApplication.java* - Запуск сервера на *localhost:8888* и ожидание запросов  
 Пакет *grpcClient* - имплементация "запросной" части - клиента  
-  	- ClientApplication.java - имитация клиентского приложения, осуществляет вызовы на *localhost:8888* различных методов на сервере  
+  	- *ClientApplication.java* - имитация клиентского приложения, осуществляет вызовы на *localhost:8888* различных методов на сервере  
 
 ## Сборка
 *$ mvn clean package*
@@ -33,13 +33,23 @@ Protobuf compiler для Ubuntu из пакетов:  ```sudo apt-get install pr
 ## Результаты 
 *$ ./startup.sh*
 1. Сборка java-файлов из .proto
-2. Запуск и готовность grpc-сервера к приему запросов
-3. Последовательное выполнение клиентом вызовов серверных функций:
-- создание клиента
+   ![image](https://github.com/user-attachments/assets/7586b172-c887-4754-9a09-0c0040a129b1)
+
+2. Сборка всего проекта
+   ![image](https://github.com/user-attachments/assets/22bff122-87a6-488a-9b9e-c496c461aab5)
+
+3. Запуск и готовность grpc-сервера к приему запросов
+   ![image](https://github.com/user-attachments/assets/f4f483f9-461b-457a-b8ab-84c1f34997c3)
+
+4. Запуск и последовательное выполнение клиентом вызовов серверных функций:
+- создание пользователя
 - изменение имени пользователя
 - изменение email пользователя
 - создание товара
 - привязка товара к корзине пользователя
+![image](https://github.com/user-attachments/assets/55a9cb56-0686-4787-b394-a3bb39a63b7f)
+
+  
 
 
 
