@@ -1,0 +1,19 @@
+syntax = "proto3";
+package otus.moryakovdv.task16.grpc;
+
+message User {
+  int64 id = 1;
+  string userName = 2;
+  string email = 3;
+}
+
+message UserResponse {
+  int64 id = 1;
+}
+
+service UserService {
+  rpc createUser(User) returns (UserResponse);
+  rpc  changeUserEmail(User)  returns (User);
+  rpc  changeUserName(User)  returns (User);
+
+}
