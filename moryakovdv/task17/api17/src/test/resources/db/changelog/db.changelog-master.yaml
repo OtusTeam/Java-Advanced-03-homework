@@ -1,0 +1,9 @@
+##Основной контейнер changeset-ов
+databaseChangeLog:
+    - include:
+        file: db.changelog-initial.yaml
+        relativeToChangelogFile: true
+        
+    - include:
+        file: db.changelog-update-2.yaml
+        relativeToChangelogFile: true
