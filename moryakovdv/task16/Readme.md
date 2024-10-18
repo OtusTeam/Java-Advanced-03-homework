@@ -15,8 +15,8 @@ Protobuf compiler для Ubuntu из пакетов:  ```sudo apt-get install pr
  	- *ProductService.proto* - модель данных "товар" и методы работы с ней  
  	- *UserProductService.proto* - модель данных "корзина"  
 Пакет *grpcServer* - имплементация серверной части "обслуживания" клиентских вызовов.  
- 	- *UserServiceImpl.java* - Работа с клиентами( пользователями)  
- 	- *ProductServiceImpl.java* - Работа с товарами и "корзиной"  
+ 	- *UserController.java* - Работа с клиентами( пользователями)  
+ 	- *ProductController.java* - Работа с товарами и "корзиной"  
  	- *ServerApplication.java* - Запуск сервера на *localhost:8888* и ожидание запросов  
 Пакет *grpcClient* - имплементация "запросной" части - клиента  
   	- *ClientApplication.java* - имитация клиентского приложения, осуществляет вызовы на *localhost:8888* различных методов на сервере  
@@ -35,13 +35,18 @@ Protobuf compiler для Ubuntu из пакетов:  ```sudo apt-get install pr
 1. Сборка java-файлов из .proto
    ![image](https://github.com/user-attachments/assets/7586b172-c887-4754-9a09-0c0040a129b1)
 
-2. Сборка всего проекта
+Результат:
+![image](https://github.com/user-attachments/assets/b3568f32-50d2-4848-b97d-a7abaa19eeb3)
+
+   
+
+3. Сборка всего проекта
    ![image](https://github.com/user-attachments/assets/22bff122-87a6-488a-9b9e-c496c461aab5)
 
-3. Запуск и готовность grpc-сервера к приему запросов
+4. Запуск и готовность grpc-сервера к приему запросов
    ![image](https://github.com/user-attachments/assets/f4f483f9-461b-457a-b8ab-84c1f34997c3)
 
-4. Запуск и последовательное выполнение клиентом вызовов серверных функций:
+5. Запуск и последовательное выполнение клиентом вызовов серверных функций:
 - создание пользователя
 - изменение имени пользователя
 - изменение email пользователя
