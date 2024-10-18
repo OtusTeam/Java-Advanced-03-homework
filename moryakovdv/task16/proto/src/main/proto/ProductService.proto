@@ -1,0 +1,21 @@
+syntax = "proto3";
+package otus.moryakovdv.task16.grpc;
+
+option optimize_for = SPEED;
+option java_multiple_files = true;
+
+import "UserProductService.proto";
+
+message Product {
+  int64 id = 1;
+  string name = 2;
+}
+
+message ProductResponse {
+  int64 id = 1;
+}
+
+service ProductService {
+  rpc  createProduct(Product)  returns (ProductResponse);
+  rpc  addProductToUserCart(UserProduct)  returns (ProductResponse);
+}

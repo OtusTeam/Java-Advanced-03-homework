@@ -1,0 +1,7 @@
+21:05:57.393 [main] INFO  o.m.t.grpcServer.ServerApplication - Server started on 8888
+21:24:07.153 [main] INFO  o.m.t.grpcServer.ServerApplication - Server started on 8888
+21:25:22.123 [grpc-default-executor-0] INFO  o.m.t.grpcServer.UserServiceImpl - User created MoryakovDmitriy
+21:25:25.768 [grpc-default-executor-0] INFO  o.m.t.grpcServer.UserServiceImpl - User name changed to Dima
+21:25:26.356 [grpc-default-executor-0] INFO  o.m.t.grpcServer.UserServiceImpl - User email changed to moryakovdv@gmail.ru
+21:25:26.370 [grpc-default-executor-0] INFO  o.m.t.grpcServer.ProductServiceImpl - Product created Indian pale ale
+21:25:27.014 [grpc-default-executor-0] INFO  o.m.t.grpcServer.ProductServiceImpl - User with id 2 wants to buy Indian pale ale

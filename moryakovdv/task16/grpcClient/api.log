@@ -1,0 +1,12 @@
+21:06:12.665 [main] INFO  o.m.grpcClient.ClientApplication - User created with gRPC call
+21:06:16.505 [main] INFO  o.m.grpcClient.ClientApplication - User name was changed Dima
+21:06:18.132 [main] INFO  o.m.grpcClient.ClientApplication - User mail was changed moryakovdv@gmail.ru
+21:06:18.146 [main] INFO  o.m.grpcClient.ClientApplication - New product created id: 2
+
+21:06:22.356 [main] INFO  o.m.grpcClient.ClientApplication - User  wants to buy 
+21:25:22.171 [main] INFO  o.m.grpcClient.ClientApplication - User created with gRPC call
+21:25:25.785 [main] INFO  o.m.grpcClient.ClientApplication - User name was changed Dima
+21:25:26.360 [main] INFO  o.m.grpcClient.ClientApplication - User mail was changed moryakovdv@gmail.ru
+21:25:26.375 [main] INFO  o.m.grpcClient.ClientApplication - New product created id: 2
+
+21:25:27.022 [main] INFO  o.m.grpcClient.ClientApplication - User  wants to buy 
