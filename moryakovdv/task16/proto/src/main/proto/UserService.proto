@@ -1,6 +1,10 @@
 syntax = "proto3";
 package otus.moryakovdv.task16.grpc;
 
+option optimize_for = SPEED;
+option java_multiple_files = true;
+
+
 message User {
   int64 id = 1;
   string userName = 2;

@@ -1,5 +1,6 @@
 #!/bin/sh
-mvn clean package
+
+#mvn clean package
 
 java -jar grpcServer/target/grpcServer.jar &
 

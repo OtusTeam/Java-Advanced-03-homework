@@ -21,8 +21,8 @@ public class ServerApplication {
     
     private static void startListening() throws IOException {
         server = ServerBuilder.forPort(8888)
-                .addService(new UserServiceImpl())
-                .addService(new ProductServiceImpl())
+                .addService(new UserController())
+                .addService(new ProductController())
                 .build()
                 .start();
        log.info("Server started on 8888");

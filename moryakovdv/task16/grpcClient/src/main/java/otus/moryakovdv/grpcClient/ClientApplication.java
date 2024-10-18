@@ -3,9 +3,14 @@ package otus.moryakovdv.grpcClient;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import lombok.extern.slf4j.Slf4j;
+import otus.moryakovdv.task16.grpc.Product;
+import otus.moryakovdv.task16.grpc.ProductResponse;
 import otus.moryakovdv.task16.grpc.ProductServiceGrpc;
 import otus.moryakovdv.task16.grpc.ProductServiceOuterClass;
+import otus.moryakovdv.task16.grpc.User;
+import otus.moryakovdv.task16.grpc.UserProduct;
 import otus.moryakovdv.task16.grpc.UserProductServiceOuterClass;
+import otus.moryakovdv.task16.grpc.UserResponse;
 import otus.moryakovdv.task16.grpc.UserServiceGrpc;
 import otus.moryakovdv.task16.grpc.UserServiceOuterClass;
 
@@ -15,6 +20,7 @@ public class ClientApplication {
 	
 	private static ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8888")
             .usePlaintext().build();
+	
 	
     private static UserServiceGrpc.UserServiceBlockingStub userStub = UserServiceGrpc.newBlockingStub(channel);
     
@@ -39,14 +45,14 @@ public class ClientApplication {
     
     private static Long callCreateUser() {
     	 //Создать клиента
-        UserServiceOuterClass.User user = UserServiceOuterClass.User
+        User user = User
                 .newBuilder()
                 .setUserName("MoryakovDmitriy")
                 .setEmail("moryakovdv@example.com")
                 .build();
         
         //вызвать rpc
-        UserServiceOuterClass.UserResponse userResponse = userStub.createUser(user);
+       UserResponse userResponse = userStub.createUser(user);
         log.info("User created with gRPC call");
         return userResponse.getId();
     	
@@ -54,14 +60,14 @@ public class ClientApplication {
     }
     private static void callChangeUserName(Long userId) {
     	
-    	   UserServiceOuterClass.User callingUser = UserServiceOuterClass.User
+    	   User callingUser = User
                    .newBuilder()
                    .setId(userId)
                    .setUserName("Dima")
                    .setEmail("moryakovdv@example.com")
                    .build();
     	   
-           UserServiceOuterClass.User changedUser = userStub.changeUserName(callingUser);
+           User changedUser = userStub.changeUserName(callingUser);
            log.info("User name was changed {}" , changedUser.getUserName());
 
     	
@@ -69,13 +75,13 @@ public class ClientApplication {
     }
     
     private static void callChangeUserMail(Long userId) {
-    	 UserServiceOuterClass.User callingUser = UserServiceOuterClass.User
+    	 User callingUser = User
                  .newBuilder()
                  .setId(userId)
                  .setUserName("")
                  .setEmail("moryakovdv@gmail.ru")
                  .build();
-         UserServiceOuterClass.User changedUser = userStub.changeUserEmail(callingUser);
+         User changedUser = userStub.changeUserEmail(callingUser);
          
          log.info("User mail was changed {}" , changedUser.getEmail());
     	
@@ -83,12 +89,12 @@ public class ClientApplication {
     
     private static Long callCreateNewProduct() {
     
-        ProductServiceOuterClass.Product product = ProductServiceOuterClass.Product
+        Product product =Product
                 .newBuilder()
                 .setName("Indian pale ale")
                 .build();
         
-        ProductServiceOuterClass.ProductResponse productResponse = productStub.createProduct(product);
+       ProductResponse productResponse = productStub.createProduct(product);
         log.info("New product created {}" , productResponse);
         
         return productResponse.getId();
@@ -97,22 +103,22 @@ public class ClientApplication {
     }
     private static void callAddProductToCart(Long userId, Long productId ) {
     	   
-    	UserServiceOuterClass.User callingUser = UserServiceOuterClass.User
+    	User callingUser = User
                  .newBuilder()
                  .setId(userId)
                  .build();
     	
-    	ProductServiceOuterClass.Product product = ProductServiceOuterClass.Product
+    	Product product = Product
                    .newBuilder()
                    .setId(productId)
                    .build();
     	
-    	UserProductServiceOuterClass.UserProduct productForUserCart= UserProductServiceOuterClass.UserProduct
+    	UserProduct productForUserCart= UserProduct
     			.newBuilder()
     			.setProductid(productId)
     			.setUserid(userId).build();    	
     	   
-    	 ProductServiceOuterClass.ProductResponse productResponse = productStub.addProductToUserCart(productForUserCart);
+    	 ProductResponse productResponse = productStub.addProductToUserCart(productForUserCart);
         
         log.info("Product {} added to users {} cart",productId, userId);
         

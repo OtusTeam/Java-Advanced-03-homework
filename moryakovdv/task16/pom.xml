@@ -39,7 +39,7 @@
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>1.5.9</version>
-		
+
 		</dependency>
 
 
@@ -54,28 +54,15 @@
 		<dependency>
 			<groupId>io.grpc</groupId>
 			<artifactId>grpc-netty-shaded</artifactId>
-			<version>1.24.0</version>
+			<version>1.67.1</version>
+			<scope>runtime</scope>
 		</dependency>
-		<dependency>
-			<groupId>io.grpc</groupId>
-			<artifactId>grpc-protobuf</artifactId>
-			<version>1.24.0</version>
-		</dependency>
+
+
 		<dependency>
 			<groupId>io.grpc</groupId>
 			<artifactId>grpc-stub</artifactId>
 			<version>1.24.0</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.annotation</groupId>
-			<artifactId>javax.annotation-api</artifactId>
-			<version>1.3.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.protobuf</groupId>
-			<artifactId>protobuf-java</artifactId>
-			<version>3.4.0</version>
 		</dependency>
 
 
@@ -92,16 +79,6 @@
 	</dependencies>
 	<build>
 		<finalName>grpc</finalName>
-
-
-		<extensions>
-			<extension>
-				<groupId>kr.motd.maven</groupId>
-				<artifactId>os-maven-plugin</artifactId>
-				<version>1.6.2</version>
-			</extension>
-		</extensions>
-
 
 		<plugins>
 
@@ -127,65 +104,9 @@
 
 
 			<plugin>
-				<groupId>org.liquibase</groupId>
-				<artifactId>liquibase-maven-plugin</artifactId>
-				<configuration>
-					<driver>org.h2.Driver</driver>
-					<url>jdbc:h2:file:./target/db-task16</url>
-					<username>moryakovdv</username>
-					<password />
-					<outputChangeLogFile>
-						src/main/resources/liquibase-outputChangeLog.xml</outputChangeLogFile>
-				</configuration>
-			</plugin>
-
-
-			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
 
-					<redirectTestOutputToFile>true</redirectTestOutputToFile>
-					<includes>
-						<include>ApplicationMockingTest.java</include>
-						<include>HasherTest.java</include>
-
-
-					</includes>
-
-				</configuration>
-			</plugin>
-
-
-			<plugin>
-				<groupId>org.xolstice.maven.plugins</groupId>
-				<artifactId>protobuf-maven-plugin</artifactId>
-				<version>0.6.1</version>
-				<configuration>
-					<protocArtifact>
-						com.google.protobuf:protoc:3.2.0:exe:${os.detected.classifier}</protocArtifact>
-				</configuration>
-				<executions>
-					<execution>
-						<id>protoc-java</id>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-					</execution>
-
-					<execution>
-						<id>protoc-grpc-java</id>
-						<goals>
-							<goal>compile-custom</goal>
-						</goals>
-						<configuration>
-							<pluginId>grpc-java</pluginId>
-							<pluginArtifact>
-								io.grpc:protoc-gen-grpc-java:1.3.0:exe:${os.detected.classifier}</pluginArtifact>
-						</configuration>
-					</execution>
-
-				</executions>
 			</plugin>
 
 

@@ -6,36 +6,38 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;
+import otus.moryakovdv.task16.grpc.Product;
+import otus.moryakovdv.task16.grpc.ProductResponse;
 import otus.moryakovdv.task16.grpc.ProductServiceGrpc;
 import otus.moryakovdv.task16.grpc.ProductServiceOuterClass;
-import otus.moryakovdv.task16.grpc.UserProductServiceOuterClass.UserProduct;
+import otus.moryakovdv.task16.grpc.UserProduct;
 
 @Slf4j
-public class ProductServiceImpl extends ProductServiceGrpc.ProductServiceImplBase {
+public class ProductController extends ProductServiceGrpc.ProductServiceImplBase {
 
 	/**Автогенератор идентификаторов товаров. Маппинг long на int64 в .proto */
 	private  AtomicLong idsProducts = new AtomicLong(1); 
 	
 	/**Кеш товаров*/
-    private Map<Long, ProductServiceOuterClass.Product> productsCache = new WeakHashMap<>();
+    private Map<Long, Product> productsCache = new WeakHashMap<>();
    
     /**Содержимое корзин клиентов**/
-    private Map<Long, ProductServiceOuterClass.Product> usersCarts = new WeakHashMap<>();
+    private Map<Long, Product> usersCarts = new WeakHashMap<>();
 
     
 
     /***Создание товара по входному описанию и сохранение в кеш товаров**/
     @Override
-    public void createProduct(ProductServiceOuterClass.Product request, StreamObserver<ProductServiceOuterClass.ProductResponse> responseObserver) {
+    public void createProduct(Product request, StreamObserver<ProductResponse> responseObserver) {
       
-        ProductServiceOuterClass.Product product = ProductServiceOuterClass.Product.newBuilder()
+        Product product = Product.newBuilder()
                 .setId(idsProducts.incrementAndGet())
                 .setName(request.getName())
                 .build();
         
         productsCache.put(idsProducts.get(), product);
 
-        ProductServiceOuterClass.ProductResponse response = ProductServiceOuterClass.ProductResponse.newBuilder()
+        ProductResponse response = ProductResponse.newBuilder()
                 .setId(idsProducts.get())
                 .build();
 
@@ -48,11 +50,11 @@ public class ProductServiceImpl extends ProductServiceGrpc.ProductServiceImplBas
     /**Добавление товара в корзину покупателя*/
     
     @Override
-    public void addProductToUserCart(UserProduct request, StreamObserver<ProductServiceOuterClass.ProductResponse> responseObserver) {
+    public void addProductToUserCart(UserProduct request, StreamObserver<ProductResponse> responseObserver) {
     	
     	//взять из  кеша или вернуть несуществующий товар
-    	ProductServiceOuterClass.Product product = productsCache.getOrDefault(request.getProductid(), 
-    			ProductServiceOuterClass.Product.newBuilder()
+    	Product product = productsCache.getOrDefault(request.getProductid(), 
+    			Product.newBuilder()
                 .setId(idsProducts.incrementAndGet())
                 .setName("Mock product for mock user =)")
                 .build());
@@ -63,7 +65,7 @@ public class ProductServiceImpl extends ProductServiceGrpc.ProductServiceImplBas
     	log.info("User with id {} wants to buy {}", request.getUserid(), product.getName());
 
         
-        ProductServiceOuterClass.ProductResponse response = ProductServiceOuterClass.ProductResponse.newBuilder()
+        ProductResponse response = ProductResponse.newBuilder()
                 .setId(product.getId())
                 .build();
         
