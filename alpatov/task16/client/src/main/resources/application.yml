@@ -1,0 +1,10 @@
+grpc:
+  client:
+    user-client:
+      negotiation-type: plaintext
+      address: static://localhost:9090
+    product-client:
+      negotiation-type: plaintext
+      address: static://localhost:9090
+  server:
+    port: 8080

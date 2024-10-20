@@ -1,0 +1,9 @@
+spec:
+  trafficPolicy:
+  tls:
+    mode: DISABLE
+
+grpc:
+  server:
+    port: 9090
+    negotiation-type: plaintext

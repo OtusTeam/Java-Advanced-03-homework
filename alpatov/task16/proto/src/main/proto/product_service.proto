@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package ru.otus.advanced.proto;
+
+option java_multiple_files = true;
+
+service ProductService {
+  rpc createProduct(CreateProductRequest) returns (ProductID);
+  rpc addProductToCart(ProductToCartRequest) returns (CartID);
+}
+
+
+message CreateProductRequest {
+  string name = 1;
+}
+
+message Product {
+  string id = 1;
+  string name = 2;
+}
+
+message ProductID {
+  string value = 1;
+}
+
+message ProductToCartRequest {
+  string userId = 1;
+  string productId = 2;
+}
+
+message CartID {
+  string value = 1;
+}
