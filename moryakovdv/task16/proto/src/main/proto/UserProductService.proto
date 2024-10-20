@@ -1,0 +1,19 @@
+syntax = "proto3";
+package otus.moryakovdv.task16.grpc;
+
+option optimize_for = SPEED;
+option java_multiple_files = true;
+
+message UserProduct {
+  int64 userid = 1;
+  int64 productid = 2;
+}
+
+message UserProductResponse {
+ int64 userid = 3;
+  int64 productid = 4;
+}
+
+service UserProductService {
+  rpc  createUserProduct(UserProduct)  returns (UserProductResponse);
+}
