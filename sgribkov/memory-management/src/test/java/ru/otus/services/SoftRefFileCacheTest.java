@@ -5,6 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.otus.services.filecache.SoftRefFileCache;
 
+import java.nio.ByteBuffer;
+
 public class SoftRefFileCacheTest {
 
     @DisplayName("После заполнения heap до предела значение по выбранному ключу должно отсутствовать в кэше")
@@ -12,7 +14,7 @@ public class SoftRefFileCacheTest {
     void gcImpactOnBigContentTest() {
         //given
         String ID = "a";
-        String CONTENT = new String("123");
+        ByteBuffer CONTENT = ByteBuffer.allocate(6);
 
         var cache = new SoftRefFileCache();
         cache.loadContent(ID, CONTENT);
@@ -21,7 +23,7 @@ public class SoftRefFileCacheTest {
         for (int i = 0; i < 2000000; i++) {
             cache.loadContent(
                     String.valueOf(i),
-                    new String("000"));
+                    ByteBuffer.allocate(6));
         }
         String contentById = cache.getContent(ID);
 
@@ -34,7 +36,7 @@ public class SoftRefFileCacheTest {
     void gcImpactOnSmallContentTest() {
         //given
         String ID = "a";
-        String CONTENT = new String("123");
+        ByteBuffer CONTENT = ByteBuffer.allocate(6);
 
         var cache = new SoftRefFileCache();
         cache.loadContent(ID, CONTENT);

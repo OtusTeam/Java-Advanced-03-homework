@@ -1,7 +1,9 @@
 package ru.otus.services.filereader;
 
+import java.nio.ByteBuffer;
+
 public interface FileReader {
     void setPath(String path);
     boolean hasPath();
-    String read(String name);
+    ByteBuffer read(String name);
 }

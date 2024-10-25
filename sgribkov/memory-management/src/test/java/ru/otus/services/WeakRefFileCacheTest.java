@@ -5,6 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.otus.services.filecache.WeakRefFileCache;
 
+import java.nio.ByteBuffer;
+
 public class WeakRefFileCacheTest {
 
     @DisplayName("После сборки мусора значение по выбранному ключу должно отсутствовать в кэше")
@@ -12,7 +14,7 @@ public class WeakRefFileCacheTest {
     void gcImpactOnContentTest() {
         //given
         String ID = "a";
-        String CONTENT = new String("123");
+        ByteBuffer CONTENT = ByteBuffer.allocate(6);
 
         var cache = new WeakRefFileCache();
         cache.loadContent(ID, CONTENT);
