@@ -1,0 +1,23 @@
+spring:
+  application.name=circuitbreaker
+
+resilience4j.circuitbreaker:
+  instances:
+    default:
+      sliding-window-type: time_based
+      failure-rate-threshold: 50
+      sliding-window-size: 10
+
+      minimum-number-of-calls: 3
+      permitted-number-of-calls-in-half-open-state: 1
+
+resilience4j.ratelimiter:
+  instances:
+    default:
+      limitForPeriod: 20
+      limitRefreshPeriod: 1s
+      timeoutDuration: 0s
+    rpm_limiter:
+      limitForPeriod: 30
+      limitRefreshPeriod: 1m
+      timeoutDuration: 0s
