@@ -7,6 +7,7 @@ import ru.otus.services.filecache.FileCache;
 import ru.otus.services.filereader.FileReader;
 import ru.otus.services.io.InputOutput;
 
+import java.nio.ByteBuffer;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -54,9 +55,9 @@ public class EmulatorImpl implements Emulator {
                     if (cache.hasContent(fileName)) {
                         content = cache.getContent(fileName);
                     } else {
-                        String contentNew = reader.read(fileName);
-                        cache.loadContent(fileName, contentNew);
-                        content = contentNew;
+                        ByteBuffer buffer = reader.read(fileName);
+                        cache.loadContent(fileName, buffer);
+                        content = cache.getContent(fileName);
                     }
                     inputOutput.out(content);
                 }
