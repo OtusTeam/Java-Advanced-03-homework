@@ -12,7 +12,7 @@
     <artifactId>user-service</artifactId>
 
     <properties>
-        <start-class>ru.otus.UserServiceGrpcApp</start-class>
+        <start-class>ru.otus.App</start-class>
     </properties>
 
     <dependencies>
