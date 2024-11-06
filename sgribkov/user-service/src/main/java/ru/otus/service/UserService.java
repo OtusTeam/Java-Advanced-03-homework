@@ -13,4 +13,5 @@ public interface UserService {
     Mono<String> update(User user);
     Mono<String> delete(String login);
     Flux<UserData> getUserReport();
+    Mono<Long> getUserAge(String login);
 }
