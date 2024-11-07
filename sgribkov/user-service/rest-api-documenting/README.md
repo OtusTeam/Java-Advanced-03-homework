@@ -8,7 +8,7 @@
 ![screenshot](images/api_docs.jpg)
 
 ##Swagger
-*http://localhost:8080/user-service/swagger-ui*
+*http://localhost:8080/user-service/api-docs-ui*
 
 ![screenshot](images/swagger_ui.jpg)
 

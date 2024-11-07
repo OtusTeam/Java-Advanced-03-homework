@@ -22,7 +22,7 @@ import ru.otus.service.usermonitoring.UserMonitoringService;
 
 @ExtendWith(SpringExtension.class)
 @WebFluxTest(controllers = UserController.class)
-@Import(UserServiceImpl.class)
+@Import({UserServiceImpl.class, UserClient.class, UserClientRpmLimiter.class, UserClientResilienceAdapter.class})
 public class UserControllerTest {
 
     @MockBean
@@ -148,5 +148,23 @@ public class UserControllerTest {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBodyList(UserData.class).contains(userData);
+    }
+
+    @Test
+    public void getUserAge() {
+        String userLogin = "vasya";
+        User user = new User(userLogin, "#$@##%");
+
+        Mockito
+                .when(userRepository.findById(userLogin))
+                .thenReturn(Mono.just(user));
+
+        webClient.get()
+                .uri("/users/{login}/age", userLogin)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBody(Long.class);
     }
 }

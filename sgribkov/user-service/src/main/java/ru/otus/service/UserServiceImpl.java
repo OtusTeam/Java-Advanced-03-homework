@@ -97,4 +97,14 @@ public class UserServiceImpl implements UserService {
     public Flux<UserData> getUserReport() {
         return userMonitoringService.getUserReport();
     }
+
+    @Override
+    public Mono<Long> getUserAge(String login) {
+        return userRepository.findById(login)
+                .map(u -> Math.round(Math.random() * (100 - 18)))
+                .switchIfEmpty(
+                        Mono.error(
+                                new RuntimeException(
+                                        String.format("User with login: %s not found", login))));
+    }
 }

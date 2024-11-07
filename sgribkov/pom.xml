@@ -50,6 +50,8 @@
 
         <openapi.version>2.6.0</openapi.version>
 
+        <resilience4j.version>2.2.0</resilience4j.version>
+
         <spring-grpc.version>3.1.0.RELEASE</spring-grpc.version>
         <grpc.version>1.66.0</grpc.version>
         <protobuf.version>3.25.3</protobuf.version>
@@ -84,6 +86,11 @@
                 <groupId>net.devh</groupId>
                 <artifactId>grpc-server-spring-boot-starter</artifactId>
                 <version>${spring-grpc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${spring.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -176,6 +183,16 @@
                 <artifactId>annotations-api</artifactId>
                 <version>${tomcat.annotations-api.version}</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-spring-boot3</artifactId>
+                <version>${resilience4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-reactor</artifactId>
+                <version>${resilience4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
