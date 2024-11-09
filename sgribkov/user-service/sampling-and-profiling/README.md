@@ -8,16 +8,27 @@
 Данные кэша используются для отчета о мониторинге по всем пользователям.
 
 ## Подготовительные работы
+
 С целью наргузки сервиса мониторинга и заполнения кэша было зарегистрировано 10000 тестовых пользователей, 
 соответственно, было запущено 10000 процессов мониторинга.
 
 ## Анализ
 
-Сэмплирование
+#### Сэмплирование
 
 ![screenshot](images/user_monitoring_service_sampling_before.jpg)
 
-Профилирование
+#### Профилирование
+
+Получение списка процессов в т.ч. с PID:
+<br>
+*ps -aux | less*
+
+Запуск профилирования Async Profiler:
+<br>
+*./asprof -e cpu -d 60 -f user_service_cpu_flame_graph_before.html < PID сервиса >*
+
+[Flame graph прилагается](images/user_service_cpu_flame_graph_before.html)
 
 ![screenshot](images/user_service_cpu_flame_graph_before.jpg)
 
@@ -35,10 +46,12 @@
 Повторное сэмплирование и профилирование показало снижение потребления CPU процессами мониторинга.
 Отчеты наглядно показывают результаты исключения процесса преобразования Instant в String перед записью в кэш.
 
-Сэмплирование
+#### Сэмплирование
 
 ![screenshot](images/user_monitoring_service_sampling_after.jpg)
 
-Профилирование
+#### Профилирование
+
+[Flame graph прилагается](images/user_service_cpu_flame_graph_after.html)
 
 ![screenshot](images/user_service_cpu_flame_graph_after.jpg)
