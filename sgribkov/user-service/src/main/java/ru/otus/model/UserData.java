@@ -17,5 +17,5 @@ public class UserData {
     @Schema(description = "User login")
     private String login;
     @Schema(description = "User last monitoring timestamp")
-    private String lastMonitoring;
+    private Instant lastMonitoring;
 }

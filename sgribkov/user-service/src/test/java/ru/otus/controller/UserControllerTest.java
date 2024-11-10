@@ -137,7 +137,7 @@ public class UserControllerTest {
 
     @Test
     public void getUserReport() {
-        UserData userData = new UserData("0000000", "vasya", "1970-01-01 00:00:00.000");
+        UserData userData = new UserData("0000000", "vasya", Instant.now());
 
         Mockito
                 .when(userMonitoringService.getUserReport())
