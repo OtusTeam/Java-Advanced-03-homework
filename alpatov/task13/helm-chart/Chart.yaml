@@ -1,0 +1,9 @@
+apiVersion: v1
+name: task13-helm-chart
+description: It's a helm chart
+version: 0.0.2
+appVersion: "1.0.1"
+
+maintainers:
+  - name: Alpatov Nikita
+
